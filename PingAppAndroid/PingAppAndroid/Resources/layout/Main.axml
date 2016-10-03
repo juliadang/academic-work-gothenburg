@@ -20,6 +20,5 @@
         android:id="@+id/button1"
         android:layout_marginRight="0.0dp"
         android:background="@android:color/holo_red_dark"
-        android:clickable="true" 
-/>
+        android:clickable="true" />
 </LinearLayout>

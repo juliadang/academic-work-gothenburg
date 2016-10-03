@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="PingAppAndroid.PingAppAndroid" android:versionCode="1" android:versionName="1.0">
   <uses-sdk android:minSdkVersion="16" />
-  <application android:label="PingAppAndroid"></application>
+  <application android:label="PingAppAndroid">
+    <activity
+        android:name=".Main"
+        android:label="@string/ApplicationName"
+             />
+    <activity
+            android:name=".Notification"
+            android:label="@string/ApplicationName"
+             />
+  </application>
 </manifest>

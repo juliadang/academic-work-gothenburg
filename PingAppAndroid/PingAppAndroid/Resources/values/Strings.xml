@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">PingAppAndroid</string>
+  <string name="ApplicationName">Ping</string>
+  <string name="LogOutBtn">Log Out</string>
+  <string name="Settings">Settings</string>
+  <string name="UserName">UserName</string>
 </resources>
