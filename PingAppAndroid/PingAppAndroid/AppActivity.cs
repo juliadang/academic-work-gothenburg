@@ -34,10 +34,7 @@ namespace PingAppAndroid
             Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
             Button friends = FindViewById<Button>(Resource.Id.FriendListBtn);
 
-            //ListView friendlist = FindViewById<ListView>(Resource.Id.friendList);
-            //FriendListAdapter adapter = new FriendListAdapter(this, mFriends.ToArray());
-
-            //friendlist.Adapter = adapter;
+            
 
             notification.Click += notification_click;
             profile.Click += profile_click;
@@ -54,9 +51,12 @@ namespace PingAppAndroid
         }
         private void friends_click(object sender, EventArgs e)
         {
-            ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this, Android.Resource.Layout.SimpleListItem1, mFriends);
-
             SetContentView(Resource.Layout.Friends);
+            //ArrayAdapter<Friend> adapter = new ArrayAdapter<Friend>(this, Android.Resource.Layout.SimpleListItem1, mFriends);
+            ListView friendlist = FindViewById<ListView>(Resource.Id.friendList);
+            FriendListAdapter adapter = new FriendListAdapter(this, mFriends.ToArray());
+
+            friendlist.Adapter = adapter;
         }
     }
 }
