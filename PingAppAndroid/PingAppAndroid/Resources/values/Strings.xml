@@ -4,4 +4,12 @@
   <string name="LogOutBtn">Log Out</string>
   <string name="Settings">Settings</string>
   <string name="UserName">UserName</string>
+  <string name="searchbarHint">Search your Friends</string>
+
+  <string-array name="dropdown_arrays">
+    <item>Filter</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+  </string-array>
 </resources>

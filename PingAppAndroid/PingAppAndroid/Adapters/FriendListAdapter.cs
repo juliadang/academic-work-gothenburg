@@ -15,9 +15,9 @@ namespace PingAppAndroid.Adapters
 {
     class FriendListAdapter : BaseAdapter<Friend>
     {
-        public Friend[] Friends;
+        public List<Friend> Friends;
         private Context Context;
-        public FriendListAdapter(Activity context, Friend[] friends) : base() {
+        public FriendListAdapter(Activity context, List<Friend> friends) : base() {
             this.Context = context;
             this.Friends = friends;
         }
@@ -31,7 +31,7 @@ namespace PingAppAndroid.Adapters
         }
         public override int Count
         {
-            get { return Friends.Length; }
+            get { return Friends.Count; }
         }
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
@@ -41,6 +41,8 @@ namespace PingAppAndroid.Adapters
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
             txtName.Text = Friends[position].UserName;
+            TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
+            txtLastName.Text = Friends[position].LastName;
             return view;
         }
     }

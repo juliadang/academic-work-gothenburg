@@ -12,11 +12,13 @@ using Android.Widget;
 
 namespace PingAppAndroid.Models
 {
-    class Notification
+    //Todo: Byta namn på denna klass eftersom android har en klass med samma namn(?)
+    class Ping
     {
         public DateTime Time { get; set; }
         public Friend Sender { get; set; }
         public Friend Reciever { get; set; }
+        public int Type { get; set; }
         public string ImgSource { get; set; }
     }
 }
