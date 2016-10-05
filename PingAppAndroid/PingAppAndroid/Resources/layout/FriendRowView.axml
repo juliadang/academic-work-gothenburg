@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:weightSum="100"
+    android:paddingLeft="5dp"
+    android:paddingTop="2dp">
     <TextView
         android:text="UserName"
+        android:id="@+id/TxtUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TxtUserName" />
+        android:layout_weight="50" />
+    <TextView
+        android:text="LastName"
+        android:id="@+id/TxtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50" />
 </LinearLayout>

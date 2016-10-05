@@ -28,6 +28,22 @@ namespace PingAppAndroid
 		{
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int dropdown_arrays = 2131034112;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -45,7 +61,10 @@ namespace PingAppAndroid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int edit_text_style = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -60,47 +79,62 @@ namespace PingAppAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050008
-			public const int FriendListBtn = 2131034120;
+			// aapt resource value: 0x7f06000a
+			public const int FriendListBtn = 2131099658;
 			
-			// aapt resource value: 0x7f05000c
-			public const int LogOutBtn = 2131034124;
+			// aapt resource value: 0x7f060011
+			public const int LogOutBtn = 2131099665;
 			
-			// aapt resource value: 0x7f050007
-			public const int NotificationsBtn = 2131034119;
+			// aapt resource value: 0x7f060009
+			public const int NotificationsBtn = 2131099657;
 			
-			// aapt resource value: 0x7f050009
-			public const int ProfileBtn = 2131034121;
+			// aapt resource value: 0x7f060010
+			public const int PingIcon = 2131099664;
 			
-			// aapt resource value: 0x7f05000d
-			public const int Settings = 2131034125;
+			// aapt resource value: 0x7f06000f
+			public const int PingTime = 2131099663;
 			
-			// aapt resource value: 0x7f050000
-			public const int TxtUserName = 2131034112;
+			// aapt resource value: 0x7f06000e
+			public const int PingUserName = 2131099662;
 			
-			// aapt resource value: 0x7f050005
-			public const int button1 = 2131034117;
+			// aapt resource value: 0x7f06000b
+			public const int ProfileBtn = 2131099659;
 			
-			// aapt resource value: 0x7f050004
-			public const int editText1 = 2131034116;
+			// aapt resource value: 0x7f06000d
+			public const int RecentPings = 2131099661;
 			
-			// aapt resource value: 0x7f050003
-			public const int editText2 = 2131034115;
+			// aapt resource value: 0x7f060012
+			public const int Settings = 2131099666;
 			
-			// aapt resource value: 0x7f050002
-			public const int friendList = 2131034114;
+			// aapt resource value: 0x7f060001
+			public const int TxtLastName = 2131099649;
 			
-			// aapt resource value: 0x7f05000a
-			public const int scrollView1 = 2131034122;
+			// aapt resource value: 0x7f060000
+			public const int TxtUserName = 2131099648;
 			
-			// aapt resource value: 0x7f05000b
-			public const int scrollView2 = 2131034123;
+			// aapt resource value: 0x7f060007
+			public const int button1 = 2131099655;
 			
-			// aapt resource value: 0x7f050001
-			public const int textView1 = 2131034113;
+			// aapt resource value: 0x7f060006
+			public const int editText1 = 2131099654;
 			
-			// aapt resource value: 0x7f050006
-			public const int toolbar1 = 2131034118;
+			// aapt resource value: 0x7f060005
+			public const int editText2 = 2131099653;
+			
+			// aapt resource value: 0x7f060004
+			public const int friendList = 2131099652;
+			
+			// aapt resource value: 0x7f060003
+			public const int searchbarFriend = 2131099651;
+			
+			// aapt resource value: 0x7f06000c
+			public const int spinner1 = 2131099660;
+			
+			// aapt resource value: 0x7f060002
+			public const int textView1 = 2131099650;
+			
+			// aapt resource value: 0x7f060008
+			public const int toolbar1 = 2131099656;
 			
 			static Id()
 			{
@@ -128,7 +162,10 @@ namespace PingAppAndroid
 			public const int Notification = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Profile = 2130903044;
+			public const int PingRowView = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Profile = 2130903045;
 			
 			static Layout()
 			{
@@ -154,6 +191,9 @@ namespace PingAppAndroid
 			
 			// aapt resource value: 0x7f040003
 			public const int UserName = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int searchbarHint = 2130968580;
 			
 			static String()
 			{
