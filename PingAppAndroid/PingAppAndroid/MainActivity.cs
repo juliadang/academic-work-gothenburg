@@ -5,7 +5,26 @@ using System;
 using Android.Content;
 using Android.Content.PM;
 using Java.Security;
+using SQLite;
+using System.Runtime.CompilerServices;
+using PingAppAndroid.Models;
 
+//[assembly: Dependency (typeof (SQLite_Android))]
+//// ...
+//public class SQLite_Android : SQLite3
+//{
+//    public SQLite_Android() { }
+//    public SQLite.SQLiteConnection GetConnection()
+//    {
+//        var sqliteFilename = "TodoSQLite.db3";
+//        string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+//        var path = Path.Combine(documentsPath, sqliteFilename);
+//        // Create the connection
+//        var conn = new SQLite.SQLiteConnection(path);
+//        // Return the database connection
+//        return conn;
+//    }
+//}
 namespace PingAppAndroid
 {
     [Activity(Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
@@ -17,6 +36,9 @@ namespace PingAppAndroid
            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
+            DataManager dm = new DataManager();
+            Console.WriteLine(dm.createDatabase()); 
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;
@@ -40,4 +62,3 @@ namespace PingAppAndroid
         }
     }
 }
-
