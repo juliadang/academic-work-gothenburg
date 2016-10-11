@@ -10,12 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Graphics.Drawables;
+using Android.Text;
+using PingAppAndroid.Models;
 
 namespace PingAppAndroid
 {
     [Activity(Label = "RegisterActivity")]
     public class RegisterActivity : Activity
-    {   
+    {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -27,14 +30,19 @@ namespace PingAppAndroid
             EditText email = FindViewById<EditText>(Resource.Id.email);
 
             if (username.Text.Length == 0)
-                username.SetError(new Java.Lang.String("Hello"), GetDrawable(Resource.Drawable.Icon));
+                username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
+
+            //username.TextChanged += (sender, e) =>
+            //{
+            //    Console.WriteLine("Event fired");
+            //    if (username.Text.Length == 0)
+            //        username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
+            //};
 
             //username.addTextChangedListener(this);
             //txt2.addTextChangedListener(this);
             //txt3.addTextChangedListener(this);
 
         }
-
-
     }
 }
