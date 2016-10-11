@@ -58,6 +58,7 @@
     <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\SetOnFocusChangeListener.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
