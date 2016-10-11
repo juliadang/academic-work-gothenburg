@@ -3,6 +3,8 @@ using Android.Widget;
 using Android.OS;
 using System;
 using Android.Content;
+using Android.Content.PM;
+using Java.Security;
 
 namespace PingAppAndroid
 {
@@ -15,6 +17,18 @@ namespace PingAppAndroid
            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
+            //PackageInfo info = this.PackageManager.GetPackageInfo("PingAppAndroid", PackageInfoFlags.Signatures);
+
+            //foreach (Android.Content.PM.Signature signature in info.Signatures)
+            //{
+            //    MessageDigest md = MessageDigest.GetInstance("SHA");
+            //    md.Update(signature.ToByteArray());
+
+            //    string keyhash = Convert.ToBase64String(md.Digest());
+            //    Console.WriteLine("KeyHash", keyhash);
+            //}
+
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;
         }
