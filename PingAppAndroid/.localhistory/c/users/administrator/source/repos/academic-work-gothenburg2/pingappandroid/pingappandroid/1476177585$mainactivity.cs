@@ -20,9 +20,6 @@ namespace PingAppAndroid
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;
-
-            Button Register = FindViewById<Button>(Resource.Id.register);
-            Register.Click += registerUser;
         }
 
         private void redirectToApp(object sender, EventArgs e)
@@ -35,7 +32,7 @@ namespace PingAppAndroid
 
         private void registerUser(object sender, EventArgs e)
         {
-            Intent register = new Intent(this, typeof(RegisterActivity));
+            Intent register = new Intent(this, typeof(AppActivity));
             StartActivity(register);
         }
     }

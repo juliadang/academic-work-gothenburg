@@ -18,11 +18,19 @@ namespace PingAppAndroid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            //PackageInfo info = this.PackageManager.GetPackageInfo("PingAppAndroid", PackageInfoFlags.Signatures);
+
+            //foreach (Android.Content.PM.Signature signature in info.Signatures)
+            //{
+            //    MessageDigest md = MessageDigest.GetInstance("SHA");
+            //    md.Update(signature.ToByteArray());
+
+            //    string keyhash = Convert.ToBase64String(md.Digest());
+            //    Console.WriteLine("KeyHash", keyhash);
+            //}
+
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;
-
-            Button Register = FindViewById<Button>(Resource.Id.register);
-            Register.Click += registerUser;
         }
 
         private void redirectToApp(object sender, EventArgs e)
@@ -31,12 +39,6 @@ namespace PingAppAndroid
             StartActivity(index);
 
             //SetContentView(Resource.Layout.Index);
-        }
-
-        private void registerUser(object sender, EventArgs e)
-        {
-            Intent register = new Intent(this, typeof(RegisterActivity));
-            StartActivity(register);
         }
     }
 }

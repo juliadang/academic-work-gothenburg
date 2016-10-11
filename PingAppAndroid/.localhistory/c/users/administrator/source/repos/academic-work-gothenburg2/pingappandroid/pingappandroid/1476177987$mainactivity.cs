@@ -35,7 +35,7 @@ namespace PingAppAndroid
 
         private void registerUser(object sender, EventArgs e)
         {
-            Intent register = new Intent(this, typeof(RegisterActivity));
+            Intent register = new Intent(this, typeof(AppActivity));
             StartActivity(register);
         }
     }

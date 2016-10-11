@@ -18,7 +18,6 @@
         android:id="@+id/textView1" />
     <EditText
         android:inputType="textPersonName"
-        android:hint="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
@@ -26,7 +25,6 @@
         android:layout_marginRight="20dp" />
     <EditText
         android:inputType="textPassword"
-        android:hint="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
@@ -53,11 +51,11 @@
         android:gravity="center"
         android:id="@+id/textView2" />
     <Button
-        android:text="Register"
+        android:text="Log In With Facebook"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="15"
-        android:id="@+id/register"
+        android:id="@+id/signInFBButton"
         android:textSize="15sp"
         android:layout_marginRight="20dp"
         android:background="@android:color/holo_blue_dark"

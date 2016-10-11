@@ -53,11 +53,11 @@
         android:gravity="center"
         android:id="@+id/textView2" />
     <Button
-        android:text="Register"
+        android:text="Log In With Facebook"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="15"
-        android:id="@+id/register"
+        android:id="@+id/signInFBButton"
         android:textSize="15sp"
         android:layout_marginRight="20dp"
         android:background="@android:color/holo_blue_dark"
