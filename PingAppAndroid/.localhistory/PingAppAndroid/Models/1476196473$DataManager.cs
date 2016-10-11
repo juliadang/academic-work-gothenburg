@@ -33,7 +33,7 @@ namespace PingAppAndroid.Models
                 return ex.Message;
             }
         }
-        public static async System.Threading.Tasks.Task<string> insertUpdateData(User data)
+        public static async System.Threading.Tasks.Task<string> insertUpdateData(User data, string path)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace PingAppAndroid.Models
             }
         }
 
-        private static int staticfindNumberRecords( )
+        private static int staticfindNumberRecords(string path)
         {
             try
             {

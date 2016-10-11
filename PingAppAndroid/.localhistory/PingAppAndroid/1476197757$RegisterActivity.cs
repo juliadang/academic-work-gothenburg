@@ -12,7 +12,6 @@ using Android.Widget;
 using Android.Graphics.Drawables;
 using Android.Text;
 using PingAppAndroid.Models;
-using Android;
 
 namespace PingAppAndroid
 {
@@ -30,9 +29,6 @@ namespace PingAppAndroid
             EditText password = FindViewById<EditText>(Resource.Id.password);
             EditText email = FindViewById<EditText>(Resource.Id.email);
             Button submit = FindViewById<Button>(Resource.Id.submit);
-
-           // String[] permissions = { Manifest.Permission.WriteExternalStorage };
-        //    RequestPermissions(permissions, WriteRequestCode);
 
             if (username.Text.Length == 0)
                 username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));

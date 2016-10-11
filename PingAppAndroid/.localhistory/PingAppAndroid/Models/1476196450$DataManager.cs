@@ -15,8 +15,8 @@ namespace PingAppAndroid.Models
 {
     static public class DataManager
     {
-        static string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-        public static string createDatabase()
+        string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+        public string createDatabase(string path)
         {
 
             try
@@ -33,7 +33,7 @@ namespace PingAppAndroid.Models
                 return ex.Message;
             }
         }
-        public static async System.Threading.Tasks.Task<string> insertUpdateData(User data)
+        public async System.Threading.Tasks.Task<string> insertUpdateData(User data, string path)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace PingAppAndroid.Models
             }
         }
 
-        private static int staticfindNumberRecords( )
+        private int findNumberRecords(string path)
         {
             try
             {

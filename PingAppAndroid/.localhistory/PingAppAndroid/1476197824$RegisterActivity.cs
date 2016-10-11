@@ -31,7 +31,7 @@ namespace PingAppAndroid
             EditText email = FindViewById<EditText>(Resource.Id.email);
             Button submit = FindViewById<Button>(Resource.Id.submit);
 
-           // String[] permissions = { Manifest.Permission.WriteExternalStorage };
+            String[] permissions = { Manifest.Permission.WriteExternalStorage };
         //    RequestPermissions(permissions, WriteRequestCode);
 
             if (username.Text.Length == 0)

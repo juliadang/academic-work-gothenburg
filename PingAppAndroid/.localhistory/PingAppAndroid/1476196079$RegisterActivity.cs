@@ -12,7 +12,6 @@ using Android.Widget;
 using Android.Graphics.Drawables;
 using Android.Text;
 using PingAppAndroid.Models;
-using Android;
 
 namespace PingAppAndroid
 {
@@ -29,29 +28,9 @@ namespace PingAppAndroid
             EditText username = FindViewById<EditText>(Resource.Id.username);
             EditText password = FindViewById<EditText>(Resource.Id.password);
             EditText email = FindViewById<EditText>(Resource.Id.email);
-            Button submit = FindViewById<Button>(Resource.Id.submit);
-
-           // String[] permissions = { Manifest.Permission.WriteExternalStorage };
-        //    RequestPermissions(permissions, WriteRequestCode);
 
             if (username.Text.Length == 0)
                 username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
-
-            submit.Click += async (sender, e) =>
-            {
-                User user = new User
-                {
-                    UserName = username.Text,
-                    Password = password.Text,
-                    Email = email.Text
-                };
-                string result = await DataManager.insertUpdateData(user);
-                username.Text = "";
-                password.Text = "";
-                email.Text = "";
-                new AlertDialog.Builder(this).SetMessage(result).Show();
-            };
-
 
             //username.TextChanged += (sender, e) =>
             //{
@@ -65,7 +44,5 @@ namespace PingAppAndroid
             //txt3.addTextChangedListener(this);
 
         }
-
-
     }
 }

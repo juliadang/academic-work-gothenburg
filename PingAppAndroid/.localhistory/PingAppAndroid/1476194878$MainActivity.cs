@@ -37,8 +37,8 @@ namespace PingAppAndroid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            //Alert-check for database created
-            new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
+            DataManager dm = new DataManager();
+            new AlertDialog.Builder(this).SetMessage(dm.createDatabase()).Show();
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;

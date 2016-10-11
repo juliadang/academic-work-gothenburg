@@ -13,7 +13,7 @@ using SQLite;
 
 namespace PingAppAndroid.Models
 {
-    public class User
+    class User
     {
         [PrimaryKey, AutoIncrement]
         public int UserId { get; set; }
