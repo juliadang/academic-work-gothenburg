@@ -15,7 +15,6 @@ using PingAppAndroid.Models;
 using Android;
 using System.Net;
 using System.Collections.Specialized;
-using Newtonsoft.Json;
 
 namespace PingAppAndroid
 {
@@ -51,7 +50,7 @@ namespace PingAppAndroid
                 };
 
                 WebClient client = new WebClient();
-                Uri uri = new Uri("http://192.168.2.119/Home/Index");
+                Uri uri = new Uri("http://192.168.2.8/CreateContact.php");
                 NameValueCollection parameters = new NameValueCollection();
 
                 parameters.Add("Username", username.Text);
@@ -68,22 +67,16 @@ namespace PingAppAndroid
             };
         }
 
-        void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        private void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
-            //Activity.RunOnUiThread(() =>
-            //{
-            //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+            
+        }
 
-                //if (OnCreateContact != null)
-                //{
-                //    //Broadcast event
-                //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
-                //}
+        void mButtonCreateContact_Click(object sender, EventArgs e)
+        {
+            mProgressBar.Visibility = ViewStates.Visible;
 
-                //mProgressBar.Visibility = ViewStates.Invisible;
-                //this.Dismiss();
-            //});
-
+            
         }
     }
     public class CreateContactEventArgs : EventArgs
@@ -92,15 +85,13 @@ namespace PingAppAndroid
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public bool IsCreated { get; set; }
+        public string Email { get; set; }
 
-        public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
+        public CreateContactEventArgs(int id, string name, string number)
         {
             ID = id;
-            Username = username;
-            Password = password;
-            Email = email;
-            IsCreated = isCreated;
+            Name = name;
+            Number = number;
         }
     }
 }

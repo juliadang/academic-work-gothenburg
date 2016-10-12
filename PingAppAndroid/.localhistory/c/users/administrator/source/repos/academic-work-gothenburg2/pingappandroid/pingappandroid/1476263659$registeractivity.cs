@@ -51,7 +51,7 @@ namespace PingAppAndroid
                 };
 
                 WebClient client = new WebClient();
-                Uri uri = new Uri("http://192.168.2.119/Home/Index");
+                Uri uri = new Uri("http://192.168.2.8/CreateContact.php");
                 NameValueCollection parameters = new NameValueCollection();
 
                 parameters.Add("Username", username.Text);

@@ -51,7 +51,7 @@ namespace PingAppAndroid
                 };
 
                 WebClient client = new WebClient();
-                Uri uri = new Uri("http://192.168.2.119/Home/Index");
+                Uri uri = new Uri("http://192.168.2.8/CreateContact.php");
                 NameValueCollection parameters = new NameValueCollection();
 
                 parameters.Add("Username", username.Text);
@@ -70,19 +70,22 @@ namespace PingAppAndroid
 
         void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
-            //Activity.RunOnUiThread(() =>
-            //{
-            //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+            Activity.RunOnUiThread(() =>
+            {
+                string id = JsonConvert.Deserialize(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+                int newID = 0;
 
-                //if (OnCreateContact != null)
-                //{
-                //    //Broadcast event
-                //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
-                //}
+                int.TryParse(id, out newID); //Cast the id to an integer
 
-                //mProgressBar.Visibility = ViewStates.Invisible;
-                //this.Dismiss();
-            //});
+                if (OnCreateContact != null)
+                {
+                    //Broadcast event
+                    OnCreateContact.Invoke(this, new CreateContactEventArgs(newID, txtName.Text, txtNumber.Text));
+                }
+
+                mProgressBar.Visibility = ViewStates.Invisible;
+                this.Dismiss();
+            });
 
         }
     }
