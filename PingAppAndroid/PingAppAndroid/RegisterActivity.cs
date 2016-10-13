@@ -54,16 +54,16 @@ namespace PingAppAndroid
                 HttpClient client = new HttpClient();
                 Uri uri = new Uri("http://192.168.2.118:11014/api/account");
                 NameValueCollection parameters = new NameValueCollection();
-                
-                var response = await client.GetAsync(uri)
+
+                //var response = await client.GetAsync(uri);
 
                 parameters.Add("name", username.Text);
                 parameters.Add("password", password.Text);
                 //parameters.Add("E-mail", email.Text);
 
-                client.UploadValuesCompleted += client_UploadValuesCompleted;
+                //client.UploadValuesCompleted += client_UploadValuesCompleted;
                 //client.UploadValuesAsync(uri, parameters);
-                client.
+                //client.
 
                 username.Text = "";
                 password.Text = "";
