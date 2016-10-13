@@ -37,8 +37,6 @@ namespace SimpleWebApi.Controllers
 
             return Ok(JsonConvert.SerializeObject(users));
         }
-
-
         //public IHttpActionResult EditProfile()
         //{
 

@@ -43,11 +43,32 @@ namespace PingAppAndroid
 
             submit.Click += (sender, e) =>
             {
-                string url = "http://pinggothenburg.azurewebsites.net/api/account?name=" + username.Text + "&password=" + password.Text + "&email=" + email.Text;
-                DataManager.Register(url);
+
+                User user = new User
+                {
+                    UserName = username.Text,
+                    Password = password.Text,
+                    Email = email.Text
+                };
+
+                WebClient client = new WebClient();
+                Uri uri = new Uri("http://192.168.2.118:11014/api/account");
+                NameValueCollection parameters = new NameValueCollection();
+
+                //var response = await client.GetAsync(uri);
+
+                parameters.Add("name", username.Text);
+                parameters.Add("password", password.Text);
+                //parameters.Add("E-mail", email.Text);
+
+                //client.UploadValuesCompleted += client_UploadValuesCompleted;
+                //client.UploadValuesAsync(uri, parameters);
+                //client.
+
                 username.Text = "";
                 password.Text = "";
                 email.Text = "";
+                new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
             };
         }
 

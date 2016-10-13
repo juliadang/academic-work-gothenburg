@@ -82,7 +82,7 @@ namespace PingAppAndroid.Models
             return true;
 
             //// Send the request to the server and wait for the response:
-            using (WebResponse response = request.GetResponse()) { }
+            //using (WebResponse response = await request.GetResponseAsync())
             //{
             //    // Get a stream representation of the HTTP web response:
             //    using (Stream stream = response.GetResponseStream())
@@ -91,10 +91,10 @@ namespace PingAppAndroid.Models
             //        JsonValue jsonDoc = await Task.Run(() => JSONObject.Load(stream));
             //        Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
-                //        // Return the JSON document:
-                //        return jsonDoc;
-                //    }
-                //}
+            //        // Return the JSON document:
+            //        return jsonDoc;
+            //    }
+            //}
         }
     }
 }

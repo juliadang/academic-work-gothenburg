@@ -14,6 +14,7 @@ namespace PingAppAndroid
     [Activity(Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        const string url = "http://pinggothenburg.azurewebsites.net";
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -22,7 +23,7 @@ namespace PingAppAndroid
             SetContentView(Resource.Layout.Main);
 
             //Alert-check for database created
-            //new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
+            new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;

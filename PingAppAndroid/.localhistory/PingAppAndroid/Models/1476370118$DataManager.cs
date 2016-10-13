@@ -10,10 +10,6 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using SQLite;
-using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-using Org.Json;
 
 namespace PingAppAndroid.Models
 {
@@ -74,27 +70,5 @@ namespace PingAppAndroid.Models
         //#endregion
 
 
-        static public bool Register(string url)
-        {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-            request.Method = "GET";
-            return true;
-
-            //// Send the request to the server and wait for the response:
-            using (WebResponse response = request.GetResponse()) { }
-            //{
-            //    // Get a stream representation of the HTTP web response:
-            //    using (Stream stream = response.GetResponseStream())
-            //    {
-            //        // Use this stream to build a JSON document object:
-            //        JsonValue jsonDoc = await Task.Run(() => JSONObject.Load(stream));
-            //        Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
-
-                //        // Return the JSON document:
-                //        return jsonDoc;
-                //    }
-                //}
-        }
     }
 }

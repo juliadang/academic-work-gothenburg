@@ -37,22 +37,20 @@ namespace SimpleWebApi.Controllers
 
             return Ok(JsonConvert.SerializeObject(users));
         }
+        public IHttpActionResult EditProfile()
+        {
 
+        }
+        public IHttpActionResult GetFriend()
+        {
 
-        //public IHttpActionResult EditProfile()
-        //{
-
-        //}
-        //public IHttpActionResult GetFriend()
-        //{
-
-        //}
+        }
         
-        //public IHttpActionResult AddFriend()
-        //{
+        public IHttpActionResult AddFriend()
+        {
 
-        //}
-        //public IHttpActionResult RemoveFriend()
+        }
+        public IHttpActionResult RemoveFriend()
 
     }
 }

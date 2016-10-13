@@ -44,10 +44,10 @@ namespace PingAppAndroid
             submit.Click += (sender, e) =>
             {
                 string url = "http://pinggothenburg.azurewebsites.net/api/account?name=" + username.Text + "&password=" + password.Text + "&email=" + email.Text;
-                DataManager.Register(url);
                 username.Text = "";
                 password.Text = "";
                 email.Text = "";
+
             };
         }
 

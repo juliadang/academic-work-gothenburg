@@ -8,12 +8,16 @@ using Java.Security;
 using SQLite;
 using System.Runtime.CompilerServices;
 using PingAppAndroid.Models;
+using Microsoft.AspNet.SignalR.Client;
 
 namespace PingAppAndroid
 {
     [Activity(Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        const string url = "http://pinggothenburg.azurewebsites.net";
+        HubConnection hubConnection = new HubConnection(url);
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -22,7 +26,7 @@ namespace PingAppAndroid
             SetContentView(Resource.Layout.Main);
 
             //Alert-check for database created
-            //new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
+            new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += redirectToApp;
@@ -33,11 +37,19 @@ namespace PingAppAndroid
 
         private void redirectToApp(object sender, EventArgs e)
         {
-            Intent index = new Intent(this, typeof(AppActivity));
-            StartActivity(index);
+            var proxy = hubConnection.CreateHubProxy("PingHub");
+            proxy.Invoke("Hello");
+
+
+            proxy.On<string>("SayHi",(message)=> { new AlertDialog.Builder(this).SetMessage(message) });
+
+            //Intent index = new Intent(this, typeof(AppActivity));
+            //StartActivity(index);
 
             //SetContentView(Resource.Layout.Index);
         }
+
+
 
         private void registerUser(object sender, EventArgs e)
         {
