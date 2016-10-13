@@ -16,6 +16,7 @@ using Android;
 using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace PingAppAndroid
 {
@@ -50,21 +51,24 @@ namespace PingAppAndroid
                     Email = email.Text
                 };
 
-                WebClient client = new WebClient();
-                Uri uri = new Uri("http://192.168.2.119/Home/Index");
+                HttpClient client = new HttpClient();
+                Uri uri = new Uri("http://192.168.2.118:11014/api/account");
                 NameValueCollection parameters = new NameValueCollection();
+                
+                var response = await client.GetAsync(uri)
 
-                parameters.Add("Username", username.Text);
-                parameters.Add("Password", password.Text);
-                parameters.Add("E-mail", email.Text);
+                parameters.Add("name", username.Text);
+                parameters.Add("password", password.Text);
+                //parameters.Add("E-mail", email.Text);
 
                 client.UploadValuesCompleted += client_UploadValuesCompleted;
-                client.UploadValuesAsync(uri, parameters);
+                //client.UploadValuesAsync(uri, parameters);
+                client.
 
                 username.Text = "";
                 password.Text = "";
                 email.Text = "";
-               // new AlertDialog.Builder(this).SetMessage(result).Show();
+                new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
             };
         }
 
