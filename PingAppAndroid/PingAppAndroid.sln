@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingAppAndroid", "PingAppAndroid\PingAppAndroid.csproj", "{DE3CC11F-2400-4ADD-88E7-83B091ADE881}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PingServer3", "PingServer3\PingServer3.xproj", "{FF08C685-A722-4EF2-ADF2-A66991ADE443}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebApi", "SimpleWebApi\SimpleWebApi.csproj", "{2C56DF43-5288-4590-9161-4BC27027F60F}"
 EndProject
 Global
@@ -21,11 +19,6 @@ Global
 		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{FF08C685-A722-4EF2-ADF2-A66991ADE443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF08C685-A722-4EF2-ADF2-A66991ADE443}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF08C685-A722-4EF2-ADF2-A66991ADE443}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{FF08C685-A722-4EF2-ADF2-A66991ADE443}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF08C685-A722-4EF2-ADF2-A66991ADE443}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2C56DF43-5288-4590-9161-4BC27027F60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2C56DF43-5288-4590-9161-4BC27027F60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C56DF43-5288-4590-9161-4BC27027F60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
