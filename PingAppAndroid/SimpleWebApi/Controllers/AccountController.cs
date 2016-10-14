@@ -7,57 +7,124 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace SimpleWebApi.Controllers
 {
-    public class AccountController : ApiController
+    [RoutePrefix("api/accounts")]
+    public class AccountsController : BaseApiController
     {
-        //PingdbContext _dbContext;
-        //DatabaseUtils _dm;
-        //public AccountController(PingdbContext context)
-        //{
-        //    _dbContext = context;
-        //    _dm = new DatabaseUtils(context);
-        //    _dbContext.Database.ensurecreated();
-        //}
 
-        //UserManager<IdentityUser> _accountManager;
-        //AppSignInManager<IdentityUser> _signInManager;
+        [Route("users")]
+        public IHttpActionResult GetUsers()
+        {
+            return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
+        }
 
-        DatabaseUtils _dm = new DatabaseUtils(new PingdbContext());
+        [Route("user/{id:guid}", Name = "GetUserById")]
+        public async Task<IHttpActionResult> GetUser(string Id)
+        {
+            var user = await this.AppUserManager.FindByIdAsync(Id);
 
-        //[HttpGet]
-        //public IHttpActionResult Register(string name, string password, string email)
-        //{
-        //    //PingUser user = new PingUsers { Username = name, Password = password, Email = email };
+            if (user != null)
+            {
+                return Ok(this.TheModelFactory.Create(user));
+            }
 
-        //    //_dm.RegisterUser(user);
-        //    //return Ok(JsonConvert.SerializeObject(user));
-        //}
-        
-        //public IHttpActionResult Login()
-        //{
-        //    List<PingUser> users =_dm.GetUsers();
+            return NotFound();
 
-        //    return Ok(JsonConvert.SerializeObject(users));
-        //}
+        }
 
+        [Route("user/{username}")]
+        public async Task<IHttpActionResult> GetUserByName(string username)
+        {
+            var user = await this.AppUserManager.FindByNameAsync(username);
 
-        //public IHttpActionResult EditProfile()
-        //{
+            if (user != null)
+            {
+                return Ok(this.TheModelFactory.Create(user));
+            }
 
-        //}
-        //public IHttpActionResult GetFriend()
-        //{
+            return NotFound();
 
-        //}
-        
-        //public IHttpActionResult AddFriend()
-        //{
+        }
+        [Route("create")]
+        public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //}
-        //public IHttpActionResult RemoveFriend()
+            var user = new PingUser()
+            {
+                UserName = "UserName",
+                //Email = createUserModel.Email,            
+               
+            };
 
+            IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
+
+            if (!addUserResult.Succeeded)
+            {
+                return GetErrorResult(addUserResult);
+            }
+
+            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
+
+            return Created(locationHeader, TheModelFactory.Create(user));
+        }
     }
+
+
+    //public class AccountController : ApiController
+    //{
+    //PingdbContext _dbContext;
+    //DatabaseUtils _dm;
+    //public AccountController(PingdbContext context)
+    //{
+    //    _dbContext = context;
+    //    _dm = new DatabaseUtils(context);
+    //    _dbContext.Database.ensurecreated();
+    //}
+
+    //UserManager<IdentityUser> _accountManager;
+    //AppSignInManager<IdentityUser> _signInManager;
+
+    //DatabaseUtils _dm = new DatabaseUtils(new PingdbContext());
+
+    //[HttpGet]
+    //public IHttpActionResult Register(string name, string password, string email)
+    //{
+    //    //PingUser user = new PingUsers { Username = name, Password = password, Email = email };
+
+    //    //_dm.RegisterUser(user);
+    //    //return Ok(JsonConvert.SerializeObject(user));
+    //}
+
+    //public IHttpActionResult Login()
+    //{
+    //    List<PingUser> users =_dm.GetUsers();
+
+    //    return Ok(JsonConvert.SerializeObject(users));
+    //}
+
+
+    //public IHttpActionResult EditProfile()
+    //{
+
+    //}
+    //public IHttpActionResult GetFriend()
+    //{
+
+    //}
+
+    //public IHttpActionResult AddFriend()
+    //{
+
+    //}
+    //public IHttpActionResult RemoveFriend()
+
+    //}
 }

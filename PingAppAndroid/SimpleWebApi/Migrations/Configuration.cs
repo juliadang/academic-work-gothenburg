@@ -21,12 +21,12 @@ namespace SimpleWebApi.Migrations
 
             var manager = new UserManager<PingUser>(new UserStore<PingUser>(new PingdbContext()));
 
-            //var user = new PingUser()
-            //{
-            //    UserName = "SuperPowerUser",
-            //};
+            var user = new PingUser()
+            {
+                UserName = "SuperPowerUser",
+            };
 
-            //manager.Create(user, "hejsan123");
+            manager.Create(user, "hejsan123");
         }
     }
 }

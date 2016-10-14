@@ -10,6 +10,6 @@ namespace SimpleWebApi.Models
 {
     public class PingUser : IdentityUser
     {
-        public string Username { get; set; }
+        public string UserName { get; set; }
     }
 }
