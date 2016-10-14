@@ -7,27 +7,27 @@ namespace SimpleWebApi.Models
 {
     public class DatabaseUtils
     {
-        PingdbContext _context;
-        public DatabaseUtils(PingdbContext context)
-        {
-            _context = context;
-        }
+        //PingdbContext _context;
+        //public DatabaseUtils(PingdbContext context)
+        //{
+        //    _context = context;
+        //}
 
-        internal void RegisterUser(PingUsers user)
-        {
-            _context.PingUsers.Add(new PingUsers
-            {
-                Username = user.Username,
-                Email = user.Email,
-                Password = user.Password
-            });
-            _context.SaveChanges();
-        }
+        //internal void RegisterUser(PingUsers user)
+        //{
+        //    _context.PingUsers.Add(new PingUsers
+        //    {
+        //        Username = user.Username,
+        //        Email = user.Email,
+        //        Password = user.Password
+        //    });
+        //    _context.SaveChanges();
+        //}
 
-        internal List<PingUsers> GetUsers()
-        {
-            List<PingUsers> users = _context.PingUsers.Select(u => u).ToList();
-            return users;
-        }
+        //internal List<PingUsers> GetUsers()
+        //{
+        //    List<PingUsers> users = _context.PingUsers.Select(u => u).ToList();
+        //    return users;
+        //}
     }
 }

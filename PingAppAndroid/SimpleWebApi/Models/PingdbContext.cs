@@ -6,11 +6,11 @@ using System.Web;
 
 namespace SimpleWebApi.Models
 {
-    public class PingdbContext : DbContext
-    {
-        public PingdbContext() : base("PingdbContext")
-        {
-        }
-        public DbSet<PingUsers> PingUsers { get; set; }
-    }
+    //public class PingdbContext : DbContext
+    //{
+    //    public PingdbContext() : base("PingdbContext")
+    //    {
+    //    }
+    //    public DbSet<PingUsers> PingUsers { get; set; }
+    //}
 }
