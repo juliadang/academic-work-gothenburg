@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 using SimpleWebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -20,23 +22,26 @@ namespace SimpleWebApi.Controllers
         //    _dbContext.Database.ensurecreated();
         //}
 
+        //UserManager<IdentityUser> _accountManager;
+        //AppSignInManager<IdentityUser> _signInManager;
+
         DatabaseUtils _dm = new DatabaseUtils(new PingdbContext());
 
-        [HttpGet]
-        public IHttpActionResult Register(string name, string password, string email)
-        {
-            PingUsers user = new PingUsers { Username = name, Password = password, Email = email };
+        //[HttpGet]
+        //public IHttpActionResult Register(string name, string password, string email)
+        //{
+        //    //PingUser user = new PingUsers { Username = name, Password = password, Email = email };
 
-            _dm.RegisterUser(user);
-            return Ok(JsonConvert.SerializeObject(user));
-        }
+        //    //_dm.RegisterUser(user);
+        //    //return Ok(JsonConvert.SerializeObject(user));
+        //}
         
-        public IHttpActionResult Login()
-        {
-            List<PingUsers> users =_dm.GetUsers();
+        //public IHttpActionResult Login()
+        //{
+        //    List<PingUser> users =_dm.GetUsers();
 
-            return Ok(JsonConvert.SerializeObject(users));
-        }
+        //    return Ok(JsonConvert.SerializeObject(users));
+        //}
 
 
         //public IHttpActionResult EditProfile()
