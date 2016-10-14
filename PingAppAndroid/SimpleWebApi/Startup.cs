@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Serialization;
 using Owin;
-using SimpleWebApi.Infrastructure;
+using SimpleWebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace SimpleWebApi
 {
     public class Startup
     {
+
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
@@ -29,7 +30,7 @@ namespace SimpleWebApi
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(PingdbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
             // Plugin the OAuth bearer JSON Web Token tokens generation and Consumption will be here

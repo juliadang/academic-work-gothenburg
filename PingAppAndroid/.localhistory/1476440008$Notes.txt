@@ -1,0 +1,18 @@
+http://pinggothenburg.azurewebsites.net
+
+pingdb.database.windows.net
+dbadmin
+P@ssword
+
+userPWD="btFozCCnqW3jn9kQyKauqlsKENweDvph08MwoPWdgYwllHS8x3X6xn8b8hwd"
+
+APIer vi behöver
+- Register
+- Log In
+- Log Out
+
+- Add friends/Search users from db
+- Remove friend
+
+- Edit profile/password(inte username!)
+
