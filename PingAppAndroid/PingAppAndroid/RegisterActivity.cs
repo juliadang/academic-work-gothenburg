@@ -46,75 +46,61 @@ namespace PingAppAndroid
                 };
 
                 HttpClient client = new HttpClient();
-          //      HttpPost postClient = new HttpPost("http://192.168.2.119:11014/api/account/create");
 
-
-                var uri = new Uri("http://192.168.2.119:11014/api/account/create");
+                var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/create");
                 var json = JsonConvert.SerializeObject(user);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
-              
-                    response = await client.PostAsync(uri, content);
+
+                response = await client.PostAsync(uri, content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    new AlertDialog.Builder(this).SetMessage("Success").Show();
+                    new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
                 }
 
-                //Uri uri = new Uri("http://192.168.2.118:11014/api/account");
-                //NameValueCollection parameters = new NameValueCollection();
-
-                //var response = await client.GetAsync(uri)
-
-                //parameters.Add("name", username.Text);
-                //parameters.Add("password", password.Text);
-                ////parameters.Add("E-mail", email.Text);
-
-                //client.UploadValuesCompleted += client_UploadValuesCompleted;
-                ////client.UploadValuesAsync(uri, parameters);
-                //client.
-
-                //username.Text = "";
-                //password.Text = "";
-                //email.Text = "";
+                username.Text = "";
+                password.Text = "";
+                confirmpassword.Text = "";
+                email.Text = "";
                 //new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
             };
-    }
+        }
 
-    void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        {
+            //Activity.RunOnUiThread(() =>
+            //{
+            //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+
+            //if (OnCreateContact != null)
+            //{
+            //    //Broadcast event
+            //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
+            //}
+
+            //mProgressBar.Visibility = ViewStates.Invisible;
+            //this.Dismiss();
+            //});
+
+        }
+    }
+    public class CreateContactEventArgs : EventArgs
     {
-        //Activity.RunOnUiThread(() =>
-        //{
-        //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public bool IsCreated { get; set; }
 
-        //if (OnCreateContact != null)
-        //{
-        //    //Broadcast event
-        //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
-        //}
-
-        //mProgressBar.Visibility = ViewStates.Invisible;
-        //this.Dismiss();
-        //});
-
+        public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
+        {
+            ID = id;
+            Username = username;
+            Password = password;
+            Email = email;
+            IsCreated = isCreated;
+        }
     }
-}
-public class CreateContactEventArgs : EventArgs
-{
-    public int ID { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Email { get; set; }
-    public bool IsCreated { get; set; }
-
-    public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
-    {
-        ID = id;
-        Username = username;
-        Password = password;
-        Email = email;
-        IsCreated = isCreated;
-    }
-}
 }

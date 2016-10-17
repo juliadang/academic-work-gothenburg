@@ -25,18 +25,16 @@ namespace PingAppAndroid
             //new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
 
             Button Login = FindViewById<Button>(Resource.Id.button1);
-            Login.Click += redirectToApp;
+            Login.Click += login;
 
             Button Register = FindViewById<Button>(Resource.Id.register);
             Register.Click += registerUser;
         }
 
-        private void redirectToApp(object sender, EventArgs e)
+        private void login(object sender, EventArgs e)
         {
             Intent index = new Intent(this, typeof(AppActivity));
             StartActivity(index);
-
-            //SetContentView(Resource.Layout.Index);
         }
 
         private void registerUser(object sender, EventArgs e)
