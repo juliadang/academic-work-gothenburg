@@ -48,7 +48,7 @@ namespace SimpleWebApi.Controllers
             return NotFound();
 
         }
-      
+        [HttpPost]
         [Route("create")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {

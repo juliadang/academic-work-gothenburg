@@ -12,10 +12,9 @@ using System.Web.Http;
 
 namespace SimpleWebApi.Controllers
 {
-    [RoutePrefix("api/accounts")]
-    public class AccountsController : BaseApiController
+    public class AccountController : BaseApiController
     {
-       [Route("users")]
+        [Route("users")]
         public IHttpActionResult GetUsers()
         {
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
@@ -48,7 +47,7 @@ namespace SimpleWebApi.Controllers
             return NotFound();
 
         }
-      
+
         [Route("create")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {

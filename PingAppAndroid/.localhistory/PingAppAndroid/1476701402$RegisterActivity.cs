@@ -56,30 +56,31 @@ namespace PingAppAndroid
                 HttpResponseMessage response = null;
               
                     response = await client.PostAsync(uri, content);
+             
 
-                if (response.IsSuccessStatusCode)
-                {
-                    new AlertDialog.Builder(this).SetMessage("Success").Show();
-                }
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    new AlertDialog.Builder(this).SetMessage("Success").Show();
+                //}
 
-                //Uri uri = new Uri("http://192.168.2.118:11014/api/account");
-                //NameValueCollection parameters = new NameValueCollection();
+        //Uri uri = new Uri("http://192.168.2.118:11014/api/account");
+        //NameValueCollection parameters = new NameValueCollection();
 
-                //var response = await client.GetAsync(uri)
+            //var response = await client.GetAsync(uri)
 
-                //parameters.Add("name", username.Text);
-                //parameters.Add("password", password.Text);
-                ////parameters.Add("E-mail", email.Text);
+            //parameters.Add("name", username.Text);
+            //parameters.Add("password", password.Text);
+            ////parameters.Add("E-mail", email.Text);
 
-                //client.UploadValuesCompleted += client_UploadValuesCompleted;
-                ////client.UploadValuesAsync(uri, parameters);
-                //client.
+            //client.UploadValuesCompleted += client_UploadValuesCompleted;
+            ////client.UploadValuesAsync(uri, parameters);
+            //client.
 
-                //username.Text = "";
-                //password.Text = "";
-                //email.Text = "";
-                //new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
-            };
+            //username.Text = "";
+            //password.Text = "";
+            //email.Text = "";
+            //new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
+        };
     }
 
     void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)

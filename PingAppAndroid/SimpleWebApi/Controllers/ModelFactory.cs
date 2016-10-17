@@ -28,8 +28,8 @@ namespace SimpleWebApi.Controllers
                 EmailConfirmed = appUser.EmailConfirmed,
                 //Level = appUser.Level,
                 //JoinDate = appUser.JoinDate,
-                Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
-                Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
+                //Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
+                //Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
         }
     }

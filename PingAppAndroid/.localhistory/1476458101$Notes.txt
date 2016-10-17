@@ -1,0 +1,30 @@
+http://pinggothenburg.azurewebsites.net
+
+pingdb.database.windows.net
+dbadmin
+P@ssword
+
+userPWD="btFozCCnqW3jn9kQyKauqlsKENweDvph08MwoPWdgYwllHS8x3X6xn8b8hwd"
+
+====================
+APIer vi behöver
+- Register
+- Log In
+- Log Out
+
+- Get friendlist
+- Add friends/Search users from db
+- Remove friend
+
+- Edit profile/password(inte username!)
+
+Databas
+- Lägg till ny kolumn för GCM id?  List<notifikationer>
+- Tabell för notifikationer + klass (prop: NotifikationId, SenderId, RecieverId, Message, bool recieved)
+
+
+Scaffolding migration 'InitialCreate'.
+The Designer Code for this migration file includes a snapshot of your current Code First model. 
+This snapshot is used to calculate the changes to your model when you scaffold the next migration. 
+If you make additional changes to your model that you want to include in this migration, 
+then you can re-scaffold it by running 'Add-Migration InitialCreate' again.

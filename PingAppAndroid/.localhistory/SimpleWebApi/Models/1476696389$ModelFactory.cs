@@ -19,7 +19,7 @@ namespace SimpleWebApi.Models
             _AppUserManager = appUserManager;
         }
 
-        public UserReturnModel Create(ApplicationUser appUser)
+        public UserReturnModel Create(PingUser appUser)
         {
             return new UserReturnModel
             {

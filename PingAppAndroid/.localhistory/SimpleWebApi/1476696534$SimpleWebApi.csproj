@@ -152,10 +152,6 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201610170827446_InitialCreate.cs" />
-    <Compile Include="Migrations\201610170827446_InitialCreate.Designer.cs">
-      <DependentUpon>201610170827446_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\DatabaseUtils.cs" />
@@ -175,11 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610170827446_InitialCreate.resx">
-      <DependentUpon>201610170827446_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

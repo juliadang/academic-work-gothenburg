@@ -1,5 +1,4 @@
-﻿using SimpleWebApi.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -19,7 +18,7 @@ namespace SimpleWebApi.Models
             _AppUserManager = appUserManager;
         }
 
-        public UserReturnModel Create(ApplicationUser appUser)
+        public UserReturnModel Create(PingUser appUser)
         {
             return new UserReturnModel
             {
