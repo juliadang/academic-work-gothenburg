@@ -26,10 +26,10 @@ namespace SimpleWebApi.Migrations
                 UserName = "SuperPowerUser",
                 Email = "taiseer.joudeh@mymail.com",
                 EmailConfirmed = true,
-                //FirstName = "Taiseer",
-                //LastName = "Joudeh",
-                //Level = 1,
-                //JoinDate = DateTime.Now.AddYears(-3)
+                FirstName = "Taiseer",
+                LastName = "Joudeh",
+                Level = 1,
+                JoinDate = DateTime.Now.AddYears(-3)
             };
 
             manager.Create(user, "MySuperP@ssword!");

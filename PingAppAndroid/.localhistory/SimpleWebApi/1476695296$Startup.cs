@@ -14,7 +14,6 @@ namespace SimpleWebApi
     public class Startup
     {
 
-       // [assembly: OwinStartup(typeof(SimpleWebApi.Startup))]
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
@@ -38,6 +37,7 @@ namespace SimpleWebApi
 
         }
 
+        [assembly: OwinStartup(typeof(YourNamespace.Startup))]
         private void ConfigureWebApi(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();

@@ -7,8 +7,6 @@ using System.Net;
 using System.Net.Http;
 using SimpleWebApi.Models;
 using Org.Apache.Http.Client.Methods;
-using Newtonsoft.Json;
-using System.Text;
 
 namespace PingAppAndroid
 {
@@ -28,13 +26,13 @@ namespace PingAppAndroid
             EditText email = FindViewById<EditText>(Resource.Id.email);
             Button submit = FindViewById<Button>(Resource.Id.submit);
 
-            // String[] permissions = { Manifest.Permission.WriteExternalStorage };
-            //    RequestPermissions(permissions, WriteRequestCode);
+           // String[] permissions = { Manifest.Permission.WriteExternalStorage };
+        //    RequestPermissions(permissions, WriteRequestCode);
 
             if (username.Text.Length == 0)
                 username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
 
-            submit.Click += async (sender, e) =>
+            submit.Click += (sender, e) =>
             {
 
                 CreateUserBindingModel user = new CreateUserBindingModel
@@ -46,21 +44,15 @@ namespace PingAppAndroid
                 };
 
                 HttpClient client = new HttpClient();
-          //      HttpPost postClient = new HttpPost("http://192.168.2.119:11014/api/account/create");
+                HttpPost postClient = new HttpPost("http://192.168.2.119:11014/api/account/create");
 
+                //List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                //nameValuePairs.Add(new BasicNameValuePair("id", "01"));
+                //nameValuePairs.Add(new BasicNameValuePair("message", msg));
+                //postClient.(new UrlEncodedFormEntity(nameValuePairs));
+                //httpclient.execute(httppost);
+                //msgTextField.setText(""); //reset the message text field
 
-                var uri = new Uri("http://192.168.2.119:11014/api/account/create");
-                var json = JsonConvert.SerializeObject(user);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = null;
-              
-                    response = await client.PostAsync(uri, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    new AlertDialog.Builder(this).SetMessage("Success").Show();
-                }
 
                 //Uri uri = new Uri("http://192.168.2.118:11014/api/account");
                 //NameValueCollection parameters = new NameValueCollection();
@@ -80,41 +72,41 @@ namespace PingAppAndroid
                 //email.Text = "";
                 //new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
             };
-    }
+        }
 
-    void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        {
+            //Activity.RunOnUiThread(() =>
+            //{
+            //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+
+                //if (OnCreateContact != null)
+                //{
+                //    //Broadcast event
+                //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
+                //}
+
+                //mProgressBar.Visibility = ViewStates.Invisible;
+                //this.Dismiss();
+            //});
+
+        }
+    }
+    public class CreateContactEventArgs : EventArgs
     {
-        //Activity.RunOnUiThread(() =>
-        //{
-        //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public bool IsCreated { get; set; }
 
-        //if (OnCreateContact != null)
-        //{
-        //    //Broadcast event
-        //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
-        //}
-
-        //mProgressBar.Visibility = ViewStates.Invisible;
-        //this.Dismiss();
-        //});
-
+        public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
+        {
+            ID = id;
+            Username = username;
+            Password = password;
+            Email = email;
+            IsCreated = isCreated;
+        }
     }
-}
-public class CreateContactEventArgs : EventArgs
-{
-    public int ID { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Email { get; set; }
-    public bool IsCreated { get; set; }
-
-    public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
-    {
-        ID = id;
-        Username = username;
-        Password = password;
-        Email = email;
-        IsCreated = isCreated;
-    }
-}
 }

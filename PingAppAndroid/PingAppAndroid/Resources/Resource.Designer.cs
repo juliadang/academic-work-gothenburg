@@ -115,14 +115,17 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f060007
 			public const int button1 = 2131099655;
 			
+			// aapt resource value: 0x7f060017
+			public const int confirmpassword = 2131099671;
+			
 			// aapt resource value: 0x7f060006
 			public const int editText1 = 2131099654;
 			
 			// aapt resource value: 0x7f060005
 			public const int editText2 = 2131099653;
 			
-			// aapt resource value: 0x7f060017
-			public const int email = 2131099671;
+			// aapt resource value: 0x7f060018
+			public const int email = 2131099672;
 			
 			// aapt resource value: 0x7f060004
 			public const int friendList = 2131099652;
@@ -139,8 +142,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f06000e
 			public const int spinner1 = 2131099662;
 			
-			// aapt resource value: 0x7f060018
-			public const int submit = 2131099672;
+			// aapt resource value: 0x7f060019
+			public const int submit = 2131099673;
 			
 			// aapt resource value: 0x7f060002
 			public const int textView1 = 2131099650;

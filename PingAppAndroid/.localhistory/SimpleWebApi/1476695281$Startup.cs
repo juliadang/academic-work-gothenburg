@@ -14,7 +14,6 @@ namespace SimpleWebApi
     public class Startup
     {
 
-       // [assembly: OwinStartup(typeof(SimpleWebApi.Startup))]
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();

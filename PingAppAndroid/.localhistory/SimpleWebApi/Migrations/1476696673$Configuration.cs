@@ -1,8 +1,5 @@
 namespace SimpleWebApi.Migrations
 {
-    using Infrastructure;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,7 +12,7 @@ namespace SimpleWebApi.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SimpleWebApi.Infrastructure.ApplicationDbContext context)
+        protected override void Seed(AspNetIdentity.WebApi.Infrastructure.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -26,10 +23,10 @@ namespace SimpleWebApi.Migrations
                 UserName = "SuperPowerUser",
                 Email = "taiseer.joudeh@mymail.com",
                 EmailConfirmed = true,
-                //FirstName = "Taiseer",
-                //LastName = "Joudeh",
-                //Level = 1,
-                //JoinDate = DateTime.Now.AddYears(-3)
+                FirstName = "Taiseer",
+                LastName = "Joudeh",
+                Level = 1,
+                JoinDate = DateTime.Now.AddYears(-3)
             };
 
             manager.Create(user, "MySuperP@ssword!");

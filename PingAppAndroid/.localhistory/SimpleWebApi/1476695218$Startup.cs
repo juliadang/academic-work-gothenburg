@@ -14,7 +14,6 @@ namespace SimpleWebApi
     public class Startup
     {
 
-       // [assembly: OwinStartup(typeof(SimpleWebApi.Startup))]
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
@@ -26,6 +25,8 @@ namespace SimpleWebApi
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             app.UseWebApi(httpConfig);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
         }
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
