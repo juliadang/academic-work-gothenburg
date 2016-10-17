@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Newtonsoft.Json;
 using SimpleWebApi.Infrastructure;
 using SimpleWebApi.Models;
@@ -15,7 +16,7 @@ namespace SimpleWebApi.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
-       [Route("users")]
+        [Route("users")]
         public IHttpActionResult GetUsers()
         {
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
@@ -50,33 +51,18 @@ namespace SimpleWebApi.Controllers
         }
 
         [Route("login")]
-        public async Task<IHttpActionResult> LoginUser(string userName, string password)
+        public async Task<IHttpActionResult> LoginUser(LoginUserBindingModel loginUserModel)
         {
-            if (!ModelState.IsValid)
+            var result = await SignInManager.PasswordSignInAsync(loginUserModel.Username, loginUserModel.Password, false, false);
+            switch (result)
             {
-                return BadRequest(ModelState);
-            }
-
-            var user = new ApplicationUser()
-            {
-                UserName = createUserModel.Username,
-                Email = createUserModel.Email
-                //FirstName = createUserModel.FirstName,
-                //LastName = createUserModel.LastName,
-                //Level = 3,
-                //JoinDate = DateTime.Now.Date,
+                case SignInStatus.Success:
+                    return Ok();
+                    break;
+                default:
+                    return InternalServerError();
+                    break;
             };
-
-            IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
-
-            if (!addUserResult.Succeeded)
-            {
-                return GetErrorResult(addUserResult);
-            }
-
-            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-            return Created(locationHeader, TheModelFactory.Create(user));
         }
 
         [Route("create")]

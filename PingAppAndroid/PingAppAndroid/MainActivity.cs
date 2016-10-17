@@ -8,6 +8,7 @@ using Java.Security;
 using SQLite;
 using System.Runtime.CompilerServices;
 using PingAppAndroid.Models;
+using System.Net.Http;
 
 namespace PingAppAndroid
 {
@@ -24,6 +25,7 @@ namespace PingAppAndroid
             //Alert-check for database created
             //new AlertDialog.Builder(this).SetMessage(DataManager.createDatabase()).Show();
 
+
             Button Login = FindViewById<Button>(Resource.Id.button1);
             Login.Click += login;
 
@@ -31,10 +33,26 @@ namespace PingAppAndroid
             Register.Click += registerUser;
         }
 
-        private void login(object sender, EventArgs e)
+        private async void login(object sender, EventArgs e)
         {
-            Intent index = new Intent(this, typeof(AppActivity));
-            StartActivity(index);
+            EditText userName = FindViewById<EditText>(Resource.Id.userNameMain);
+            EditText password = FindViewById<EditText>(Resource.Id.passwordMain);
+
+            bool succeeded;
+            succeeded = await DataManager.SignIn(userName.Text, password.Text);
+
+            if (succeeded)
+            {
+                Intent index = new Intent(this, typeof(AppActivity));
+                StartActivity(index);
+            }
+            else
+            {
+                new AlertDialog.Builder(this).SetMessage("Login failed").Show();
+            }
+
+            userName.Text = "";
+            password.Text = "";
         }
 
         private void registerUser(object sender, EventArgs e)

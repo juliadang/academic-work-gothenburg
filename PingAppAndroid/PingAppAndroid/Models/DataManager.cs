@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using Org.Json;
+using System.Net.Http;
+using SimpleWebApi.Models;
+using Newtonsoft.Json;
 
 namespace PingAppAndroid.Models
 {
@@ -95,6 +98,34 @@ namespace PingAppAndroid.Models
                 //        return jsonDoc;
                 //    }
                 //}
+        }
+
+        internal static async Task<bool> SignIn(string userName, string password)
+        {
+            HttpClient client = new HttpClient();
+
+            LoginUserBindingModel user = new LoginUserBindingModel
+            {
+                Username = userName,
+                Password = password
+            };
+
+            var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/login");
+            var json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+
+            response = await client.PostAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

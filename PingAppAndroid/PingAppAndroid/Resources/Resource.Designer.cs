@@ -118,12 +118,6 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f060017
 			public const int confirmpassword = 2131099671;
 			
-			// aapt resource value: 0x7f060006
-			public const int editText1 = 2131099654;
-			
-			// aapt resource value: 0x7f060005
-			public const int editText2 = 2131099653;
-			
 			// aapt resource value: 0x7f060018
 			public const int email = 2131099672;
 			
@@ -132,6 +126,9 @@ namespace PingAppAndroid
 			
 			// aapt resource value: 0x7f060016
 			public const int password = 2131099670;
+			
+			// aapt resource value: 0x7f060006
+			public const int passwordMain = 2131099654;
 			
 			// aapt resource value: 0x7f060009
 			public const int register = 2131099657;
@@ -153,6 +150,9 @@ namespace PingAppAndroid
 			
 			// aapt resource value: 0x7f06000a
 			public const int toolbar1 = 2131099658;
+			
+			// aapt resource value: 0x7f060005
+			public const int userNameMain = 2131099653;
 			
 			// aapt resource value: 0x7f060015
 			public const int username = 2131099669;

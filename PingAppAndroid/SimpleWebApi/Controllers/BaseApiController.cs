@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using SimpleWebApi.Infrastructure;
 using System.Net.Http;
@@ -10,6 +11,7 @@ namespace SimpleWebApi.Controllers
     {
         private ModelFactory _modelFactory;
         private ApplicationUserManager _AppUserManager = null;
+        private SignInManager<IdentityUser, string> _SignInManager;
 
         protected ApplicationUserManager AppUserManager
         {
@@ -18,7 +20,13 @@ namespace SimpleWebApi.Controllers
                 return _AppUserManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
-
+        protected SignInManager<IdentityUser, string> SignInManager
+        {
+            get
+            {
+                return _SignInManager ?? Request.GetOwinContext().GetUserManager<SignInManager<IdentityUser, string>>();
+            }
+        }
         public BaseApiController()
         {
         }
