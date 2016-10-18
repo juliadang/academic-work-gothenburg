@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
 using Owin;
 using SimpleWebApi.Infrastructure;
 using SimpleWebApi.Models;
+using SimpleWebApi.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +37,18 @@ namespace SimpleWebApi
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
-            // Plugin the OAuth bearer JSON Web Token tokens generation and Consumption will be here
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            {
+                //For Dev enviroment only (on production should be AllowInsecureHttp = false)
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/oauth/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                Provider = new CustomOAuthProvider(),
+                AccessTokenFormat = new CustomJwtFormat("http://pinggothenburg.azurewebsites.net/")
+            };
 
+            // OAuth 2.0 Bearer Access Token Generation
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
         }
 
         private void ConfigureWebApi(HttpConfiguration config)

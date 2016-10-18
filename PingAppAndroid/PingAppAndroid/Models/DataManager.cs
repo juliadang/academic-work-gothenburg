@@ -104,15 +104,16 @@ namespace PingAppAndroid.Models
         {
             HttpClient client = new HttpClient();
 
-            LoginUserBindingModel user = new LoginUserBindingModel
-            {
-                Username = userName,
-                Password = password
-            };
+            //LoginUserBindingModel user = new LoginUserBindingModel
+            //{
+            //    Username = userName,
+            //    Password = password
+            //};
 
             var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/login");
-            var json = JsonConvert.SerializeObject(user);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var grantString = "grant_type=password&username=" + userName + "&password=" + password;
+            var content = new StringContent(grantString, Encoding.UTF8, "application/x-www-form-urlencoded");
 
             HttpResponseMessage response = null;
 

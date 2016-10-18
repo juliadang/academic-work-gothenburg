@@ -13,7 +13,7 @@ namespace SimpleWebApi.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610170827446_InitialCreate"; }
+            get { return "201610180849365_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
