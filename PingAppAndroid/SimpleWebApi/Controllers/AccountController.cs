@@ -60,10 +60,10 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                    break;
+                    //break;
                 default:
                     return InternalServerError();
-                    break;
+                    //break;
             };
         }
 
