@@ -12,7 +12,6 @@ namespace SimpleWebApi.Controllers
         private ModelFactory _modelFactory;
         private ApplicationUserManager _AppUserManager = null;
         private SignInManager<IdentityUser, string> _SignInManager;
-        public ApplicationDbContext _applicationDbContext;
 
         protected ApplicationUserManager AppUserManager
         {
@@ -30,7 +29,6 @@ namespace SimpleWebApi.Controllers
         }
         public BaseApiController()
         {
-            _applicationDbContext = ApplicationDbContext.Create();
         }
 
         protected ModelFactory TheModelFactory

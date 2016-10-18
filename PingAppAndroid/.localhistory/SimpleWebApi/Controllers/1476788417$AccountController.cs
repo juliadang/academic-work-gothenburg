@@ -100,7 +100,7 @@ namespace SimpleWebApi.Controllers
             this._applicationDbContext.friendships.Add(newFriend);
 
             _applicationDbContext.SaveChanges();
-            return Ok();
+            return ;
         }
     }
 }

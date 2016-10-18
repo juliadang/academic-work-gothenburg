@@ -94,13 +94,12 @@ namespace SimpleWebApi.Controllers
         }
 
         [Route("addfriend")]
-        public IHttpActionResult AddFriend(string username1, string username2)
+        public IHttpActionResult AddFriend(string user1, string user2)
         {
-            Friendships newFriend = new Friendships(username1, username2);
-            this._applicationDbContext.friendships.Add(newFriend);
-
-            _applicationDbContext.SaveChanges();
-            return Ok();
+            Friendships newFriend = new Friendships(user1, user2);
+            this._applicationDbContext.friendships 
+            Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)))
+            return ;
         }
     }
 }

@@ -161,7 +161,6 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Infrastructure\Friendships.cs" />
     <Compile Include="Migrations\201610180849365_InitialCreate.cs" />
     <Compile Include="Migrations\201610180849365_InitialCreate.Designer.cs">
       <DependentUpon>201610180849365_InitialCreate.cs</DependentUpon>

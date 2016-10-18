@@ -16,8 +16,6 @@ namespace SimpleWebApi.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
-        ApplicationDbContext _applicationDbContext = ApplicationDbContext.Create();
-
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
@@ -94,13 +92,11 @@ namespace SimpleWebApi.Controllers
         }
 
         [Route("addfriend")]
-        public IHttpActionResult AddFriend(string username1, string username2)
+        public IHttpActionResult AddFriend(string user1, string user2)
         {
-            Friendships newFriend = new Friendships(username1, username2);
-            this._applicationDbContext.friendships.Add(newFriend);
-
-            _applicationDbContext.SaveChanges();
-            return Ok();
+            
+            Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)))
+            return ;
         }
     }
 }
