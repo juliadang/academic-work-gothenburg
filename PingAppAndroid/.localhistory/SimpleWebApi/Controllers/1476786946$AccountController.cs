@@ -16,8 +16,6 @@ namespace SimpleWebApi.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
-        ApplicationDbContext _applicationDbContext = ApplicationDbContext.Create();
-
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
@@ -60,10 +58,10 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                    //break;
+                    break;
                 default:
                     return InternalServerError();
-                    //break;
+                    break;
             };
         }
 
@@ -79,6 +77,10 @@ namespace SimpleWebApi.Controllers
             {
                 UserName = createUserModel.Username,
                 Email = createUserModel.Email
+                //FirstName = createUserModel.FirstName,
+                //LastName = createUserModel.LastName,
+                //Level = 3,
+                //JoinDate = DateTime.Now.Date,
             };
 
             IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
@@ -92,15 +94,50 @@ namespace SimpleWebApi.Controllers
 
             return Created(locationHeader, TheModelFactory.Create(user));
         }
+        #region Bortkommenterad kod
+        //PingdbContext _dbContext;
+        //DatabaseUtils _dm;
+        //public AccountController(PingdbContext context)
+        //{
+        //    _dbContext = context;
+        //    _dm = new DatabaseUtils(context);
+        //    _dbContext.Database.ensurecreated();
+        //}
 
-        [Route("addfriend")]
-        public IHttpActionResult AddFriend(string username1, string username2)
-        {
-            Friendships newFriend = new Friendships(username1, username2);
-            this._applicationDbContext.friendships.Add(newFriend);
+        //DatabaseUtils _dm = new DatabaseUtils(new PingdbContext());
 
-            _applicationDbContext.SaveChanges();
-            return Ok();
-        }
+        //[HttpGet]
+        //public IHttpActionResult Register(string name, string password, string email)
+        //{
+        //    PingUsers user = new PingUsers { Username = name, Password = password, Email = email };
+
+        //    _dm.RegisterUser(user);
+        //    return Ok(JsonConvert.SerializeObject(user));
+        //}
+
+        //public IHttpActionResult Login()
+        //{
+        //    List<PingUsers> users =_dm.GetUsers();
+
+        //    return Ok(JsonConvert.SerializeObject(users));
+        //}
+
+
+        //public IHttpActionResult EditProfile()
+        //{
+
+        //}
+        //public IHttpActionResult GetFriend()
+        //{
+
+        //}
+
+        //public IHttpActionResult AddFriend()
+        //{
+
+        //}
+        //public IHttpActionResult RemoveFriend() 
+        #endregion
+
     }
 }

@@ -60,10 +60,10 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                    //break;
+                    break;
                 default:
                     return InternalServerError();
-                    //break;
+                    break;
             };
         }
 
@@ -94,13 +94,11 @@ namespace SimpleWebApi.Controllers
         }
 
         [Route("addfriend")]
-        public IHttpActionResult AddFriend(string username1, string username2)
+        public IHttpActionResult AddFriend(string user1, string user2)
         {
-            Friendships newFriend = new Friendships(username1, username2);
-            this._applicationDbContext.friendships.Add(newFriend);
-
-            _applicationDbContext.SaveChanges();
-            return Ok();
+            this._applicationDbContext.
+            Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)))
+            return ;
         }
     }
 }

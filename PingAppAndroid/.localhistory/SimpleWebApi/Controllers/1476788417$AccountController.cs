@@ -60,10 +60,10 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                    //break;
+                    break;
                 default:
                     return InternalServerError();
-                    //break;
+                    break;
             };
         }
 
@@ -100,7 +100,7 @@ namespace SimpleWebApi.Controllers
             this._applicationDbContext.friendships.Add(newFriend);
 
             _applicationDbContext.SaveChanges();
-            return Ok();
+            return ;
         }
     }
 }

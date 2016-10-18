@@ -9,8 +9,8 @@ namespace SimpleWebApi.Infrastructure
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Friendships> friendships { get; set; }
-
+        public DbSet<Friendships>
+        public  MyProperty { get; set; }
         public ApplicationDbContext() : base("PingdbContext", throwIfV1Schema: false)
         {
             Configuration.ProxyCreationEnabled = false;
