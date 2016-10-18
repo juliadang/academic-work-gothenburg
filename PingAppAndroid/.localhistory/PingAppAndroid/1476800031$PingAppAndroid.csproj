@@ -74,8 +74,6 @@
     <Compile Include="Models\SetOnFocusChangeListener.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="RegisterActivity.cs" />
-    <Compile Include="Resources\Fragments\Notifications.cs" />
-    <Compile Include="Resources\Fragments\Profile.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />

@@ -26,6 +26,7 @@ namespace PingAppAndroid
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = Attribute.actionBarSize;
 		}
 		
 		public partial class Array
@@ -177,7 +178,7 @@ namespace PingAppAndroid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int FrameLayout = 2130903040;
+			public const int frameLayout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
 			public const int FriendRowView = 2130903041;

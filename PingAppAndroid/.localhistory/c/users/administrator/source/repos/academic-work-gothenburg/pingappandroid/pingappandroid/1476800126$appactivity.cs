@@ -60,17 +60,18 @@ namespace PingAppAndroid
 
             //profile.Click += profile_click;
             //friends.Click += friends_click;
-            //mFilter.ItemSelected += mFilter_selectedItem;
+            mFilter.ItemSelected += mFilter_selectedItem;
 
-            //mPingAdapter = new PingListAdapter(this, mPings);
-            //mPingList.Adapter = mPingAdapter;
+            mPingAdapter = new PingListAdapter(this, mPings);
+            mPingList.Adapter = mPingAdapter;
         }
 
-        void AddTab(string tabText, Fragment view)
+        void AddTab(string tabText, int iconResourceId, Fragment view)
         {
             var tab = this.ActionBar.NewTab();
             tab.SetText(tabText);
-         
+            //tab.SetIcon(Resource.Drawable.ic_tab_white);
+
             // must set event handler before adding tab
 
             tab.TabSelected += delegate (object sender, Android.App.ActionBar.TabEventArgs e)

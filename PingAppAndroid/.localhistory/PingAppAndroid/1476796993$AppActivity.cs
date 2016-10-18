@@ -12,7 +12,7 @@ using Android.Widget;
 using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
-using PingAppAndroid.Resources.Fragments;
+using static Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
@@ -44,13 +44,8 @@ namespace PingAppAndroid
 
             // Create your application here
 
-            SetContentView(Resource.Layout.FrameLayout);
 
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
-            AddTab("Tab 1", new Profile());
-            //AddTab("Tab 2", Resource.Drawable.ic_tab_white, new SampleTabFragment2());
-
-            //if (bundle != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(bundle.GetInt("tab")));
+            SetContentView(Resource.Layout.Notification);
 
             //Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);
             //Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
@@ -64,27 +59,6 @@ namespace PingAppAndroid
 
             //mPingAdapter = new PingListAdapter(this, mPings);
             //mPingList.Adapter = mPingAdapter;
-        }
-
-        void AddTab(string tabText, Fragment view)
-        {
-            var tab = this.ActionBar.NewTab();
-            tab.SetText(tabText);
-         
-            // must set event handler before adding tab
-
-            tab.TabSelected += delegate (object sender, Android.App.ActionBar.TabEventArgs e)
-            {
-                var fragment = this.FragmentManager.FindFragmentById(Resource.Id.frameLayout);
-                if (fragment != null)
-                    e.FragmentTransaction.Remove(fragment);
-                e.FragmentTransaction.Add(Resource.Id.frameLayout, view);
-            };
-            tab.TabUnselected += delegate (object sender, Android.App.ActionBar.TabEventArgs e) {
-                e.FragmentTransaction.Remove(view);
-            };
-
-            this.ActionBar.AddTab(tab);
         }
 
         private void mFilter_selectedItem(object sender, AdapterView.ItemSelectedEventArgs e)

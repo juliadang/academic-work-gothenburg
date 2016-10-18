@@ -60,10 +60,10 @@ namespace PingAppAndroid
 
             //profile.Click += profile_click;
             //friends.Click += friends_click;
-            //mFilter.ItemSelected += mFilter_selectedItem;
+            mFilter.ItemSelected += mFilter_selectedItem;
 
-            //mPingAdapter = new PingListAdapter(this, mPings);
-            //mPingList.Adapter = mPingAdapter;
+            mPingAdapter = new PingListAdapter(this, mPings);
+            mPingList.Adapter = mPingAdapter;
         }
 
         void AddTab(string tabText, Fragment view)

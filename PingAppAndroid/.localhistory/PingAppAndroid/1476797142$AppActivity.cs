@@ -12,7 +12,7 @@ using Android.Widget;
 using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
-using PingAppAndroid.Resources.Fragments;
+using static Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
@@ -44,13 +44,12 @@ namespace PingAppAndroid
 
             // Create your application here
 
-            SetContentView(Resource.Layout.FrameLayout);
+            this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            AddTab("Tab 1", Resource.Drawable.ic_tab_white, new SampleTabFragment());
+            AddTab("Tab 2", Resource.Drawable.ic_tab_white, new SampleTabFragment2());
 
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
-            AddTab("Tab 1", new Profile());
-            //AddTab("Tab 2", Resource.Drawable.ic_tab_white, new SampleTabFragment2());
-
-            //if (bundle != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(bundle.GetInt("tab")));
+            if (bundle != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(bundle.GetInt("tab")));
+            SetContentView(Resource.Layout.Notification);
 
             //Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);
             //Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
@@ -66,11 +65,12 @@ namespace PingAppAndroid
             //mPingList.Adapter = mPingAdapter;
         }
 
-        void AddTab(string tabText, Fragment view)
+        void AddTab(string tabText, int iconResourceId, Fragment view)
         {
             var tab = this.ActionBar.NewTab();
             tab.SetText(tabText);
-         
+            tab.SetIcon(Resource.Drawable.ic_tab_white);
+
             // must set event handler before adding tab
 
             tab.TabSelected += delegate (object sender, Android.App.ActionBar.TabEventArgs e)
