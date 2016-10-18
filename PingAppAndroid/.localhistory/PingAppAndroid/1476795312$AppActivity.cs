@@ -58,35 +58,35 @@ namespace PingAppAndroid
 
             ActionBar.AddTab(notifications);
 
-            //ActionBar.Tab friends = ActionBar.NewTab();
-            //notifications.SetText("Friends");
-            ////  notifications.SetIcon(Resource.Drawable.tab1_icon);
-            //notifications.TabSelected += (sender, args) =>
-            //{
-            //    // Do something when tab is selected
-            //    SetContentView(Resource.Layout.Friends);
-            //    mFriendList = FindViewById<ListView>(Resource.Id.friendList);
-            //    mFriendAdapter = new FriendListAdapter(this, mFriends);
+            ActionBar.Tab friends = ActionBar.NewTab();
+            notifications.SetText("Friends");
+            //  notifications.SetIcon(Resource.Drawable.tab1_icon);
+            notifications.TabSelected += (sender, args) =>
+            {
+                // Do something when tab is selected
+                SetContentView(Resource.Layout.Friends);
+                mFriendList = FindViewById<ListView>(Resource.Id.friendList);
+                mFriendAdapter = new FriendListAdapter(this, mFriends);
 
-            //    mFriendList.Adapter = mFriendAdapter;
+                mFriendList.Adapter = mFriendAdapter;
 
-            //    mSearch = FindViewById<EditText>(Resource.Id.searchbarFriend);
+                mSearch = FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            //    mSearch.TextChanged += mSearch_TextChanged;
-            //};
-            //ActionBar.AddTab(friends);
+                mSearch.TextChanged += mSearch_TextChanged;
+            };
+            ActionBar.AddTab(friends);
 
 
-            //ActionBar.Tab profile = ActionBar.NewTab();
-            //notifications.SetText("Profile");
-            ////  notifications.SetIcon(Resource.Drawable.tab1_icon);
-            //notifications.TabSelected += (sender, args) =>
-            //{
-            //    // Do something when tab is selected
-            //    SetContentView(Resource.Layout.Profile);
+            ActionBar.Tab profile = ActionBar.NewTab();
+            notifications.SetText("Profile");
+            //  notifications.SetIcon(Resource.Drawable.tab1_icon);
+            notifications.TabSelected += (sender, args) =>
+            {
+                // Do something when tab is selected
+                SetContentView(Resource.Layout.Profile);
               
-            //};
-            //ActionBar.AddTab(profile);
+            };
+            ActionBar.AddTab(profile);
 
 
             //Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);

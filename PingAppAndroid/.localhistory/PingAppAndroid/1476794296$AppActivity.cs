@@ -43,60 +43,17 @@ namespace PingAppAndroid
 
             // Create your application here
 
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
-
             SetContentView(Resource.Layout.Notification);
 
-            ActionBar.Tab notifications = ActionBar.NewTab();
-            notifications.SetText("Notifications");
-           // notifications.SetIcon(Resource.Drawable.Icon);
-            notifications.TabSelected += (sender, args) =>
-            {
-                // Do something when tab is selected
-                SetContentView(Resource.Layout.Notification);
-            };
+            Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);
+            Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
+            Button friends = FindViewById<Button>(Resource.Id.FriendListBtn);
+            mPingList = FindViewById<ListView>(Resource.Id.RecentPings);
+            mFilter = FindViewById<Spinner>(Resource.Id.spinner1);
 
-            ActionBar.AddTab(notifications);
-
-            //ActionBar.Tab friends = ActionBar.NewTab();
-            //notifications.SetText("Friends");
-            ////  notifications.SetIcon(Resource.Drawable.tab1_icon);
-            //notifications.TabSelected += (sender, args) =>
-            //{
-            //    // Do something when tab is selected
-            //    SetContentView(Resource.Layout.Friends);
-            //    mFriendList = FindViewById<ListView>(Resource.Id.friendList);
-            //    mFriendAdapter = new FriendListAdapter(this, mFriends);
-
-            //    mFriendList.Adapter = mFriendAdapter;
-
-            //    mSearch = FindViewById<EditText>(Resource.Id.searchbarFriend);
-
-            //    mSearch.TextChanged += mSearch_TextChanged;
-            //};
-            //ActionBar.AddTab(friends);
-
-
-            //ActionBar.Tab profile = ActionBar.NewTab();
-            //notifications.SetText("Profile");
-            ////  notifications.SetIcon(Resource.Drawable.tab1_icon);
-            //notifications.TabSelected += (sender, args) =>
-            //{
-            //    // Do something when tab is selected
-            //    SetContentView(Resource.Layout.Profile);
-              
-            //};
-            //ActionBar.AddTab(profile);
-
-
-            //Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);
-            //Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
-            //Button friends = FindViewById<Button>(Resource.Id.FriendListBtn);
-            //mPingList = FindViewById<ListView>(Resource.Id.RecentPings);
-            //mFilter = FindViewById<Spinner>(Resource.Id.spinner1);
-
-            //profile.Click += profile_click;
-            //friends.Click += friends_click;
+            notification.Click += notification_click;
+            profile.Click += profile_click;
+            friends.Click += friends_click;
             mFilter.ItemSelected += mFilter_selectedItem;
 
             mPingAdapter = new PingListAdapter(this, mPings);
