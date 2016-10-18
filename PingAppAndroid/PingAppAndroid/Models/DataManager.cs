@@ -110,7 +110,7 @@ namespace PingAppAndroid.Models
             //    Password = password
             //};
 
-            var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/login");
+            var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
 
             var grantString = "grant_type=password&username=" + userName + "&password=" + password;
             var content = new StringContent(grantString, Encoding.UTF8, "application/x-www-form-urlencoded");
