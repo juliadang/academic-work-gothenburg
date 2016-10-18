@@ -11,7 +11,6 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using PingAppAndroid.Adapters;
-using PingAppAndroid.Models;
 
 namespace PingAppAndroid.Resources.Fragments
 {
@@ -20,14 +19,6 @@ namespace PingAppAndroid.Resources.Fragments
         ListView mPingList;
         PingListAdapter mPingAdapter;
         Spinner mFilter;
-
-        List<Ping> mPings = new List<Ping>
-        {
-            new Ping { Time = new DateTime(2016, 10, 4, 13, 30, 0), Sender = new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" }, Type = 1},
-            new Ping { Time = new DateTime(2016, 10, 3, 14, 30, 0), Sender = new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" }, Type = 3},
-            new Ping { Time = new DateTime(2015, 10, 4, 15, 19, 0), Sender = new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }, Type = 2}
-        };
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,11 +34,6 @@ namespace PingAppAndroid.Resources.Fragments
             //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
             //sampleTextView.Text = "sample fragment text";
 
-            //Todo: Find resource by ID
-            //mFilter.ItemSelected += mFilter_selectedItem;
-
-            //mPingAdapter = new PingListAdapter(this, mPings);
-            //mPingList.Adapter = mPingAdapter;
             return view;
         }
 
@@ -56,15 +42,15 @@ namespace PingAppAndroid.Resources.Fragments
             string choosenIcon = mFilter.SelectedItem.ToString();
             if (choosenIcon.ToLower() == "filter")
             {
-                //mPingAdapter = new PingListAdapter(this, mPings);
-                //mPingList.Adapter = mPingAdapter;
+                mPingAdapter = new PingListAdapter(this, mPings);
+                mPingList.Adapter = mPingAdapter;
             }
 
             else
             {
                 List<Ping> filteredpings = mPings.Where(p => p.Type.ToString().Contains(choosenIcon, StringComparison.OrdinalIgnoreCase)).ToList();
-                //mPingAdapter = new PingListAdapter(this, filteredpings);
-                //mPingList.Adapter = mPingAdapter;
+                mPingAdapter = new PingListAdapter(this, filteredpings);
+                mPingList.Adapter = mPingAdapter;
                 Console.WriteLine(choosenIcon);
             }
         }

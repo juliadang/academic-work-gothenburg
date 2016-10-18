@@ -33,6 +33,8 @@ namespace PingAppAndroid
             AddTab("Friends", new Friends());
 
             if (savedInstanceState != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
+
+          
         }
 
         void AddTab(string tabText, Fragment view)
@@ -55,5 +57,7 @@ namespace PingAppAndroid
 
             this.ActionBar.AddTab(tab);
         }
+
+      
     }
 }

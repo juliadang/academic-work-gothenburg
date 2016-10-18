@@ -19,6 +19,12 @@ namespace PingAppAndroid
     [Activity(Label = "Ping", Icon = "@drawable/icon")]
     public class AppActivity : Activity
     {
+     
+      
+
+  
+        
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,6 +39,19 @@ namespace PingAppAndroid
             AddTab("Friends", new Friends());
 
             if (savedInstanceState != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
+
+            //Button notification = FindViewById<Button>(Resource.Id.NotificationsBtn);
+            //Button profile = FindViewById<Button>(Resource.Id.ProfileBtn);
+            //Button friends = FindViewById<Button>(Resource.Id.FriendListBtn);
+            //mPingList = FindViewById<ListView>(Resource.Id.RecentPings);
+            //mFilter = FindViewById<Spinner>(Resource.Id.spinner1);
+
+            //profile.Click += profile_click;
+            //friends.Click += friends_click;
+            //mFilter.ItemSelected += mFilter_selectedItem;
+
+            //mPingAdapter = new PingListAdapter(this, mPings);
+            //mPingList.Adapter = mPingAdapter;
         }
 
         void AddTab(string tabText, Fragment view)
@@ -55,5 +74,7 @@ namespace PingAppAndroid
 
             this.ActionBar.AddTab(tab);
         }
+
+      
     }
 }

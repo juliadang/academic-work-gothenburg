@@ -42,9 +42,7 @@ namespace PingAppAndroid.Resources.Fragments
             var view = inflater.Inflate(Resource.Layout.Notification, container, false);
             //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
             //sampleTextView.Text = "sample fragment text";
-
-            //Todo: Find resource by ID
-            //mFilter.ItemSelected += mFilter_selectedItem;
+            mFilter.ItemSelected += mFilter_selectedItem;
 
             //mPingAdapter = new PingListAdapter(this, mPings);
             //mPingList.Adapter = mPingAdapter;
