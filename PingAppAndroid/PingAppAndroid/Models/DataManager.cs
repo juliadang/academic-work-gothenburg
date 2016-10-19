@@ -22,60 +22,7 @@ namespace PingAppAndroid.Models
 {
     static public class DataManager
     {
-        //#region SQLite
-        //static string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-        //public static string createDatabase()
-        //{
-
-        //    try
-        //    {
-        //        var connection = new SQLiteAsyncConnection(path);
-
-        //        connection.CreateTableAsync<User>();
-        //        return "Database created";
-
-        //    }
-
-        //    catch (SQLiteException ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
-        //public static async System.Threading.Tasks.Task<string> insertUpdateData(User data)
-        //{
-        //    try
-        //    {
-        //        var db = new SQLiteAsyncConnection(path);
-        //        if (await db.InsertAsync(data) != 0)
-        //            await db.UpdateAsync(data);
-        //        return "Single data file inserted or updated";
-        //    }
-        //    catch (SQLiteException ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
-
-        //private static int staticfindNumberRecords()
-        //{
-        //    try
-        //    {
-        //        var db = new SQLiteAsyncConnection(path);
-        //        // this counts all records in the database, it can be slow depending on the size of the database
-        //        var count = Convert.ToInt32(db.ExecuteScalarAsync<int>("SELECT Count(*) FROM User"));
-
-        //        // for a non-parameterless query
-        //        // var count = db.ExecuteScalar<int>("SELECT Count(*) FROM Person WHERE FirstName="Amy");
-
-        //        return count;
-        //    }
-        //    catch (SQLiteException)
-        //    {
-        //        return -1;
-        //    }
-        //} 
-        //#endregion
-
+        static HttpClient client = new HttpClient();
 
         static public bool Register(string url)
         {
@@ -100,16 +47,28 @@ namespace PingAppAndroid.Models
                 //}
         }
 
+        internal static async Task<bool> AddFriend(string username2)
+        {
+            var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
+
+            var content = new StringContent(username2, Encoding.UTF8);
+
+            HttpResponseMessage response = null;
+
+            response = await client.PostAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         internal static async Task<bool> SignIn(string userName, string password)
         {
-            HttpClient client = new HttpClient();
-
-            //LoginUserBindingModel user = new LoginUserBindingModel
-            //{
-            //    Username = userName,
-            //    Password = password
-            //};
-
             var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
 
             var grantString = "grant_type=password&username=" + userName + "&password=" + password;

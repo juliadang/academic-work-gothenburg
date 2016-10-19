@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace SimpleWebApi.Infrastructure
+﻿namespace SimpleWebApi.Infrastructure
 {
     public class Friendships
     {
@@ -9,8 +7,6 @@ namespace SimpleWebApi.Infrastructure
             Username1 = username1;
             Username2 = username2;
         }
-
-        [Key]
         public int FriendshipId { get; set; }
         public string Username1 { get; set; }
         public string Username2 { get; set; }

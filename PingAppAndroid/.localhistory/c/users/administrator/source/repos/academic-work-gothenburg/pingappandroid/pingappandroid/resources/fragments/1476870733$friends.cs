@@ -44,13 +44,13 @@ namespace PingAppAndroid.Resources.Fragments
 
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
           
-            //mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
+            mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            //mSearch.TextChanged += mSearch_TextChanged;
+            mSearch.TextChanged += mSearch_TextChanged;
 
-            //buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
+            buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
 
-            //buttonAddFriend.Click += buttonAddFriend_AddFriend;
+            buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
 
             return view;

@@ -93,11 +93,9 @@ namespace SimpleWebApi.Controllers
             return Created(locationHeader, TheModelFactory.Create(user));
         }
 
-        [Authorize]
         [Route("addfriend")]
-        public IHttpActionResult AddFriend(string username2)
+        public IHttpActionResult AddFriend(string username1, string username2)
         {
-            string username1 = User.Identity.Name;
             Friendships newFriend = new Friendships(username1, username2);
             this._applicationDbContext.friendships.Add(newFriend);
 

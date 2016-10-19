@@ -43,31 +43,21 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
-          
-            //mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
+            //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
+            //sampleTextView.Text = "sample fragment text";
+            mFriendList = View.FindViewById<ListView>(Resource.Id.friendList);
+            //   mFriendAdapter = new FriendListAdapter(this, mFriends);
 
-            //mSearch.TextChanged += mSearch_TextChanged;
+            //mFriendList.Adapter = mFriendAdapter;
 
-            //buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
+            mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            //buttonAddFriend.Click += buttonAddFriend_AddFriend;
+            mSearch.TextChanged += mSearch_TextChanged;
+
+            buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
 
 
             return view;
-        }
-
-        private async void buttonAddFriend_AddFriend(object sender, EventArgs e)
-        {
-            string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
-
-            bool succeeded;
-            succeeded = await DataManager.AddFriend(username2);
-
-            var context = this.Activity;
-            if (succeeded)
-            {
-                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
-            }
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -78,6 +68,15 @@ namespace PingAppAndroid.Resources.Fragments
 
             // mFriendAdapter = new FriendListAdapter(this, searchedFriends);
             // mFriendList.Adapter = mFriendAdapter;
+        }
+
+        private async void addFriend(object sender, TextChangedEventArgs e)
+        {
+            string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
+
+            bool succeeded;
+            succeeded = await DataManager.AddFriend(username2);
+
         }
     }
 }

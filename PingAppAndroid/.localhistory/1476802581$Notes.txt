@@ -1,11 +1,6 @@
-Todo:
-- Add friend-funktion
-- Display all friends
-- Searchbar som kan söka genom hela databasen
-
 http://pinggothenburg.azurewebsites.net
 
-Om man ska logga in
+Om man ska loga in
 Content-type: application/x-www-form-urlencoded
 grant_type=password&username=TL&password=hejsan123
 

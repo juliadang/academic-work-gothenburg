@@ -43,14 +43,20 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
-          
-            //mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
+            //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
+            //sampleTextView.Text = "sample fragment text";
+            mFriendList = View.FindViewById<ListView>(Resource.Id.friendList);
+            //   mFriendAdapter = new FriendListAdapter(this, mFriends);
 
-            //mSearch.TextChanged += mSearch_TextChanged;
+            //mFriendList.Adapter = mFriendAdapter;
 
-            //buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
+            mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            //buttonAddFriend.Click += buttonAddFriend_AddFriend;
+            mSearch.TextChanged += mSearch_TextChanged;
+
+            buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
+
+            buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
 
             return view;
@@ -63,10 +69,9 @@ namespace PingAppAndroid.Resources.Fragments
             bool succeeded;
             succeeded = await DataManager.AddFriend(username2);
 
-            var context = this.Activity;
             if (succeeded)
             {
-                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+                AlertDialog.Builder("Friend added");
             }
         }
 
