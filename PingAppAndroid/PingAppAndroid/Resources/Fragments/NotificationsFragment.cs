@@ -15,7 +15,7 @@ using PingAppAndroid.Models;
 
 namespace PingAppAndroid.Resources.Fragments
 {
-    public class Notifications : Fragment
+    public class NotificationsFragment : Fragment
     {
         ListView mPingList;
         PingListAdapter mPingAdapter;

@@ -49,7 +49,8 @@ namespace PingAppAndroid.Models
 
         internal static async Task<bool> AddFriend(string username2)
         {
-            var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
+           // var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/addfriend");
+            var uri = new Uri("http://localhost:11014/api/accounts/addfriend");
 
             var content = new StringContent(username2, Encoding.UTF8);
 
@@ -64,12 +65,16 @@ namespace PingAppAndroid.Models
             else
             {
                 return false;
+
+
+
             }
         }
 
         internal static async Task<bool> SignIn(string userName, string password)
         {
-            var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
+            //var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
+            var uri = new Uri("http://localhost:11014/oauth/token");
 
             var grantString = "grant_type=password&username=" + userName + "&password=" + password;
             var content = new StringContent(grantString, Encoding.UTF8, "application/x-www-form-urlencoded");

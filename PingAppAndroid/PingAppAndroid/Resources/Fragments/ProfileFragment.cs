@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace PingAppAndroid.Resources.Fragments
 {
-    public class Profile : Fragment
+    public class ProfileFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {

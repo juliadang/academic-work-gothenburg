@@ -19,7 +19,7 @@ namespace PingAppAndroid.Resources.Fragments
 {
     //Todo: När man klickar på friends kraschar det
     //FindViewById...
-    public class Friends : Fragment
+    public class FriendsFragment : Fragment
     {
         EditText mSearch;
         FriendListAdapter mFriendAdapter;
@@ -43,14 +43,12 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
-          
-            //mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            //mSearch.TextChanged += mSearch_TextChanged;
+            mSearch = view.FindViewById<EditText>(Resource.Id.searchbarFriend);
+            buttonAddFriend = view.FindViewById<Button>(Resource.Id.buttonAddFriend);
 
-            //buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
-
-            //buttonAddFriend.Click += buttonAddFriend_AddFriend;
+            mSearch.TextChanged += mSearch_TextChanged;
+            buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
 
             return view;
@@ -58,16 +56,16 @@ namespace PingAppAndroid.Resources.Fragments
 
         private async void buttonAddFriend_AddFriend(object sender, EventArgs e)
         {
-            string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
+            //string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
 
-            bool succeeded;
-            succeeded = await DataManager.AddFriend(username2);
+            //bool succeeded;
+            ////succeeded = await DataManager.AddFriend(username2);
 
-            var context = this.Activity;
-            if (succeeded)
-            {
-                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
-            }
+            //var context = this.Activity;
+            //if (succeeded)
+            //{
+            //    new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+            //}
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)

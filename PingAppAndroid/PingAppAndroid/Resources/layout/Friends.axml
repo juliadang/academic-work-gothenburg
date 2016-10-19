@@ -12,14 +12,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <EditText
-        android:id="@+id/searchbarFriend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_style"
-        android:hint="search"
-        android:textColor="#000000" />
+        android:id="@+id/searchbarFriend"
+        android:hint="search" />
     <Button
-        android:text="Add Friend"
+        android:text="Add friend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonAddFriend" />

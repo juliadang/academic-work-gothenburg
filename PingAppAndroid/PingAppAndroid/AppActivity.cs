@@ -28,9 +28,9 @@ namespace PingAppAndroid
             SetContentView(Resource.Layout.FrameLayout);
 
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
-            AddTab("Notifications", new Notifications());
-            AddTab("Profile", new Profile());
-            AddTab("Friends", new Friends());
+            AddTab("Notifications", new NotificationsFragment());
+            AddTab("Profile", new ProfileFragment());
+            AddTab("Friends", new FriendsFragment());
 
             if (savedInstanceState != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
         }
