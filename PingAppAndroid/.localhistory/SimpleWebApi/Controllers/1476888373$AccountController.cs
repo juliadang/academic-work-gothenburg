@@ -122,6 +122,9 @@ namespace SimpleWebApi.Controllers
                     return Ok("You are already friends");
                 }
             }
+
+
+            
         }
     }
 }

@@ -58,12 +58,14 @@ namespace PingAppAndroid.Resources.Fragments
         {
             string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
 
-            string response;
-            response = await DataManager.AddFriend(username2);
+            string succeeded;
+            succeeded = await DataManager.AddFriend(username2);
 
             var context = this.Activity;
-            new AlertDialog.Builder(context).SetMessage(response).Show();
-
+            if (succeeded)
+            {
+                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+            }
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)

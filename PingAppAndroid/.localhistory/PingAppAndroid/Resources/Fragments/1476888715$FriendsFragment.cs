@@ -56,14 +56,16 @@ namespace PingAppAndroid.Resources.Fragments
 
         private async void buttonAddFriend_AddFriend(object sender, EventArgs e)
         {
-            string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
+            //string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
 
-            string response;
-            response = await DataManager.AddFriend(username2);
+            //bool succeeded;
+            ////succeeded = await DataManager.AddFriend(username2);
 
-            var context = this.Activity;
-            new AlertDialog.Builder(context).SetMessage(response).Show();
-
+            //var context = this.Activity;
+            //if (succeeded)
+            //{
+            //    new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+            //}
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)

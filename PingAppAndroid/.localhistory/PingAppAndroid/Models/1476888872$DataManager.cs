@@ -47,7 +47,7 @@ namespace PingAppAndroid.Models
                 //}
         }
 
-        internal static async Task<string> AddFriend(string username2)
+        internal static async Task<bool> AddFriend(string username2)
         {
            // var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/addfriend");
             var uri = new Uri("http://localhost:11014/api/accounts/addfriend");
@@ -60,11 +60,14 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
-                return response.Content.ToString();
+                return true;
             }
             else
             {
-                return "Connection fail";
+                return false;
+
+
+
             }
         }
 

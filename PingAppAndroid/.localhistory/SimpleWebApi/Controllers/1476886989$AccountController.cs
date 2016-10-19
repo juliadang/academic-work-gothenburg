@@ -18,6 +18,7 @@ namespace SimpleWebApi.Controllers
     {
         ApplicationDbContext _applicationDbContext = ApplicationDbContext.Create();
 
+        [Authorize]
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
@@ -60,7 +61,7 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                //break;
+                    //break;
                 default:
                     return InternalServerError();
                     //break;
@@ -99,29 +100,11 @@ namespace SimpleWebApi.Controllers
         public IHttpActionResult AddFriend(string username2)
         {
             string username1 = User.Identity.Name;
+            //Friendships newFriend = new Friendships(username1, username2);
+            //this._applicationDbContext.friendships.Add(newFriend);
 
-            var alreadyFriend = _applicationDbContext.Users.SingleOrDefault(f => f.UserName == username2);
-
-            if (alreadyFriend == null)
-            {
-                return Ok("The user does not exist");
-            }
-            else
-            {
-                var friendList = _applicationDbContext.Friendships.Where(friendship => friendship.Username1 == User.Identity.Name && friendship.Username2 == username2);
-
-                if (friendList == null)
-                {
-                    Friendships newFriend = new Friendships(username1, username2);
-                    this._applicationDbContext.Friendships.Add(newFriend);
-                    _applicationDbContext.SaveChanges();
-                    return Ok("Friend added");
-                }
-                else
-                {
-                    return Ok("You are already friends");
-                }
-            }
+            //_applicationDbContext.SaveChanges();
+            return Ok();
         }
     }
 }

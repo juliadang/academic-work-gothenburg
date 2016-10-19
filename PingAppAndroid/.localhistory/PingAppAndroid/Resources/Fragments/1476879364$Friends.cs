@@ -19,7 +19,7 @@ namespace PingAppAndroid.Resources.Fragments
 {
     //Todo: När man klickar på friends kraschar det
     //FindViewById...
-    public class FriendsFragment : Fragment
+    public class Friends : Fragment
     {
         EditText mSearch;
         FriendListAdapter mFriendAdapter;
@@ -43,12 +43,14 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
+          
+            //mSearch = View.FindViewById<EditText>(Resource.Id.searchbarFriend);
 
-            mSearch = view.FindViewById<EditText>(Resource.Id.searchbarFriend);
-            buttonAddFriend = view.FindViewById<Button>(Resource.Id.buttonAddFriend);
+            //mSearch.TextChanged += mSearch_TextChanged;
 
-            mSearch.TextChanged += mSearch_TextChanged;
-            buttonAddFriend.Click += buttonAddFriend_AddFriend;
+            //buttonAddFriend = View.FindViewById<Button>(Resource.Id.buttonAddFriend);
+
+            //buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
 
             return view;
@@ -58,12 +60,14 @@ namespace PingAppAndroid.Resources.Fragments
         {
             string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
 
-            string response;
-            response = await DataManager.AddFriend(username2);
+            bool succeeded;
+            succeeded = await DataManager.AddFriend(username2);
 
             var context = this.Activity;
-            new AlertDialog.Builder(context).SetMessage(response).Show();
-
+            if (succeeded)
+            {
+                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+            }
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)

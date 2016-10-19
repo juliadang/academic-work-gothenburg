@@ -67,7 +67,7 @@ namespace SimpleWebApi
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = "http://pinggothenburg.azurewebsites.net/";
+            var issuer = "http://pinggothenburg.azurewebsites.net";
             string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
             byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 
@@ -77,10 +77,10 @@ namespace SimpleWebApi
                 {
                     AuthenticationMode = AuthenticationMode.Active,
                     AllowedAudiences = new[] { audienceId },
-                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
-                    {
-                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
-                    }
+                    //IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    //{
+                    //    new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
+                    //}
                 });
         }
     }

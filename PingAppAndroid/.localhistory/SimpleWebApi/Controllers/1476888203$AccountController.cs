@@ -60,7 +60,7 @@ namespace SimpleWebApi.Controllers
             {
                 case SignInStatus.Success:
                     return Ok();
-                //break;
+                    //break;
                 default:
                     return InternalServerError();
                     //break;
@@ -104,24 +104,18 @@ namespace SimpleWebApi.Controllers
 
             if (alreadyFriend == null)
             {
-                return Ok("The user does not exist");
+                return Ok(false);
             }
             else
             {
-                var friendList = _applicationDbContext.Friendships.Where(friendship => friendship.Username1 == User.Identity.Name && friendship.Username2 == username2);
+                var friendList = _applicationDbContext.Friendships.Where(friendship => friendship.Username1 == User.Identity.Name && friendship.Username2 == username2).ToList();
 
-                if (friendList == null)
-                {
-                    Friendships newFriend = new Friendships(username1, username2);
-                    this._applicationDbContext.Friendships.Add(newFriend);
-                    _applicationDbContext.SaveChanges();
-                    return Ok("Friend added");
-                }
-                else
-                {
-                    return Ok("You are already friends");
-                }
             }
+            Friendships newFriend = new Friendships(username1, username2);
+            this._applicationDbContext.Friendships.Add(newFriend);
+
+            _applicationDbContext.SaveChanges();
+            return Ok("Friend added");
         }
     }
 }

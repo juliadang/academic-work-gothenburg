@@ -1,7 +1,4 @@
 ﻿using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.DataHandler.Encoder;
-using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
@@ -27,7 +24,6 @@ namespace SimpleWebApi
             HttpConfiguration httpConfig = new HttpConfiguration();
 
             ConfigureOAuthTokenGeneration(app);
-            ConfigureOAuthTokenConsumption(app);
 
             ConfigureWebApi(httpConfig);
 
@@ -67,7 +63,7 @@ namespace SimpleWebApi
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = "http://pinggothenburg.azurewebsites.net/";
+            var issuer = "http://pinggothenburg.azurewebsites.net";
             string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
             byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 

@@ -62,8 +62,10 @@ namespace PingAppAndroid.Resources.Fragments
             response = await DataManager.AddFriend(username2);
 
             var context = this.Activity;
-            new AlertDialog.Builder(context).SetMessage(response).Show();
-
+            if (response)
+            {
+                new AlertDialog.Builder(context).SetMessage("Friend added").Show();
+            }
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)
