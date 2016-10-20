@@ -45,6 +45,7 @@ namespace PingAppAndroid
             {
                 Intent index = new Intent(this, typeof(AppActivity));
                 StartActivity(index);
+                this.Finish();
             }
             else
             {

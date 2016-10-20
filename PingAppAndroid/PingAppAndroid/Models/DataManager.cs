@@ -17,15 +17,20 @@ using Org.Json;
 using System.Net.Http;
 using SimpleWebApi.Models;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace PingAppAndroid.Models
 {
     static public class DataManager
     {
+        static ISharedPreferences prefs = Application.Context.GetSharedPreferences("token", FileCreationMode.Private);
+        static ISharedPreferencesEditor editor = prefs.Edit();
+
         static HttpClient client = new HttpClient();
 
         static public bool Register(string url)
         {
+            
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
             request.Method = "GET";
@@ -49,10 +54,14 @@ namespace PingAppAndroid.Models
 
         internal static async Task<string> AddFriend(string username2)
         {
-            var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/addfriend");
-            //var uri = new Uri("http://localhost:11014/api/accounts/addfriend");
+            string api = "http://pinggothenburg.azurewebsites.net/api/accounts/add/";
+            api += username2;
+            var uri = new Uri(api);
+            //var uri = new Uri(api);
 
-            var content = new StringContent(username2, Encoding.UTF8);
+            var content = new StringContent("", Encoding.UTF8);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", prefs.GetString("token", ""));
+            //content.Headers.Add("Authorization", "Bearer " + prefs.GetString("token", "Doesn't exist"));
 
             HttpResponseMessage response = null;
 
@@ -60,7 +69,9 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
-                return response.Content.ToString();
+                var test = await response.Content.ReadAsStringAsync();
+                var test1 = test.ToString();
+                return test;
             }
             else
             {
@@ -82,6 +93,10 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
+                string receive = await response.Content.ReadAsStringAsync();
+                var jwt = JsonConvert.DeserializeObject<JWTObj>(receive);
+                editor.PutString("token", jwt.Access_token);
+                editor.Apply();
                 return true;
             }
             else

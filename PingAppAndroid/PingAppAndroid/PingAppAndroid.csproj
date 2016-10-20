@@ -68,6 +68,7 @@
     <Compile Include="ExtMethods.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Friend.cs" />
+    <Compile Include="Models\JWTObj.cs" />
     <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
     <Compile Include="MainActivity.cs" />
