@@ -27,9 +27,16 @@ namespace PingAppAndroid
             EditText confirmpassword = FindViewById<EditText>(Resource.Id.confirmpassword);
             EditText email = FindViewById<EditText>(Resource.Id.email);
             Button submit = FindViewById<Button>(Resource.Id.buttonSubmit);
-        
+
+            // String[] permissions = { Manifest.Permission.WriteExternalStorage };
+            //    RequestPermissions(permissions, WriteRequestCode);
+
+            if (username.Text.Length == 0)
+                username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
+
             submit.Click += async (sender, e) =>
             {
+
                 CreateUserBindingModel user = new CreateUserBindingModel
                 {
                     Username = username.Text,
@@ -49,15 +56,55 @@ namespace PingAppAndroid
                 response = await client.PostAsync(uri, content);
 
                 if (response.IsSuccessStatusCode)
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
+                }
                 else 
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
+                }
 
                 username.Text = "";
                 password.Text = "";
                 confirmpassword.Text = "";
                 email.Text = "";
+                //new AlertDialog.Builder(this).SetMessage(uri.ToString()).Show();
             };
+        }
+
+        void client_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        {
+            //Activity.RunOnUiThread(() =>
+            //{
+            //    var id = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(e.Result)); //Get the data echo backed from PHP
+
+            //if (OnCreateContact != null)
+            //{
+            //    //Broadcast event
+            //    OnCreateContact.Invoke(this, new CreateContactEventArgs(txtName.Text, txtNumber.Text));
+            //}
+
+            //mProgressBar.Visibility = ViewStates.Invisible;
+            //this.Dismiss();
+            //});
+
+        }
+    }
+    public class CreateContactEventArgs : EventArgs
+    {
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public bool IsCreated { get; set; }
+
+        public CreateContactEventArgs(int id, string username, string password, string email, bool isCreated)
+        {
+            ID = id;
+            Username = username;
+            Password = password;
+            Email = email;
+            IsCreated = isCreated;
         }
     }
 }

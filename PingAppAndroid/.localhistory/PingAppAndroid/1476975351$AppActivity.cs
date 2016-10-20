@@ -13,7 +13,6 @@ using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
 using PingAppAndroid.Resources.Fragments;
-using ActionBar = Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
@@ -30,7 +29,6 @@ namespace PingAppAndroid
             AddTab("Profile", new ProfileFragment());
             AddTab("Friends", new FriendsFragment());
 
-            //SavedInstanceState gör så att man kan se alla tabbar
             if (savedInstanceState != null) ActionBar.SelectTab(ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
         }
 
@@ -41,18 +39,18 @@ namespace PingAppAndroid
          
             // must set event handler before adding tab
 
-            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
+            tab.TabSelected += delegate (object sender, Android.App.ActionBar.TabEventArgs e)
             {
                 var fragment = this.FragmentManager.FindFragmentById(Resource.Id.frameLayout);
                 if (fragment != null)
                     e.FragmentTransaction.Remove(fragment);
                 e.FragmentTransaction.Add(Resource.Id.frameLayout, view);
             };
-            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e) {
+            tab.TabUnselected += delegate (object sender, Android.App.ActionBar.TabEventArgs e) {
                 e.FragmentTransaction.Remove(view);
             };
 
-            ActionBar.AddTab(tab);
+            this.ActionBar.AddTab(tab);
         }
     }
 }

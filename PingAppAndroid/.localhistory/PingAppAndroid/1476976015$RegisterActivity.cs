@@ -30,6 +30,7 @@ namespace PingAppAndroid
         
             submit.Click += async (sender, e) =>
             {
+
                 CreateUserBindingModel user = new CreateUserBindingModel
                 {
                     Username = username.Text,
@@ -49,9 +50,13 @@ namespace PingAppAndroid
                 response = await client.PostAsync(uri, content);
 
                 if (response.IsSuccessStatusCode)
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
+                }
                 else 
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
+                }
 
                 username.Text = "";
                 password.Text = "";

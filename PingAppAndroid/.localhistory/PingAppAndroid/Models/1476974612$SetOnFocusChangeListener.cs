@@ -23,7 +23,6 @@ namespace PingAppAndroid.Models
             }
         }
 
-        //Todo: Behöver vi denna?
         public void Dispose()
         {
             throw new NotImplementedException();

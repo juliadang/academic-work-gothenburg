@@ -18,10 +18,9 @@ namespace PingAppAndroid.Adapters
         //Todo: Returna listOfFriends
         public List<string> Friends;
         private Context Context;
-        public FriendListAdapter(Activity context, List<string> friends) : base()
-        {
-            Context = context;
-            Friends = friends;
+        public FriendListAdapter(Activity context, List<string> friends) : base() {
+            this.Context = context;
+            this.Friends = friends;
         }
         public override long GetItemId(int position)
         {
@@ -43,8 +42,8 @@ namespace PingAppAndroid.Adapters
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
             txtName.Text = Friends[position];
-            //Todo: Lägg till bild?
-            //Todo: Anpassa search med knapp ikoner för lägg till/block/etc.
+            //TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
+            //txtLastName.Text = Friends[position];
             return view;
         }
     }

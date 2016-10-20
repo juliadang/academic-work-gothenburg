@@ -18,6 +18,8 @@ namespace PingAppAndroid.Resources.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -25,7 +27,6 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Profile, container, false);
-            //Lägg till funktioner för knapparna Settings/Log out m.m.
             //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
             //sampleTextView.Text = "sample fragment text";
 

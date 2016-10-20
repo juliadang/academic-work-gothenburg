@@ -42,15 +42,21 @@ namespace PingAppAndroid.Models
             var uri = new Uri(api);
 
             var content = new StringContent("", Encoding.UTF8);
-            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", "")); //Save to shared preferences
+            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", ""));
 
             var response = await mClient.GetAsync(uri);
 
+            //if (response.IsSuccessStatusCode)
+            //{
             var jsonFriendlist = await response.Content.ReadAsStringAsync();
             mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
+            //    return friendlist;
+            //}
+            //else
+            //    return "Connection failed";
         }
 
-        internal static async Task<string> AddFriendAsync(string username2)
+        internal static async Task<string> AddFriend(string username2)
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/add/";
             api += username2;
@@ -64,12 +70,18 @@ namespace PingAppAndroid.Models
             response = await mClient.PostAsync(uri, content);
 
             if (response.IsSuccessStatusCode)
-                return await response.Content.ReadAsStringAsync();
+            {
+                var test = await response.Content.ReadAsStringAsync();
+                var test1 = test.ToString();
+                return test;
+            }
             else
+            {
                 return "Connection fail";
+            }
         }
 
-        internal static async Task<bool> SignInAsync(string userName, string password)
+        internal static async Task<bool> SignIn(string userName, string password)
         {
             var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
             //var uri = new Uri("http://localhost:11014/oauth/token");
@@ -83,14 +95,16 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
-                string token = await response.Content.ReadAsStringAsync();
-                var jwt = JsonConvert.DeserializeObject<JWTObj>(token);
+                string receive = await response.Content.ReadAsStringAsync();
+                var jwt = JsonConvert.DeserializeObject<JWTObj>(receive);
                 mEditor.PutString("token", jwt.Access_token);
                 mEditor.Apply();
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
     }
 }

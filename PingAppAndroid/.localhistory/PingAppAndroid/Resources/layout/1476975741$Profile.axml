@@ -9,13 +9,13 @@
         android:contentDescription="@string/UserName"
         android:src="@drawable/Icon" />
     <Button
-        android:id="@+id/buttonSignOut"
+        android:id="@+id/LogOutBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SignOut" />
+        android:text="@string/LogOutBtn" />
     <Button
         android:id="@+id/Settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="buttonSettings" />
+        android:text="@string/Settings" />
 </LinearLayout>

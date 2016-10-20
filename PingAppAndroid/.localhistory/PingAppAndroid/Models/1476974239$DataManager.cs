@@ -64,12 +64,18 @@ namespace PingAppAndroid.Models
             response = await mClient.PostAsync(uri, content);
 
             if (response.IsSuccessStatusCode)
-                return await response.Content.ReadAsStringAsync();
+            {
+                var test = await response.Content.ReadAsStringAsync();
+                var test1 = test.ToString();
+                return test;
+            }
             else
+            {
                 return "Connection fail";
+            }
         }
 
-        internal static async Task<bool> SignInAsync(string userName, string password)
+        internal static async Task<bool> SignIn(string userName, string password)
         {
             var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");
             //var uri = new Uri("http://localhost:11014/oauth/token");
@@ -83,14 +89,16 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
-                string token = await response.Content.ReadAsStringAsync();
-                var jwt = JsonConvert.DeserializeObject<JWTObj>(token);
+                string receive = await response.Content.ReadAsStringAsync();
+                var jwt = JsonConvert.DeserializeObject<JWTObj>(receive);
                 mEditor.PutString("token", jwt.Access_token);
                 mEditor.Apply();
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
     }
 }

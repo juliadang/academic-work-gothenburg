@@ -59,11 +59,11 @@ namespace PingAppAndroid.Resources.Fragments
 
             var context = this.Activity;
             new AlertDialog.Builder(context).SetMessage(response).Show();
+
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Todo: Fixa searchfunktion
             //List<Friend> searchedFriends = mFriends.Where(f => f.UserName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
             //                                                || f.FirstName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
             //                                                || f.LastName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)).ToList();

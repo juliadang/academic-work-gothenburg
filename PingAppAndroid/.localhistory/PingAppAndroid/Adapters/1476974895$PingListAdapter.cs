@@ -18,8 +18,8 @@ namespace PingAppAndroid.Adapters
         public List<Ping> Pings;
         private Context Context;
         public PingListAdapter(Activity context, List<Ping> pings) : base() {
-            Context = context;
-            Pings = pings;
+            this.Context = context;
+            this.Pings = pings;
         }
         public override long GetItemId(int position)
         {

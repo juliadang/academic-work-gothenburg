@@ -27,9 +27,13 @@ namespace PingAppAndroid
             EditText confirmpassword = FindViewById<EditText>(Resource.Id.confirmpassword);
             EditText email = FindViewById<EditText>(Resource.Id.email);
             Button submit = FindViewById<Button>(Resource.Id.buttonSubmit);
-        
+
+            if (username.Text.Length == 0)
+                username.SetError(new Java.Lang.String("Username Required"), GetDrawable(Resource.Drawable.Icon));
+
             submit.Click += async (sender, e) =>
             {
+
                 CreateUserBindingModel user = new CreateUserBindingModel
                 {
                     Username = username.Text,
@@ -49,9 +53,13 @@ namespace PingAppAndroid
                 response = await client.PostAsync(uri, content);
 
                 if (response.IsSuccessStatusCode)
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
+                }
                 else 
+                {
                     new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
+                }
 
                 username.Text = "";
                 password.Text = "";

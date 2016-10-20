@@ -71,7 +71,7 @@
     <Compile Include="Models\JWTObj.cs" />
     <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
-    <Compile Include="LoginRegisterActivity.cs" />
+    <Compile Include="MainActivity.cs" />
     <Compile Include="Models\SetOnFocusChangeListener.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Fragments\FriendsFragment.cs" />
@@ -108,7 +108,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\LoginRegister.axml">
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

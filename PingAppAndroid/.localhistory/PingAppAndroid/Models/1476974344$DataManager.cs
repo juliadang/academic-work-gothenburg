@@ -83,14 +83,16 @@ namespace PingAppAndroid.Models
 
             if (response.IsSuccessStatusCode)
             {
-                string token = await response.Content.ReadAsStringAsync();
-                var jwt = JsonConvert.DeserializeObject<JWTObj>(token);
+                string receive = await response.Content.ReadAsStringAsync();
+                var jwt = JsonConvert.DeserializeObject<JWTObj>(receive);
                 mEditor.PutString("token", jwt.Access_token);
                 mEditor.Apply();
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
     }
 }

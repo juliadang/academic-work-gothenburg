@@ -22,9 +22,15 @@ namespace PingAppAndroid.Resources.Fragments
     {
         EditText mSearch;
         FriendListAdapter mFriendAdapter;
-        Button mButtonAddFriend;
+        Button buttonAddFriend;
         ListView mFriendList;
-    
+
+        //List<Friend> mFriends = new List<Friend> {
+        //    new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" },
+        //    new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" },
+        //    new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }
+        //};
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,10 +43,10 @@ namespace PingAppAndroid.Resources.Fragments
             var view = inflater.Inflate(Resource.Layout.Friends, container, false);
 
             mSearch = view.FindViewById<EditText>(Resource.Id.searchbarFriend);
-            mButtonAddFriend = view.FindViewById<Button>(Resource.Id.buttonAddFriend);
+            buttonAddFriend = view.FindViewById<Button>(Resource.Id.buttonAddFriend);
 
             mSearch.TextChanged += mSearch_TextChanged;
-            mButtonAddFriend.Click += buttonAddFriend_AddFriend;
+            buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
             List<string> friendlist = DataManager.GetAllFriends();
             mFriendList = view.FindViewById<ListView>(Resource.Id.friendList);
@@ -55,15 +61,15 @@ namespace PingAppAndroid.Resources.Fragments
             string username2 = View.FindViewById<EditText>(Resource.Id.searchbarFriend).Text;
 
             string response;
-            response = await DataManager.AddFriendAsync(username2);
+            response = await DataManager.Async(username2);
 
             var context = this.Activity;
             new AlertDialog.Builder(context).SetMessage(response).Show();
+
         }
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Todo: Fixa searchfunktion
             //List<Friend> searchedFriends = mFriends.Where(f => f.UserName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
             //                                                || f.FirstName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
             //                                                || f.LastName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)).ToList();

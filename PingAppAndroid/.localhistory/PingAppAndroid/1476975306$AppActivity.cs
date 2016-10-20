@@ -13,7 +13,6 @@ using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
 using PingAppAndroid.Resources.Fragments;
-using ActionBar = Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
@@ -23,6 +22,9 @@ namespace PingAppAndroid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // Create your application here
+
             SetContentView(Resource.Layout.FrameLayout);
 
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
@@ -30,8 +32,7 @@ namespace PingAppAndroid
             AddTab("Profile", new ProfileFragment());
             AddTab("Friends", new FriendsFragment());
 
-            //SavedInstanceState gör så att man kan se alla tabbar
-            if (savedInstanceState != null) ActionBar.SelectTab(ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
+            if (savedInstanceState != null) this.ActionBar.SelectTab(this.ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
         }
 
         void AddTab(string tabText, Fragment view)
@@ -41,18 +42,18 @@ namespace PingAppAndroid
          
             // must set event handler before adding tab
 
-            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
+            tab.TabSelected += delegate (object sender, Android.App.ActionBar.TabEventArgs e)
             {
                 var fragment = this.FragmentManager.FindFragmentById(Resource.Id.frameLayout);
                 if (fragment != null)
                     e.FragmentTransaction.Remove(fragment);
                 e.FragmentTransaction.Add(Resource.Id.frameLayout, view);
             };
-            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e) {
+            tab.TabUnselected += delegate (object sender, Android.App.ActionBar.TabEventArgs e) {
                 e.FragmentTransaction.Remove(view);
             };
 
-            ActionBar.AddTab(tab);
+            this.ActionBar.AddTab(tab);
         }
     }
 }

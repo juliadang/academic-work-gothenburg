@@ -11,7 +11,7 @@
         android:backgroundTint="#D11F08"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/filters" />
+        android:id="@+id/spinner1" />
     <ListView
         android:id="@+id/RecentPings"
         android:minWidth="25px"

@@ -2,13 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:minHeight="25px"
+    android:minWidth="25px">
+    <TextView
+        android:text="Login"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp" />
     <EditText
         android:inputType="textPersonName"
         android:hint="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/username"
+        android:id="@+id/userNameMain"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
     <EditText
@@ -16,33 +28,35 @@
         android:hint="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp" />
-    <EditText
-        android:inputType="textPassword"
-        android:hint="Confirm Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/confirmpassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp" />
-    <EditText
-        android:inputType="textEmailAddress"
-        android:hint="E-mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/email"
+        android:id="@+id/passwordMain"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp" />
     <Button
-        android:text="Submit"
+        android:text="Log In"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:id="@+id/buttonLogIn"
+        android:textSize="15sp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/darker_gray"
+        android:clickable="true"
+        android:layout_marginLeft="20dp" />
+    <TextView
+        android:text="OR"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSubmit"
+        android:layout_weight="7"
+        android:gravity="center"
+        android:id="@+id/textView2" />
+    <Button
+        android:text="Register"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:id="@+id/buttonRegister"
         android:textSize="15sp"
         android:layout_marginRight="20dp"
         android:background="@android:color/holo_blue_dark"

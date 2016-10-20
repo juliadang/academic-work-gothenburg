@@ -13,7 +13,7 @@ using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
 using PingAppAndroid.Resources.Fragments;
-using ActionBar = Android.App.ActionBar;
+using ActionBar as Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
