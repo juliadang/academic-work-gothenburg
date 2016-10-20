@@ -48,7 +48,7 @@ namespace PingAppAndroid.Resources.Fragments
             mSearch.TextChanged += mSearch_TextChanged;
             buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
-            List<string> friendlist = DataManager.GetAllFriends();
+            List<string> friendlist = JsonConvert.DeserializeObject<List<string>>(DataManager.GetAllFriends().ToString());
             mFriendList = view.FindViewById<ListView>(Resource.Id.friendList);
             mFriendAdapter = new FriendListAdapter(Activity, friendlist);
             mFriendList.Adapter = mFriendAdapter;

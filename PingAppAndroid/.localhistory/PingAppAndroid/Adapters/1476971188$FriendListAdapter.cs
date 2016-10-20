@@ -42,8 +42,8 @@ namespace PingAppAndroid.Adapters
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
             txtName.Text = Friends[position];
-            //TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
-            //txtLastName.Text = Friends[position];
+            TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
+            txtLastName.Text = Friends[position];
             return view;
         }
     }

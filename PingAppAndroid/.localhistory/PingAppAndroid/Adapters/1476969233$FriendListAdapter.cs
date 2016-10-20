@@ -13,12 +13,11 @@ using PingAppAndroid.Models;
 
 namespace PingAppAndroid.Adapters
 {
-    class FriendListAdapter : BaseAdapter<string>
+    class FriendListAdapter : BaseAdapter<Friend>
     {
-        //Todo: Returna listOfFriends
-        public List<string> Friends;
+        public List<Friend> Friends;
         private Context Context;
-        public FriendListAdapter(Activity context, List<string> friends) : base() {
+        public FriendListAdapter(Activity context, List<Friend> friends) : base() {
             this.Context = context;
             this.Friends = friends;
         }
@@ -26,7 +25,7 @@ namespace PingAppAndroid.Adapters
         {
             return position;
         }
-        public override string this[int position]
+        public override Friend this[int position]
         {
             get { return Friends[position]; }
         }
@@ -41,9 +40,9 @@ namespace PingAppAndroid.Adapters
                 view = LayoutInflater.From(Context).Inflate(Resource.Layout.FriendRowView, null, false);
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
-            txtName.Text = Friends[position];
-            //TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
-            //txtLastName.Text = Friends[position];
+            txtName.Text = Friends[position].UserName;
+            TextView txtLastName = view.FindViewById<TextView>(Resource.Id.TxtLastName);
+            txtLastName.Text = Friends[position].LastName;
             return view;
         }
     }

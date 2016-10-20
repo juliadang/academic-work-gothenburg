@@ -127,15 +127,5 @@ namespace SimpleWebApi.Controllers
                 }
             }
         }
-
-        [Authorize]
-        [Route("getfriendlist")]
-        public IHttpActionResult GetFriendlist()
-        {
-            var username1 = User.Identity.Name;
-            var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1) || (friendship.Username2 == username1)).Select(n => n.Username1 == username1 ? n.Username2 : n.Username1).ToList();
-      
-            return Ok(friendList);
-        }
     }
 }

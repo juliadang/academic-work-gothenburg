@@ -25,11 +25,11 @@ namespace PingAppAndroid.Resources.Fragments
         Button buttonAddFriend;
         ListView mFriendList;
 
-        //List<Friend> mFriends = new List<Friend> {
-        //    new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" },
-        //    new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" },
-        //    new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }
-        //};
+        List<Friend> mFriends = new List<Friend> {
+            new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" },
+            new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" },
+            new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }
+        };
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -48,7 +48,7 @@ namespace PingAppAndroid.Resources.Fragments
             mSearch.TextChanged += mSearch_TextChanged;
             buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
-            List<string> friendlist = DataManager.GetAllFriends();
+            List<string> friendlist = JsonConvert.DeserializeObject<List<string>>(DataManager.GetAllFriends().ToString());
             mFriendList = view.FindViewById<ListView>(Resource.Id.friendList);
             mFriendAdapter = new FriendListAdapter(Activity, friendlist);
             mFriendList.Adapter = mFriendAdapter;

@@ -25,13 +25,12 @@ namespace PingAppAndroid.Models
     {
         static ISharedPreferences prefs = Application.Context.GetSharedPreferences("token", FileCreationMode.Private);
         static ISharedPreferencesEditor editor = prefs.Edit();
-        static HttpClient client = new HttpClient();
 
-        static List<string> friendlist;
+        static HttpClient client = new HttpClient();
 
         static public bool Register(string url)
         {
-
+            
             // Create an HTTP web request using the URL:
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
             request.Method = "GET";
@@ -47,17 +46,13 @@ namespace PingAppAndroid.Models
             //        JsonValue jsonDoc = await Task.Run(() => JSONObject.Load(stream));
             //        Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
 
-            //        // Return the JSON document:
-            //        return jsonDoc;
-            //    }
-            //}
-        }
-        internal static List<string> GetAllFriends()
-        {
-            return friendlist;
+                //        // Return the JSON document:
+                //        return jsonDoc;
+                //    }
+                //}
         }
 
-        internal static async void GetAllFriendsAsync()
+        internal static List<Friend> GetAllFriends()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";
             var uri = new Uri(api);
@@ -65,16 +60,8 @@ namespace PingAppAndroid.Models
             var content = new StringContent("", Encoding.UTF8);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", prefs.GetString("token", ""));
 
-            var response = await client.GetAsync(uri);
 
-            //if (response.IsSuccessStatusCode)
-            //{
-            var jsonFriendlist = await response.Content.ReadAsStringAsync();
-            friendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
-            //    return friendlist;
-            //}
-            //else
-            //    return "Connection failed";
+            return;
         }
 
         internal static async Task<string> AddFriend(string username2)

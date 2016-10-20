@@ -52,12 +52,8 @@ namespace PingAppAndroid.Models
             //    }
             //}
         }
-        internal static List<string> GetAllFriends()
-        {
-            return friendlist;
-        }
 
-        internal static async void GetAllFriendsAsync()
+        internal static async Task<string> GetAllFriends()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";
             var uri = new Uri(api);
@@ -67,14 +63,13 @@ namespace PingAppAndroid.Models
 
             var response = await client.GetAsync(uri);
 
-            //if (response.IsSuccessStatusCode)
-            //{
-            var jsonFriendlist = await response.Content.ReadAsStringAsync();
-            friendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
-            //    return friendlist;
-            //}
-            //else
-            //    return "Connection failed";
+            if (response.IsSuccessStatusCode)
+            {
+                friendlist = await response.Content.ReadAsStringAsync();
+                return friendlist;
+            }
+            else
+                return "Connection failed";
         }
 
         internal static async Task<string> AddFriend(string username2)

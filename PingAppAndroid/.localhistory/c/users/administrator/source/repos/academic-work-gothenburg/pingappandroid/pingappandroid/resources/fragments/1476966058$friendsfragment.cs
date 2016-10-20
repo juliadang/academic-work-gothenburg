@@ -14,10 +14,11 @@ using PingAppAndroid.Models;
 using PingAppAndroid.Adapters;
 using Android.Text;
 using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace PingAppAndroid.Resources.Fragments
 {
+    //Todo: När man klickar på friends kraschar det
+    //FindViewById...
     public class FriendsFragment : Fragment
     {
         EditText mSearch;
@@ -25,11 +26,11 @@ namespace PingAppAndroid.Resources.Fragments
         Button buttonAddFriend;
         ListView mFriendList;
 
-        //List<Friend> mFriends = new List<Friend> {
-        //    new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" },
-        //    new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" },
-        //    new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }
-        //};
+        List<Friend> mFriends = new List<Friend> {
+            new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" },
+            new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" },
+            new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }
+        };
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -48,11 +49,6 @@ namespace PingAppAndroid.Resources.Fragments
             mSearch.TextChanged += mSearch_TextChanged;
             buttonAddFriend.Click += buttonAddFriend_AddFriend;
 
-            List<string> friendlist = DataManager.GetAllFriends();
-            mFriendList = view.FindViewById<ListView>(Resource.Id.friendList);
-            mFriendAdapter = new FriendListAdapter(Activity, friendlist);
-            mFriendList.Adapter = mFriendAdapter;
-
             return view;
         }
 
@@ -70,12 +66,12 @@ namespace PingAppAndroid.Resources.Fragments
 
         private void mSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //List<Friend> searchedFriends = mFriends.Where(f => f.UserName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
-            //                                                || f.FirstName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
-            //                                                || f.LastName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)).ToList();
+            List<Friend> searchedFriends = mFriends.Where(f => f.UserName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
+                                                            || f.FirstName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)
+                                                            || f.LastName.Contains(mSearch.Text, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            //mFriendAdapter = new FriendListAdapter(Activity, searchedFriends);
-            //mFriendList.Adapter = mFriendAdapter;
+            mFriendAdapter = new FriendListAdapter(this.Activity, searchedFriends);
+            mFriendList.Adapter = mFriendAdapter;
         }
     }
 }

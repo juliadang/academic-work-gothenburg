@@ -56,7 +56,6 @@ namespace PingAppAndroid.Models
         {
             return friendlist;
         }
-
         internal static async void GetAllFriendsAsync()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";

@@ -43,7 +43,7 @@ namespace PingAppAndroid
 
             if (succeeded)
             {
-                DataManager.GetAllFriendsAsync();
+                DataManager.GetAllFriends();
                 Intent index = new Intent(this, typeof(AppActivity));
                 StartActivity(index);
                 this.Finish();

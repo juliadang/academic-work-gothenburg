@@ -12,4 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="50" />
+    <TextView
+        android:text="LastName"
+        android:id="@+id/TxtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50" />
 </LinearLayout>

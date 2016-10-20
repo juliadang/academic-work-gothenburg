@@ -1,6 +1,6 @@
 Todo:
 - Add friend-funktion (DONE!)
-- Display all friends (DONE!)
+- Display all friends
 - Searchbar som kan söka genom hela databasen
 
 http://pinggothenburg.azurewebsites.net
