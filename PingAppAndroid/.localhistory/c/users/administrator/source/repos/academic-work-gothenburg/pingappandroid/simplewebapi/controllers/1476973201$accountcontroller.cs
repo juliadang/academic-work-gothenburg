@@ -75,31 +75,22 @@ namespace SimpleWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var alreadyRegistered = _applicationDbContext.Users.SingleOrDefault(u => u.UserName == createUserModel.Username);
-
-            if (alreadyRegistered == null)
+            var user = new ApplicationUser()
             {
-                var user = new ApplicationUser()
-                {
-                    UserName = createUserModel.Username,
-                    Email = createUserModel.Email
-                };
+                UserName = createUserModel.Username,
+                Email = createUserModel.Email
+            };
 
-                IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
+            IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
 
-                if (!addUserResult.Succeeded)
-                {
-                    return GetErrorResult(addUserResult);
-                }
-
-                Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-                return Created(locationHeader, TheModelFactory.Create(user));
-            }
-            else
+            if (!addUserResult.Succeeded)
             {
-                return Ok("You are already registered");
+                return GetErrorResult(addUserResult);
             }
+
+            Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
+
+            return Created(locationHeader, TheModelFactory.Create(user));
         }
 
         [Authorize]
@@ -120,7 +111,7 @@ namespace SimpleWebApi.Controllers
             }
             else
             {
-                var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1 && friendship.Username2 == username2)
+                var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1 && friendship.Username2 == username2) 
                                                                                     || (friendship.Username2 == username1 && friendship.Username1 == username2)).ToList();
 
                 if (friendList.Count <= 0)
@@ -143,7 +134,7 @@ namespace SimpleWebApi.Controllers
         {
             var username1 = User.Identity.Name;
             var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1) || (friendship.Username2 == username1)).Select(n => n.Username1 == username1 ? n.Username2 : n.Username1).ToList();
-
+      
             return Ok(friendList);
         }
     }

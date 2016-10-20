@@ -1,13 +1,9 @@
 Todo:
-- Searchbar som kan söka genom hela databasen
-
-Done:
-- Add friend-funktion 
-- Display all friends
-- Authorization/Tokens av Add friends metod
+- Add friend-funktion (DONE!)
+- Display all friends (DONE!)
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
-
+- Searchbar som kan söka genom hela databasen
 
 http://pinggothenburg.azurewebsites.net
 

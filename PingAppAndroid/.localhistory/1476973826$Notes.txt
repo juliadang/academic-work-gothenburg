@@ -3,8 +3,7 @@ Todo:
 
 Done:
 - Add friend-funktion 
-- Display all friends
-- Authorization/Tokens av Add friends metod
+- Display all friends 
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
 

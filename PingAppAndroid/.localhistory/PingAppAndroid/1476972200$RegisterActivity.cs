@@ -59,10 +59,6 @@ namespace PingAppAndroid
                 {
                     new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
                 }
-                else 
-                {
-                    new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
-                }
 
                 username.Text = "";
                 password.Text = "";
