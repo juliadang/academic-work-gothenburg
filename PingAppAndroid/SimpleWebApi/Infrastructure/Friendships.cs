@@ -4,6 +4,10 @@ namespace SimpleWebApi.Infrastructure
 {
     public class Friendships
     {
+        public Friendships()
+        {
+
+        }
         public Friendships(string username1, string username2 )
         {
             Username1 = username1;

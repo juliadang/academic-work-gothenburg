@@ -99,7 +99,10 @@ namespace SimpleWebApi.Controllers
         public IHttpActionResult AddFriend(string username2)
         {
             string username1 = User.Identity.Name;
-
+            if (username1.ToLower() == username2.ToLower())
+            {
+                return Ok("We know you love yourself but you cannot add yourself as a friend");
+            }
             var alreadyFriend = _applicationDbContext.Users.SingleOrDefault(f => f.UserName == username2);
 
             if (alreadyFriend == null)
@@ -108,9 +111,10 @@ namespace SimpleWebApi.Controllers
             }
             else
             {
-                var friendList = _applicationDbContext.Friendships.Where(friendship => friendship.Username1 == User.Identity.Name && friendship.Username2 == username2);
+                var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1 && friendship.Username2 == username2) 
+                                                                                    || (friendship.Username2 == username1 && friendship.Username1 == username2)).ToList();
 
-                if (friendList == null)
+                if (friendList.Count <= 0)
                 {
                     Friendships newFriend = new Friendships(username1, username2);
                     this._applicationDbContext.Friendships.Add(newFriend);
