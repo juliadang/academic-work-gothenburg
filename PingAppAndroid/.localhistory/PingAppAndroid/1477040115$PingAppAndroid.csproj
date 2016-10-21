@@ -85,7 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="GettingStarted.Xamarin" />
-    <None Include="google-services.json" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

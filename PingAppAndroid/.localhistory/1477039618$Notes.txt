@@ -1,6 +1,5 @@
 Todo:
 - Searchbar som kan söka genom hela databasen
-- Skicka pings
 
 Done:
 - Add friend-funktion 
@@ -9,12 +8,6 @@ Done:
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
 
-
-GCM keys
-Server API Key help
-AIzaSyCeIDmAfTAI3LESm060BC_xEywoZEvPbn4
-Sender ID help
-22606029011
 
 http://pinggothenburg.azurewebsites.net
 

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "341550025205",
+    "firebase_url": "https://gcmxamarin-144807.firebaseio.com",
+    "project_id": "gcmxamarin-144807",
+    "storage_bucket": "gcmxamarin-144807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341550025205:android:5b96e4adf09b8131",
+        "android_client_info": {
+          "package_name": "imawesome.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341550025205-ltv83tvqhp2b2qc2613sun3qgoenrkkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-JgtPtD4cdv5-OC7YVsp6sO8dVN6_6Mg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
