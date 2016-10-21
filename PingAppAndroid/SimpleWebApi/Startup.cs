@@ -32,6 +32,7 @@ namespace SimpleWebApi
             ConfigureWebApi(httpConfig);
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.MapSignalR();
 
             app.UseWebApi(httpConfig);
         }

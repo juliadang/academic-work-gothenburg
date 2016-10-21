@@ -9,6 +9,7 @@ using SQLite;
 using System.Runtime.CompilerServices;
 using PingAppAndroid.Models;
 using System.Net.Http;
+using Microsoft.AspNet.SignalR.Client;
 
 namespace PingAppAndroid
 {
@@ -27,6 +28,52 @@ namespace PingAppAndroid
 
             Button Register = FindViewById<Button>(Resource.Id.buttonRegister);
             Register.Click += registerUser;
+
+            Button SignalR = FindViewById<Button>(Resource.Id.buttonSignalR);
+            SignalR.Click += testSignalR;
+
+        }
+
+        private async void testSignalR(object sender, EventArgs e)
+        {
+            var HubCon = new HubConnection("http://pinggothenburg.azurewebsites.net");
+            var PingProxy = HubCon.CreateHubProxy("PingHub");
+
+            PingProxy.On<string>("Hey", (val) =>
+            {
+                RunOnUiThread(() =>
+               {
+               });
+                 //new AlertDialog.Builder(this).SetMessage("funkar!!").Show();
+                //Intent index = new Intent(this, typeof(AppActivity));
+                //StartActivity(index);
+                //Finish();
+
+                //var intent = new Intent(this, typeof(LoginRegisterActivity));
+                //intent.AddFlags(ActivityFlags.ClearTop);
+                //var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+
+                //Notification.Builder builder = new Notification.Builder(this)
+                //    .SetContentTitle("Ping")
+                //    .SetContentText("Vårat första ping");
+
+                //Notification notification = builder.Build();
+
+                //var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+
+                //notificationManager.Notify(0, notification);
+
+            });
+            try
+            {
+                await HubCon.Start();
+                await PingProxy.Invoke("Hello", "Hej, det funkar");
+            }
+            catch (Exception)
+            {
+                new AlertDialog.Builder(this).SetMessage("Connection failed").Show();
+            }
+
         }
 
         private async void login(object sender, EventArgs e)

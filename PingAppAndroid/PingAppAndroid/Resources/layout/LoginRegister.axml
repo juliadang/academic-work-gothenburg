@@ -62,4 +62,15 @@
         android:background="@android:color/holo_blue_dark"
         android:clickable="true"
         android:layout_marginLeft="20dp" />
+    <Button
+        android:text="Test SignalR"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:id="@+id/buttonSignalR"
+        android:textSize="15sp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/holo_blue_dark"
+        android:clickable="true"
+        android:layout_marginLeft="20dp" />
 </LinearLayout>
