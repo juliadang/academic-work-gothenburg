@@ -14,8 +14,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="25sp"
-        android:id="@+id/labelLogin "/>
+        android:textSize="25sp" />
     <EditText
         android:inputType="textPersonName"
         android:hint="Username"

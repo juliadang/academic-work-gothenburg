@@ -22,17 +22,12 @@ namespace PingAppAndroid
     {
         private static readonly int ButtonClickNotificationId = 1000;
         int count = 0;
-        TextView labelLogin;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginRegister);
-
-            labelLogin = FindViewById<TextView>(Resource.Id.labelLogin);
-
-            IsPlayServicesAvailable();
 
             Button Login = FindViewById<Button>(Resource.Id.buttonLogIn);
             Login.Click += login;
@@ -43,27 +38,6 @@ namespace PingAppAndroid
             Button SignalR = FindViewById<Button>(Resource.Id.buttonSignalR);
             SignalR.Click += testSignalR;
 
-        }
-
-        private bool IsPlayServicesAvailable()
-        {
-            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-            if (resultCode != ConnectionResult.Success)
-            {
-                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                    labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
-                else
-                {
-                    labelLogin.Text = "Sorry, this device is not supported";
-                    Finish();
-                }
-                return false;
-            }
-            else
-            {
-                labelLogin.Text = "Google Play Services is available.";
-                return true;
-            }
         }
 
         private async void testSignalR(object sender, EventArgs e)

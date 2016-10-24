@@ -27,6 +27,7 @@ namespace PingAppAndroid
         {
             base.OnCreate(bundle);
 
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginRegister);
 
@@ -45,7 +46,7 @@ namespace PingAppAndroid
 
         }
 
-        private bool IsPlayServicesAvailable()
+        private void IsPlayServicesAvailable()
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
             if (resultCode != ConnectionResult.Success)

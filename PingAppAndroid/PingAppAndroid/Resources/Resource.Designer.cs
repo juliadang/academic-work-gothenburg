@@ -1790,26 +1790,26 @@ namespace PingAppAndroid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0b007b
+			public const int PingIcon = 2131427451;
+			
 			// aapt resource value: 0x7f0b007a
-			public const int PingIcon = 2131427450;
+			public const int PingTime = 2131427450;
 			
 			// aapt resource value: 0x7f0b0079
-			public const int PingTime = 2131427449;
+			public const int PingUserName = 2131427449;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int PingUserName = 2131427448;
+			// aapt resource value: 0x7f0b006b
+			public const int RecentPings = 2131427435;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int RecentPings = 2131427434;
-			
-			// aapt resource value: 0x7f0b007c
-			public const int Settings = 2131427452;
+			// aapt resource value: 0x7f0b007d
+			public const int Settings = 2131427453;
 			
 			// aapt resource value: 0x7f0b005e
 			public const int TxtUserName = 2131427422;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int action0 = 2131427435;
+			// aapt resource value: 0x7f0b006c
+			public const int action0 = 2131427436;
 			
 			// aapt resource value: 0x7f0b004d
 			public const int action_bar = 2131427405;
@@ -1835,8 +1835,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b004e
 			public const int action_context_bar = 2131427406;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int action_divider = 2131427439;
+			// aapt resource value: 0x7f0b0070
+			public const int action_divider = 2131427440;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1883,38 +1883,38 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b0061
 			public const int buttonAddFriend = 2131427425;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int buttonLogIn = 2131427429;
+			// aapt resource value: 0x7f0b0066
+			public const int buttonLogIn = 2131427430;
 			
 			// aapt resource value: 0x7f0b0036
 			public const int buttonPanel = 2131427382;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int buttonRegister = 2131427431;
-			
-			// aapt resource value: 0x7f0b007b
-			public const int buttonSignOut = 2131427451;
-			
 			// aapt resource value: 0x7f0b0068
-			public const int buttonSignalR = 2131427432;
+			public const int buttonRegister = 2131427432;
 			
-			// aapt resource value: 0x7f0b0081
-			public const int buttonSubmit = 2131427457;
+			// aapt resource value: 0x7f0b007c
+			public const int buttonSignOut = 2131427452;
 			
-			// aapt resource value: 0x7f0b006c
-			public const int cancel_action = 2131427436;
+			// aapt resource value: 0x7f0b0069
+			public const int buttonSignalR = 2131427433;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int buttonSubmit = 2131427458;
+			
+			// aapt resource value: 0x7f0b006d
+			public const int cancel_action = 2131427437;
 			
 			// aapt resource value: 0x7f0b0044
 			public const int checkbox = 2131427396;
 			
-			// aapt resource value: 0x7f0b0072
-			public const int chronometer = 2131427442;
+			// aapt resource value: 0x7f0b0073
+			public const int chronometer = 2131427443;
 			
 			// aapt resource value: 0x7f0b0026
 			public const int collapseActionView = 2131427366;
 			
-			// aapt resource value: 0x7f0b007f
-			public const int confirmpassword = 2131427455;
+			// aapt resource value: 0x7f0b0080
+			public const int confirmpassword = 2131427456;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int contentPanel = 2131427388;
@@ -1940,14 +1940,14 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b004f
 			public const int edit_query = 2131427407;
 			
-			// aapt resource value: 0x7f0b0080
-			public const int email = 2131427456;
+			// aapt resource value: 0x7f0b0081
+			public const int email = 2131427457;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int end = 2131427363;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int end_padder = 2131427447;
+			// aapt resource value: 0x7f0b0078
+			public const int end_padder = 2131427448;
 			
 			// aapt resource value: 0x7f0b0030
 			public const int expand_activities_button = 2131427376;
@@ -1955,8 +1955,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b0043
 			public const int expanded_menu = 2131427395;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int filters = 2131427433;
+			// aapt resource value: 0x7f0b006a
+			public const int filters = 2131427434;
 			
 			// aapt resource value: 0x7f0b005c
 			public const int frameLayout = 2131427420;
@@ -1985,17 +1985,20 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b005f
 			public const int imgBtnFriend = 2131427423;
 			
-			// aapt resource value: 0x7f0b0076
-			public const int info = 2131427446;
+			// aapt resource value: 0x7f0b0077
+			public const int info = 2131427447;
+			
+			// aapt resource value: 0x7f0b0063
+			public const int labelLogin = 2131427427;
 			
 			// aapt resource value: 0x7f0b0011
 			public const int light = 2131427345;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int line1 = 2131427440;
+			// aapt resource value: 0x7f0b0071
+			public const int line1 = 2131427441;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int line3 = 2131427444;
+			// aapt resource value: 0x7f0b0075
+			public const int line3 = 2131427445;
 			
 			// aapt resource value: 0x7f0b0012
 			public const int listMode = 2131427346;
@@ -2003,8 +2006,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b0033
 			public const int list_item = 2131427379;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int media_actions = 2131427438;
+			// aapt resource value: 0x7f0b006f
+			public const int media_actions = 2131427439;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int middle = 2131427364;
@@ -2024,11 +2027,11 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b0038
 			public const int parentPanel = 2131427384;
 			
-			// aapt resource value: 0x7f0b007e
-			public const int password = 2131427454;
+			// aapt resource value: 0x7f0b007f
+			public const int password = 2131427455;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int passwordMain = 2131427428;
+			// aapt resource value: 0x7f0b0065
+			public const int passwordMain = 2131427429;
 			
 			// aapt resource value: 0x7f0b005d
 			public const int profileImg = 2131427421;
@@ -2120,8 +2123,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b000d
 			public const int standard = 2131427341;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int status_bar_latest_event_content = 2131427437;
+			// aapt resource value: 0x7f0b006e
+			public const int status_bar_latest_event_content = 2131427438;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int submenuarrow = 2131427399;
@@ -2132,23 +2135,23 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b0014
 			public const int tabMode = 2131427348;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int text = 2131427445;
+			// aapt resource value: 0x7f0b0076
+			public const int text = 2131427446;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int text2 = 2131427443;
+			// aapt resource value: 0x7f0b0074
+			public const int text2 = 2131427444;
 			
 			// aapt resource value: 0x7f0b003f
 			public const int textSpacerNoButtons = 2131427391;
 			
-			// aapt resource value: 0x7f0b0082
-			public const int textView = 2131427458;
+			// aapt resource value: 0x7f0b0083
+			public const int textView = 2131427459;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int textView2 = 2131427430;
+			// aapt resource value: 0x7f0b0067
+			public const int textView2 = 2131427431;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int time = 2131427441;
+			// aapt resource value: 0x7f0b0072
+			public const int time = 2131427442;
 			
 			// aapt resource value: 0x7f0b0035
 			public const int title = 2131427381;
@@ -2168,11 +2171,11 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f0b001a
 			public const int useLogo = 2131427354;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int userNameMain = 2131427427;
+			// aapt resource value: 0x7f0b0064
+			public const int userNameMain = 2131427428;
 			
-			// aapt resource value: 0x7f0b007d
-			public const int username = 2131427453;
+			// aapt resource value: 0x7f0b007e
+			public const int username = 2131427454;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int wide = 2131427342;
