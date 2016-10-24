@@ -10,12 +10,16 @@ using System.Runtime.CompilerServices;
 using PingAppAndroid.Models;
 using System.Net.Http;
 using Microsoft.AspNet.SignalR.Client;
+using TaskStackBuilder = Android.Support.V4.App.TaskStackBuilder;
+using Android.Support.V4.App;
 
 namespace PingAppAndroid
 {
     [Activity(Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginRegisterActivity : Activity
     {
+        private static readonly int ButtonClickNotificationId = 1000;
+        int count = 0;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -36,6 +40,8 @@ namespace PingAppAndroid
 
         private async void testSignalR(object sender, EventArgs e)
         {
+
+            #region SignalR
             var HubCon = new HubConnection("http://pinggothenburg.azurewebsites.net");
             var PingProxy = HubCon.CreateHubProxy("PingHub");
 
@@ -44,24 +50,17 @@ namespace PingAppAndroid
                 RunOnUiThread(() =>
                {
                });
-                 //new AlertDialog.Builder(this).SetMessage("funkar!!").Show();
-                //Intent index = new Intent(this, typeof(AppActivity));
-                //StartActivity(index);
-                //Finish();
 
-                //var intent = new Intent(this, typeof(LoginRegisterActivity));
-                //intent.AddFlags(ActivityFlags.ClearTop);
-                //var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                    .SetContentTitle("Ping")
+                    .SetContentText("Vårat första ping")
+                    .SetSmallIcon(Resource.Drawable.Icon);
 
-                //Notification.Builder builder = new Notification.Builder(this)
-                //    .SetContentTitle("Ping")
-                //    .SetContentText("Vårat första ping");
+                Notification notification = builder.Build();
 
-                //Notification notification = builder.Build();
+                var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
 
-                //var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
-
-                //notificationManager.Notify(0, notification);
+                notificationManager.Notify(0, notification);
 
             });
             try
@@ -73,6 +72,7 @@ namespace PingAppAndroid
             {
                 new AlertDialog.Builder(this).SetMessage("Connection failed").Show();
             }
+            #endregion
 
         }
 
