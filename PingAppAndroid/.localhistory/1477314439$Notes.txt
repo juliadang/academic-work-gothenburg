@@ -9,11 +9,6 @@ Done:
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
 
-Project ID
-gcmxamarin-144807
-Project number
-341550025205
-
 
 GCM keys
 Server API Key help

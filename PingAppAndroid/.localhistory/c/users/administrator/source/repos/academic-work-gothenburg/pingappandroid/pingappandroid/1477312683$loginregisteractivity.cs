@@ -13,7 +13,7 @@ using Microsoft.AspNet.SignalR.Client;
 using TaskStackBuilder = Android.Support.V4.App.TaskStackBuilder;
 using Android.Support.V4.App;
 using Android.Gms.Common;
-
+using Android.Util;
 
 namespace PingAppAndroid
 {
@@ -32,11 +32,7 @@ namespace PingAppAndroid
 
             labelLogin = FindViewById<TextView>(Resource.Id.labelLogin);
 
-            if (IsPlayServicesAvailable())
-            {
-                var intent = new Intent(this, typeof(RegistrationIntentService));
-                StartService(intent);
-            }
+            IsPlayServicesAvailable();
 
             Button Login = FindViewById<Button>(Resource.Id.buttonLogIn);
             Login.Click += login;

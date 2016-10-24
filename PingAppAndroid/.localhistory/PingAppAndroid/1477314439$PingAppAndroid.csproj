@@ -135,12 +135,10 @@
     <Compile Include="ExtMethods.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Friend.cs" />
-    <Compile Include="Models\InstanceIdListenerService.cs" />
     <Compile Include="Models\JWTObj.cs" />
     <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
     <Compile Include="LoginRegisterActivity.cs" />
-    <Compile Include="Models\RegistrationIntentService.cs" />
     <Compile Include="Models\SetOnFocusChangeListener.cs" />
     <Compile Include="Models\SignalRservice.cs" />
     <Compile Include="RegisterActivity.cs" />

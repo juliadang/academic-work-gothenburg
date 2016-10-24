@@ -32,11 +32,7 @@ namespace PingAppAndroid
 
             labelLogin = FindViewById<TextView>(Resource.Id.labelLogin);
 
-            if (IsPlayServicesAvailable())
-            {
-                var intent = new Intent(this, typeof(RegistrationIntentService));
-                StartService(intent);
-            }
+            IsPlayServicesAvailable();
 
             Button Login = FindViewById<Button>(Resource.Id.buttonLogIn);
             Login.Click += login;
