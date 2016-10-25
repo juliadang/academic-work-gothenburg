@@ -1,23 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using SQLite;
+
 using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-using Org.Json;
 using System.Net.Http;
-using SimpleWebApi.Models;
-using Newtonsoft.Json;
+
 using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace PingAppAndroid.Models
 {
@@ -36,7 +28,7 @@ namespace PingAppAndroid.Models
         }
 
         //Get friends from database
-        internal static async void GetAllFriendsAsync()
+        internal static async Task<bool> GetAllFriendsAsync()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";
             var uri = new Uri(api);
@@ -47,7 +39,8 @@ namespace PingAppAndroid.Models
             var response = await mClient.GetAsync(uri);
 
             var jsonFriendlist = await response.Content.ReadAsStringAsync();
-            mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
+            return true;
+            //mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
         }
 
         internal static async Task<string> AddFriendAsync(string username2)

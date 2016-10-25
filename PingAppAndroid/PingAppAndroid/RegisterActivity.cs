@@ -7,7 +7,6 @@ using System.Net;
 using System.Net.Http;
 using SimpleWebApi.Models;
 using Org.Apache.Http.Client.Methods;
-using Newtonsoft.Json;
 using System.Text;
 
 namespace PingAppAndroid
@@ -30,28 +29,28 @@ namespace PingAppAndroid
         
             submit.Click += async (sender, e) =>
             {
-                CreateUserBindingModel user = new CreateUserBindingModel
-                {
-                    Username = username.Text,
-                    Password = password.Text,
-                    ConfirmPassword = confirmpassword.Text,
-                    Email = email.Text
-                };
+                //CreateUserBindingModel user = new CreateUserBindingModel
+                //{
+                //    Username = username.Text,
+                //    Password = password.Text,
+                //    ConfirmPassword = confirmpassword.Text,
+                //    Email = email.Text
+                //};
 
-                HttpClient client = new HttpClient();
+                //HttpClient client = new HttpClient();
 
-                var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/create");
-                var json = JsonConvert.SerializeObject(user);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                //var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/create");
+                ////var json = JsonConvert.SerializeObject(user);
+                ////var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = null;
+                //HttpResponseMessage response = null;
 
-                response = await client.PostAsync(uri, content);
+                //response = await client.PostAsync(uri, content);
 
-                if (response.IsSuccessStatusCode)
-                    new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
-                else 
-                    new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
+                //if (response.IsSuccessStatusCode)
+                //    new AlertDialog.Builder(this).SetMessage("Registration completed").Show();
+                //else 
+                //    new AlertDialog.Builder(this).SetMessage("Registration failed").Show();
 
                 username.Text = "";
                 password.Text = "";

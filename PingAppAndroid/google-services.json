@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "392999085134",
+    "firebase_url": "https://pinggothenburg.firebaseio.com",
+    "project_id": "pinggothenburg",
+    "storage_bucket": "pinggothenburg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392999085134:android:e5e49635c438d69d",
+        "android_client_info": {
+          "package_name": "com.pinggothenburg.pingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392999085134-fmeo2ah2na8n47cigha8pfkvqi86e1s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN46bPreY_4w59Q6N70D9tEwdX36HoMxs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
