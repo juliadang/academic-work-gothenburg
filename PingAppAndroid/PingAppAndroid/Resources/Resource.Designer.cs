@@ -295,6 +295,9 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f02002e
 			public const int Icon = 2130837550;
 			
+			// aapt resource value: 0x7f02002f
+			public const int screen = 2130837551;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
