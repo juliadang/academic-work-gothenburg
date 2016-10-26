@@ -290,7 +290,10 @@ namespace PingAppAndroid
 			public const int ic_menu = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int Icon = 2130837549;
+			public const int ic_stat_ic_notification = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int Icon = 2130837550;
 			
 			static Drawable()
 			{

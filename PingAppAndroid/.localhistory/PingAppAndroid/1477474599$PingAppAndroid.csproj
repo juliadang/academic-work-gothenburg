@@ -90,8 +90,7 @@
     <Compile Include="ExtMethods.cs" />
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Friend.cs" />
-    <Compile Include="Models\MyGcmListenerService.cs" />
-    <Compile Include="Models\MyInstanceIdListenerService.cs" />
+    <Compile Include="Models\InstanceIdListenerService.cs" />
     <Compile Include="Models\JWTObj.cs" />
     <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
@@ -173,7 +172,16 @@
     <AndroidResource Include="Resources\drawable\ic_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_stat_ic_notification.png" />
+    <AndroidResource Include="Resources\drawable\splash.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\style.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\splash_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

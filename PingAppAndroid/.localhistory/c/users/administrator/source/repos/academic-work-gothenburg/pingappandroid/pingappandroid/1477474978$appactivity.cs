@@ -17,7 +17,7 @@ using ActionBar = Android.App.ActionBar;
 
 namespace PingAppAndroid
 {
-    [Activity(Name="awesome.demo.actvity2", Label = "Ping", Icon = "@drawable/icon")]
+    [Activity(Label = "Ping", Icon = "@drawable/icon")]
     public class AppActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

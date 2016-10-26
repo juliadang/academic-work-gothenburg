@@ -8,8 +8,7 @@
   <permission android:name="com.ping.myapp.PING_APP.permission.C2D_MESSAGE"
               android:protectionLevel="signature" />
   <activity android:name="awesome.demo.activity" />
-  <activity android:name="awesome.demo.activity2" />"
-
+  
   <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.RegistrationIntentService" />
   <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.MyInstanceIdListenerService" />
   <application android:label="PingAppAndroid">

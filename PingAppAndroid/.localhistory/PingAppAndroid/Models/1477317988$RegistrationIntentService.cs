@@ -2,8 +2,8 @@ using System;
 using Android.App;
 using Android.Content;
 using Android.Util;
-using Android.Gms.Gcm.Iid;
 using Android.Gms.Gcm;
+using Android.Gms.Gcm.Iid;
 
 namespace PingAppAndroid.Models
 {
@@ -22,6 +22,9 @@ namespace PingAppAndroid.Models
                 lock (locker)
                 {
                     var instanceID = InstanceID.GetInstance(this);
+                    instanceID.DeleteInstanceID();
+                    instanceID = InstanceID.GetInstance(this);
+
                     var token = instanceID.GetToken(
                         "341550025205", GoogleCloudMessaging.InstanceIdScope, null);
 
@@ -44,7 +47,7 @@ namespace PingAppAndroid.Models
 
         void Subscribe(string token)
         {
-            var pubSub = GcmPubSub.GetInstance(ApplicationContext);
+            var pubSub = GcmPubSub.GetInstance(this);
             pubSub.Subscribe(token, "/topics/global", null);
         }
     }

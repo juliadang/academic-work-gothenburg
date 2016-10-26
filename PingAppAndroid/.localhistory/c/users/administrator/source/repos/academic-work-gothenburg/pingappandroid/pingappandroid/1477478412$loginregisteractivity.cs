@@ -9,11 +9,10 @@ using System.Runtime.CompilerServices;
 using PingAppAndroid.Models;
 using System.Net.Http;
 using Android.Gms.Common;
-using Android.Util;
 
 namespace PingAppAndroid
 {
-    [Activity(Name= "awesome.demo.activity", Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Ping", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginRegisterActivity : Activity
     {
         private static readonly int ButtonClickNotificationId = 1000;

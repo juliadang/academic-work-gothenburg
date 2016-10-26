@@ -7,11 +7,6 @@
   <uses-permission android:name="com.ping.myapp.PING_APP.permission.C2D_MESSAGE"/>
   <permission android:name="com.ping.myapp.PING_APP.permission.C2D_MESSAGE"
               android:protectionLevel="signature" />
-  <activity android:name="awesome.demo.activity" />
-  <activity android:name="awesome.demo.activity2" />"
-
-  <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.RegistrationIntentService" />
-  <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.MyInstanceIdListenerService" />
   <application android:label="PingAppAndroid">
     <receiver android:name="com.google.android.gms.gcm.GcmReceiver"
              android:exported="true"
@@ -22,5 +17,9 @@
         <category android:name="com.ping.myapp.PING_APP" />
       </intent-filter>
     </receiver>
+    <service android:name=".RegistrationIntentService"
+               android:exported="false" />
+    <service android:name=".MyInstanceIdListenerService"
+              android:exported="false" />
   </application>
 </manifest>

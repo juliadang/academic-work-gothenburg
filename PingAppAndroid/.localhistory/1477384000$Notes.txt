@@ -1,0 +1,107 @@
+Todo:
+- Searchbar som kan söka genom hela databasen
+- Skicka pings
+
+Done:
+- Add friend-funktion 
+- Display all friends
+- Authorization/Tokens av Add friends metod
+- Validering för add friends som man redan addat 
+- Validering för registrering om man redan är registrerad
+
+Project ID
+gcmxamarin-144807
+Project number
+341550025205
+
+
+GCM keys
+Server API Key help
+AIzaSyCeIDmAfTAI3LESm060BC_xEywoZEvPbn4
+Sender ID help
+22606029011
+
+http://pinggothenburg.azurewebsites.net
+
+Om man ska logga in
+Content-type: application/x-www-form-urlencoded
+grant_type=password&username=TL&password=hejsan123
+
+Skapa konto Fiddler
+{
+"Username": "TL",
+"Email" : "T@L.se",
+"Password":"hejsan123",
+"ConfirmPassword":"hejsan123"
+}
+
+//access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiI2OWY5NjIyMC03N2ViLTRhMGUtYTg3ZC1kZjY1ODAxZDgzN2YiLCJ1bmlxdWVfbmFtZSI6IlRMIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiZTliYTBjZWYtNGFlMi00ZmRkLTlhMjctMzM1NjJmODZkMDFkIiwiaXNzIjoiaHR0cDovL3Bpbmdnb3RoZW5idXJnLmF6dXJld2Vic2l0ZXMubmV0LyIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNDc2OTY5NDEzLCJuYmYiOjE0NzY4ODMwMTN9.7lW5neX6_zUZr4yVI1HmH-TDMelMPSwzPRUtz_OOr8I
+
+JD - access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiIyYTkzZjQyOC01MzdlLTQ2ODctOThlYy02ZGUwNmU4ZWRiZWEiLCJ1bmlxdWVfbmFtZSI6IkpEIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9hY2Nlc3Njb250cm9sc2VydmljZS8yMDEwLzA3L2NsYWltcy9pZGVudGl0eXByb3ZpZGVyIjoiQVNQLk5FVCBJZGVudGl0eSIsIkFzcE5ldC5JZGVudGl0eS5TZWN1cml0eVN0YW1wIjoiNWJjNWI3MGEtN2ExZC00YWNjLTgxYjgtMjNiZDE5NDM0M2JmIiwiaXNzIjoiaHR0cDovL3Bpbmdnb3RoZW5idXJnLmF6dXJld2Vic2l0ZXMubmV0LyIsImF1ZCI6IjQxNGUxOTI3YTM4ODRmNjhhYmM3OWY3MjgzODM3ZmQxIiwiZXhwIjoxNDc3MDM2NDM4LCJuYmYiOjE0NzY5NTAwMzh9.XAeIsfmtdudR7Pk3LqaUsCLyCRynUsyLSxUQlxgRB3E
+pingdb.database.windows.net
+dbadmin
+P@ssword
+
+userPWD="btFozCCnqW3jn9kQyKauqlsKENweDvph08MwoPWdgYwllHS8x3X6xn8b8hwd"
+
+====================
+APIer vi behöver
+- Register
+- Log In
+- Log Out
+
+- Get friendlist
+- Add friends/Search users from db
+- Remove friend
+
+- Edit profile/password(inte username!)
+
+Databas
+- Lägg till ny kolumn för GCM id?  List<notifikationer>
+- Tabell för notifikationer + klass (prop: NotifikationId, SenderId, RecieverId, Message, bool recieved)
+
+
+Scaffolding migration 'InitialCreate'.
+The Designer Code for this migration file includes a snapshot of your current Code First model. 
+This snapshot is used to calculate the changes to your model when you scaffold the next migration. 
+If you make additional changes to your model that you want to include in this migration, 
+then you can re-scaffold it by running 'Add-Migration InitialCreate' again.
+
+============Kod Exempel========================
+ - Notifications
+             //// Pass the current button press count value to the next activity:
+            //Bundle valuesForActivity = new Bundle();
+            //valuesForActivity.PutInt("count", count);
+
+            //// When the user clicks the notification, SecondActivity will start up.
+            //Intent resultIntent = new Intent(this, typeof(SecondActivity));
+
+            //// Pass some values to SecondActivity:
+            //resultIntent.PutExtras(valuesForActivity);
+
+            //// Construct a back stack for cross-task navigation:
+            //TaskStackBuilder stackBuilder = TaskStackBuilder.Create(this);
+            //stackBuilder.AddParentStack(Java.Lang.Class.FromType(typeof(SecondActivity)));
+            //stackBuilder.AddNextIntent(resultIntent);
+
+            //// Create the PendingIntent with the back stack:            
+            //PendingIntent resultPendingIntent =
+            //    stackBuilder.GetPendingIntent(0, (int)PendingIntentFlags.UpdateCurrent);
+
+            // Build the notification:
+            //NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            //    .SetAutoCancel(true)                    // Dismiss from the notif. area when clicked
+            //    //.SetContentIntent(resultPendingIntent)  // Start 2nd activity when the intent is clicked.
+            //    .SetContentTitle("Button Clicked")      // Set its title
+            //    //.SetNumber(count)                       // Display the count in the Content Info
+            //    .SetSmallIcon(Resource.Drawable.Icon)  // Display this icon
+            //    .SetContentText(String.Format(
+            //        "The button has been clicked")); // The message to display.
+
+            //// Finally, publish the notification:
+            //NotificationManager notificationManager =
+            //    (NotificationManager)GetSystemService(Context.NotificationService);
+            //notificationManager.Notify(ButtonClickNotificationId, builder.Build());
+
+            // Increment the button press count:
+            //count++;
