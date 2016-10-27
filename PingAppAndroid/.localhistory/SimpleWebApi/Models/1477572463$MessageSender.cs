@@ -26,9 +26,9 @@ namespace SimpleWebApi.Models
         {
             var jGcmData = new JObject();
             var jData = new JObject();
-            
+
             jData.Add("message", MESSAGE);
-            jGcmData.Add("to", "/topics/" + Receiver);
+            jGcmData.Add("to", "/topics/global");
             jGcmData.Add("data", jData);
 
             var url = new Uri("https://gcm-http.googleapis.com/gcm/send");

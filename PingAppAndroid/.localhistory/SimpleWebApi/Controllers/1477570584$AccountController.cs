@@ -141,6 +141,9 @@ namespace SimpleWebApi.Controllers
         [Route("getfriendlist")]
         public IHttpActionResult GetFriendlist()
         {
+            MessageSender notification = new MessageSender("Hello!");
+            notification.SendMessage();
+
             var username1 = User.Identity.Name;
             var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1) || (friendship.Username2 == username1)).Select(n => n.Username1 == username1 ? n.Username2 : n.Username1).ToList();
 
@@ -148,10 +151,10 @@ namespace SimpleWebApi.Controllers
         }
 
         [Authorize]
-        [Route("sendping")]
-        public IHttpActionResult SendPing(string receiver)
+        [Route("sendPing")]
+        public IHttpActionResult SendPing(string message)
         {
-            MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);
+            MessageSender notification = new MessageSender(message);
             notification.SendMessage();
 
             return Ok("Ping sent");

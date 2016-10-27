@@ -28,7 +28,7 @@ namespace PingAppAndroid.Models
         }
 
         //Get friends from database
-        internal static async void GetAllFriendsAsync()
+        internal static async Task<bool> GetAllFriendsAsync()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";
             var uri = new Uri(api);
@@ -39,7 +39,8 @@ namespace PingAppAndroid.Models
             var response = await mClient.GetAsync(uri);
 
             var jsonFriendlist = await response.Content.ReadAsStringAsync();
-            mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
+            return true;
+            //mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
         }
 
         internal static async Task<string> AddFriendAsync(string username2)

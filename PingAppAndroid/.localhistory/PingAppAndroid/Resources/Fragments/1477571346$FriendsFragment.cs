@@ -24,7 +24,7 @@ namespace PingAppAndroid.Resources.Fragments
         FriendListAdapter mFriendAdapter;
         Button mButtonAddFriend;
         ListView mFriendList;
-        List<string> friendlist;
+        List<string> friendlist = DataManager.GetAllFriends();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,7 +43,6 @@ namespace PingAppAndroid.Resources.Fragments
             mSearch.TextChanged += mSearch_TextChanged;
             mButtonAddFriend.Click += buttonAddFriend_AddFriend;
 
-            friendlist = DataManager.GetAllFriends();
             mFriendList = view.FindViewById<ListView>(Resource.Id.friendList);
             mFriendAdapter = new FriendListAdapter(Activity, friendlist);
             mFriendList.Adapter = mFriendAdapter;
@@ -54,7 +53,7 @@ namespace PingAppAndroid.Resources.Fragments
 
         private void MFriendList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            DataManager.SendPing(friendlist[e.Position]);
+            var sendToFriend = friendlist[e.Position].username;
         }
 
         private async void buttonAddFriend_AddFriend(object sender, EventArgs e)

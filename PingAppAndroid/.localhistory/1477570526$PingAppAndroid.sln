@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingAppAndroid", "PingAppAndroid\PingAppAndroid.csproj", "{DE3CC11F-2400-4ADD-88E7-83B091ADE881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebApi", "SimpleWebApi\SimpleWebApi.csproj", "{2C56DF43-5288-4590-9161-4BC27027F60F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8590CFF2-13CB-42EC-B009-AABB641E1694}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageSender", "MessageSender\MessageSender.csproj", "{1CF70864-067B-4549-BA67-A8537926F572}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3CC11F-2400-4ADD-88E7-83B091ADE881}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2C56DF43-5288-4590-9161-4BC27027F60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C56DF43-5288-4590-9161-4BC27027F60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C56DF43-5288-4590-9161-4BC27027F60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C56DF43-5288-4590-9161-4BC27027F60F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF70864-067B-4549-BA67-A8537926F572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF70864-067B-4549-BA67-A8537926F572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF70864-067B-4549-BA67-A8537926F572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF70864-067B-4549-BA67-A8537926F572}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

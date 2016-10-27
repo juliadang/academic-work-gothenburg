@@ -28,7 +28,7 @@ namespace PingAppAndroid.Models
         }
 
         //Get friends from database
-        internal static async void GetAllFriendsAsync()
+        internal static async Task<bool> GetAllFriendsAsync()
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getfriendlist/";
             var uri = new Uri(api);
@@ -39,7 +39,8 @@ namespace PingAppAndroid.Models
             var response = await mClient.GetAsync(uri);
 
             var jsonFriendlist = await response.Content.ReadAsStringAsync();
-            mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
+            return true;
+            //mFriendlist = JsonConvert.DeserializeObject<List<string>>(jsonFriendlist);
         }
 
         internal static async Task<string> AddFriendAsync(string username2)
@@ -49,16 +50,21 @@ namespace PingAppAndroid.Models
             var uri = new Uri(api);
 
             var content = new StringContent("", Encoding.UTF8);
-            return await Connect(uri, content);
+            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", ""));
+
+            HttpResponseMessage response = null;
+
+            response = await mClient.PostAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+                return await response.Content.ReadAsStringAsync();
+            else
+                return "Connection fail";
         }
 
-        internal static async void SendPing(string receiver)
+        internal static void SendPing(string receiver)
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/sendping/";
-            api += receiver;
-            var uri = new Uri(api);
-            var content = new StringContent("", Encoding.UTF8);
-            await Connect(uri, content);
         }
 
         internal static async Task<bool> SignInAsync(string userName, string password)
@@ -83,20 +89,6 @@ namespace PingAppAndroid.Models
             }
             else
                 return false;
-        }
-
-        private static async Task<string> Connect(Uri uri, StringContent content)
-        {
-            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", ""));
-
-            HttpResponseMessage response = null;
-
-            response = await mClient.PostAsync(uri, content);
-
-            if (response.IsSuccessStatusCode)
-                return await response.Content.ReadAsStringAsync();
-            else
-                return "Connection fail";
         }
     }
 }

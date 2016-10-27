@@ -148,7 +148,7 @@ namespace SimpleWebApi.Controllers
         }
 
         [Authorize]
-        [Route("sendping")]
+        [Route("sendPing")]
         public IHttpActionResult SendPing(string receiver)
         {
             MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);

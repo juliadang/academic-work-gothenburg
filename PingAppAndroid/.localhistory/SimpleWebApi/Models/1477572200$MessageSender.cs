@@ -12,23 +12,20 @@ namespace SimpleWebApi.Models
 {
     public class MessageSender
     {
-        public MessageSender(string message, string sender, string receiver)
+        public MessageSender(string message)
         {
-            MESSAGE = sender + " sent a " + message;
-            Sender = sender;
-            Receiver = receiver;
+            MESSAGE = message;
         }
         private const string API_KEY = "AIzaSyBYsezC91UkBJjtPIKWIJu8WLzwhTZcSSM";
         private string MESSAGE;
-        private string Sender { get; set; }
-        private string Receiver { get; set; }
+
         public void SendMessage()
         {
             var jGcmData = new JObject();
             var jData = new JObject();
-            
+
             jData.Add("message", MESSAGE);
-            jGcmData.Add("to", "/topics/" + Receiver);
+            jGcmData.Add("to", "/topics/global");
             jGcmData.Add("data", jData);
 
             var url = new Uri("https://gcm-http.googleapis.com/gcm/send");
