@@ -45,7 +45,7 @@
       android:textSize="15sp"
       android:layout_marginRight="20dp"
       android:textColor="@android:color/black"
-      android:background="@android:color/white"
+      android:background="@android:color/yellow"
       android:clickable="true"
       android:layout_marginLeft="20dp"
  />

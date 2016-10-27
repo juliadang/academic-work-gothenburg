@@ -13,7 +13,7 @@ using Android.Util;
 
 namespace PingAppAndroid
 {
-    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon" )]
+    [Activity(Theme = "@android:style/Theme.Holo.Light", Label = "Ping", MainLauncher = false, Icon = "@drawable/icon" )]
     public class LoginRegisterActivity : Activity
     {
         private static readonly int ButtonClickNotificationId = 1000;
@@ -39,6 +39,10 @@ namespace PingAppAndroid
 
             Button Register = FindViewById<Button>(Resource.Id.buttonRegister);
             Register.Click += registerUser;
+
+            Button SignalR = FindViewById<Button>(Resource.Id.buttonSignalR);
+            SignalR.Click += testSignalR;
+
         }
 
         private bool IsPlayServicesAvailable()
@@ -50,15 +54,54 @@ namespace PingAppAndroid
                     labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
                 else
                 {
-                    new AlertDialog.Builder(this).SetMessage("Sorry, this device is not supported.").Show();
+                    labelLogin.Text = "Sorry, this device is not supported";
                     Finish();
                 }
                 return false;
             }
             else
             {
+                labelLogin.Text = "Google Play Services is available.";
                 return true;
             }
+        }
+
+        private async void testSignalR(object sender, EventArgs e)
+        {
+
+            #region SignalR
+            //var HubCon = new HubConnection("http://pinggothenburg.azurewebsites.net");
+            //var PingProxy = HubCon.CreateHubProxy("PingHub");
+
+            //PingProxy.On<string>("Hey", (val) =>
+            //{
+            //    RunOnUiThread(() =>
+            //   {
+            //   });
+
+            //    NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            //        .SetContentTitle("Ping")
+            //        .SetContentText("Vårat första ping")
+            //        .SetSmallIcon(Resource.Drawable.Icon);
+
+            //    Notification notification = builder.Build();
+
+            //    var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+
+            //    notificationManager.Notify(0, notification);
+
+            //});
+            //try
+            //{
+            //    await HubCon.Start();
+            //    await PingProxy.Invoke("Hello", "Hej, det funkar");
+            //}
+            //catch (Exception)
+            //{
+            //    new AlertDialog.Builder(this).SetMessage("Connection failed").Show();
+            //}
+            #endregion
+
         }
 
         private async void login(object sender, EventArgs e)

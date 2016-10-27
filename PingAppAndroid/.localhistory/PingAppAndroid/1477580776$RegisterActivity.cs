@@ -8,7 +8,6 @@ using System.Net.Http;
 using SimpleWebApi.Models;
 using Org.Apache.Http.Client.Methods;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace PingAppAndroid
 {

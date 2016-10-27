@@ -12,8 +12,8 @@
 
   <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.RegistrationIntentService" />
   <service android:enabled="true" android:name="com.ping.myapp.PING_APP.Models.MyInstanceIdListenerService" />
-  <application android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
-  <application android:label="PingAppAndroid">
+
+  <application android:label="PingAppAndroid" android:theme="@android:style/Theme.Holo.Light" >
     <receiver android:name="com.google.android.gms.gcm.GcmReceiver"
              android:exported="true"
              android:permission="com.google.android.c2dm.permission.SEND">

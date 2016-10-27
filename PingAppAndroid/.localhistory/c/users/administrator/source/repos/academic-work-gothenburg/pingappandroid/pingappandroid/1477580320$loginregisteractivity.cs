@@ -50,13 +50,14 @@ namespace PingAppAndroid
                     labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
                 else
                 {
-                    new AlertDialog.Builder(this).SetMessage("Sorry, this device is not supported.").Show();
+                    labelLogin.Text = "Sorry, this device is not supported";
                     Finish();
                 }
                 return false;
             }
             else
             {
+                labelLogin.Text = "Google Play Services is available.";
                 return true;
             }
         }

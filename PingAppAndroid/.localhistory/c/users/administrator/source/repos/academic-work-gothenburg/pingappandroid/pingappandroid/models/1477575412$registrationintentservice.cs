@@ -46,7 +46,6 @@ namespace PingAppAndroid.Models
         {
             var pubSub = GcmPubSub.GetInstance(ApplicationContext);
             pubSub.Subscribe(token, "/topics/global", null);
-            pubSub.Subscribe(token, "/topics/TL", null);
         }
     }
 }

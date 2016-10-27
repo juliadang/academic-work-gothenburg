@@ -13,7 +13,7 @@ using Android.Util;
 
 namespace PingAppAndroid
 {
-    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon" )]
+    [Activity(Label = "Ping", MainLauncher = false, Theme = "@android:style/Theme.Light.NoTitleBar", Icon = "@drawable/icon" )]
     public class LoginRegisterActivity : Activity
     {
         private static readonly int ButtonClickNotificationId = 1000;

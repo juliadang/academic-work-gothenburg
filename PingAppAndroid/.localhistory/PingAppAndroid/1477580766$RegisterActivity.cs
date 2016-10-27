@@ -8,7 +8,6 @@ using System.Net.Http;
 using SimpleWebApi.Models;
 using Org.Apache.Http.Client.Methods;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace PingAppAndroid
 {
@@ -35,13 +34,14 @@ namespace PingAppAndroid
                     Username = username.Text,
                     Password = password.Text,
                     ConfirmPassword = confirmpassword.Text,
+                    Email = email.Text
                 };
 
                 HttpClient client = new HttpClient();
 
                 var uri = new Uri("http://pinggothenburg.azurewebsites.net/api/accounts/create");
-                var json = JsonConvert.SerializeObject(user);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                //var json = JsonConvert.SerializeObject(user);
+                //var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
 
@@ -55,6 +55,7 @@ namespace PingAppAndroid
                 username.Text = "";
                 password.Text = "";
                 confirmpassword.Text = "";
+                email.Text = "";
             };
         }
     }

@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:weightSum="100"
     android:minHeight="25px"
-    android:minWidth="25px"
-  >
+    android:minWidth="25px">
   <TextView
       android:text="Login"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -40,7 +39,7 @@
       android:text="Log In"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_weight="10"
+      android:layout_weight="15"
       android:id="@+id/buttonLogIn"
       android:textSize="15sp"
       android:layout_marginRight="20dp"

@@ -50,15 +50,54 @@ namespace PingAppAndroid
                     labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
                 else
                 {
-                    new AlertDialog.Builder(this).SetMessage("Sorry, this device is not supported.").Show();
+                    labelLogin.Text = "Sorry, this device is not supported";
                     Finish();
                 }
                 return false;
             }
             else
             {
+                labelLogin.Text = "Google Play Services is available.";
                 return true;
             }
+        }
+
+        private async void testSignalR(object sender, EventArgs e)
+        {
+
+            #region SignalR
+            //var HubCon = new HubConnection("http://pinggothenburg.azurewebsites.net");
+            //var PingProxy = HubCon.CreateHubProxy("PingHub");
+
+            //PingProxy.On<string>("Hey", (val) =>
+            //{
+            //    RunOnUiThread(() =>
+            //   {
+            //   });
+
+            //    NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            //        .SetContentTitle("Ping")
+            //        .SetContentText("Vårat första ping")
+            //        .SetSmallIcon(Resource.Drawable.Icon);
+
+            //    Notification notification = builder.Build();
+
+            //    var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+
+            //    notificationManager.Notify(0, notification);
+
+            //});
+            //try
+            //{
+            //    await HubCon.Start();
+            //    await PingProxy.Invoke("Hello", "Hej, det funkar");
+            //}
+            //catch (Exception)
+            //{
+            //    new AlertDialog.Builder(this).SetMessage("Connection failed").Show();
+            //}
+            #endregion
+
         }
 
         private async void login(object sender, EventArgs e)
