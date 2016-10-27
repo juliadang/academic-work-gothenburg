@@ -23,7 +23,7 @@ namespace PingAppAndroid.Models
                 {
                     var instanceID = InstanceID.GetInstance(this);
                     var token = instanceID.GetToken(
-                        "884131269913", GoogleCloudMessaging.InstanceIdScope, null);
+                        "341550025205", GoogleCloudMessaging.InstanceIdScope, null);
 
                     Log.Info("RegistrationIntentService", "GCM Registration Token: " + token);
                     SendRegistrationToAppServer(token);

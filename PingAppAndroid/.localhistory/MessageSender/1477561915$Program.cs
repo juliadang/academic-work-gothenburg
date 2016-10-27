@@ -9,7 +9,7 @@ namespace MessageSender
 {
     class MessageSender
     {
-        public const string API_KEY = "AIzaSyBYsezC91UkBJjtPIKWIJu8WLzwhTZcSSM";
+        public const string API_KEY = "AIzaSyBcANcg0eUNaFJivRymAKn94h3g4hFJ8FE";
         public const string MESSAGE = "I'm awesome!";
 
         static void Main(string[] args)
