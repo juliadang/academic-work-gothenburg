@@ -191,7 +191,6 @@
     <Compile Include="Models\CreateUserBindingModel.cs" />
     <Compile Include="Models\DatabaseUtils.cs" />
     <Compile Include="Models\LoginUserBindingModel.cs" />
-    <Compile Include="Models\MessageSender.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="PingHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

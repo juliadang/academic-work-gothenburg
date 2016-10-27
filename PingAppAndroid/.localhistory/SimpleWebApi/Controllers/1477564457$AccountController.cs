@@ -16,10 +16,11 @@ namespace SimpleWebApi.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
+        ApplicationDbContext _applicationDbContext = ApplicationDbContext.Create();
+
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
-          
             return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
         }
 
@@ -58,7 +59,6 @@ namespace SimpleWebApi.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                 
                     return Ok();
                 //break;
                 default:
@@ -141,23 +141,10 @@ namespace SimpleWebApi.Controllers
         [Route("getfriendlist")]
         public IHttpActionResult GetFriendlist()
         {
-            MessageSender notification = new MessageSender("Hello!");
-            notification.SendMessage();
-
             var username1 = User.Identity.Name;
             var friendList = _applicationDbContext.Friendships.Where(friendship => (friendship.Username1 == username1) || (friendship.Username2 == username1)).Select(n => n.Username1 == username1 ? n.Username2 : n.Username1).ToList();
 
             return Ok(friendList);
-        }
-
-        [Authorize]
-        [Route("sendPing")]
-        public IHttpActionResult SendPing(string message)
-        {
-            MessageSender notification = new MessageSender(message);
-            notification.SendMessage();
-
-            return Ok("Ping sent");
         }
     }
 }

@@ -152,12 +152,12 @@ namespace SimpleWebApi.Controllers
 
         [Authorize]
         [Route("sendPing")]
-        public IHttpActionResult SendPing(string message)
+        public IHttpActionResult SendPing()
         {
-            MessageSender notification = new MessageSender(message);
+            MessageSender notification = new MessageSender("Hello!");
             notification.SendMessage();
 
-            return Ok("Ping sent");
+            return Ok();
         }
     }
 }

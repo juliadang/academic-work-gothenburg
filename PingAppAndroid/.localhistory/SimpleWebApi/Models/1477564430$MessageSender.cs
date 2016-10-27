@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+using System.Web;
 
-namespace MessageSender
+namespace SimpleWebApi.Models
 {
-    class MessageSender
+    public class MessageSender
     {
         public const string API_KEY = "AIzaSyBYsezC91UkBJjtPIKWIJu8WLzwhTZcSSM";
         public const string MESSAGE = "I'm awesome!";
 
-        static void Main(string[] args)
+        public void SendMessage()
         {
             var jGcmData = new JObject();
             var jData = new JObject();
@@ -46,6 +49,7 @@ namespace MessageSender
                 Console.WriteLine("Unable to send GCM message:");
                 Console.Error.WriteLine(e.StackTrace);
             }
+
         }
     }
 }

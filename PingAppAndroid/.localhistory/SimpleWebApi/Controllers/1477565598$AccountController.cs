@@ -149,15 +149,5 @@ namespace SimpleWebApi.Controllers
 
             return Ok(friendList);
         }
-
-        [Authorize]
-        [Route("sendPing")]
-        public IHttpActionResult SendPing(string message)
-        {
-            MessageSender notification = new MessageSender(message);
-            notification.SendMessage();
-
-            return Ok("Ping sent");
-        }
     }
 }
