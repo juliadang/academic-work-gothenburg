@@ -17,10 +17,6 @@ using PingAppAndroid.Resources.Fragments;
 using ActionBar = Android.App.ActionBar;
 using Android.Gms.Common;
 using Android.Gms.Gcm;
-using Android.Gms.Gcm.Iid;
-using Android.Util;
-using Android.Nfc;
-using Java.IO;
 
 namespace PingAppAndroid
 {
@@ -49,30 +45,6 @@ namespace PingAppAndroid
             ThreadPool.QueueUserWorkItem(o =>
             {
                 var pubSub = GcmPubSub.GetInstance(Application.Context);
-                InstanceID instanceID = InstanceID.GetInstance(Application.Context);
-                String token = null;
-                try
-                {
-                    token = instanceID.GetToken(
-                      "884131269913", GoogleCloudMessaging.InstanceIdScope, null);
-                    
-                    if (token != null)
-                    { 
-                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng
-                        Log.Debug("Success", "Subscribed to topic: " + "Oliver");
-                    }
-                    else
-                    {
-                        Log.Debug("Error", "error: gcm registration id is null");
-                    }
-                }
-                catch (IOException e)
-                {
-                  
-                }
-
-
-                //Todo: 
                 pubSub.Subscribe(mPrefs.GetString("gcmToken", ""), "/topics/" + "Oliver", null);
             });
 

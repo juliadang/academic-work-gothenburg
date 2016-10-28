@@ -72,7 +72,7 @@ namespace PingAppAndroid
                 }
 
 
-                //Todo: 
+
                 pubSub.Subscribe(mPrefs.GetString("gcmToken", ""), "/topics/" + "Oliver", null);
             });
 

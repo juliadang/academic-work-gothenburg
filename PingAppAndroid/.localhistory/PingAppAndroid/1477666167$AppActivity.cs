@@ -20,7 +20,6 @@ using Android.Gms.Gcm;
 using Android.Gms.Gcm.Iid;
 using Android.Util;
 using Android.Nfc;
-using Java.IO;
 
 namespace PingAppAndroid
 {
@@ -68,11 +67,12 @@ namespace PingAppAndroid
                 }
                 catch (IOException e)
                 {
-                  
+                    Log.e(TAG, "Topic subscribe error. Topic: " + topic + ", error: " + e.getMessage());
+                    Toast.makeText(getApplicationContext(), "Topic subscribe error. Topic: " + topic + ", error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
 
-                //Todo: 
+
                 pubSub.Subscribe(mPrefs.GetString("gcmToken", ""), "/topics/" + "Oliver", null);
             });
 
