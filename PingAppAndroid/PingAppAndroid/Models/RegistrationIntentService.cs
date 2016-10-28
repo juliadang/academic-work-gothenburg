@@ -10,6 +10,8 @@ namespace PingAppAndroid.Models
     [Service(Exported = false)]
     class RegistrationIntentService : IntentService
     {
+        static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
+        static ISharedPreferencesEditor mEditor = mPrefs.Edit();
         static object locker = new object();
 
         public RegistrationIntentService() : base("RegistrationIntentService") { }
@@ -27,7 +29,10 @@ namespace PingAppAndroid.Models
 
                     Log.Info("RegistrationIntentService", "GCM Registration Token: " + token);
                     SendRegistrationToAppServer(token);
-                    Subscribe(token);
+
+                    mEditor.PutString("gcmToken", token);
+                    mEditor.Apply();
+                    Subscribe("global");
                 }
             }
             catch (Exception e)
@@ -42,11 +47,10 @@ namespace PingAppAndroid.Models
             // Add custom implementation here as needed.
         }
 
-        void Subscribe(string token)
+        void Subscribe(string topic)
         {
-            var pubSub = GcmPubSub.GetInstance(ApplicationContext);
-            pubSub.Subscribe(token, "/topics/global", null);
-            pubSub.Subscribe(token, "/topics/TL", null);
+            var pubSub = GcmPubSub.GetInstance(Application.Context);
+            pubSub.Subscribe(mPrefs.GetString("gcmToken", ""), "/topics/" + topic, null);
         }
     }
 }

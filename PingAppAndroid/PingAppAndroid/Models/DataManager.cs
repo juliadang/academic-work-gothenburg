@@ -11,6 +11,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 
+using Android.Gms.Gcm;
+
 namespace PingAppAndroid.Models
 {
     static public class DataManager
@@ -77,12 +79,13 @@ namespace PingAppAndroid.Models
             {
                 string token = await response.Content.ReadAsStringAsync();
                 var jwt = JsonConvert.DeserializeObject<JWTObj>(token);
-                mEditor.PutString("token", jwt.Access_token);
+                mEditor.PutString("token", jwt.Access_token); //Saved token to shared prefs
                 mEditor.Apply();
                 return true;
             }
             else
                 return false;
+
         }
 
         private static async Task<string> Connect(Uri uri, StringContent content)

@@ -28,37 +28,11 @@ namespace PingAppAndroid
 
             labelLogin = FindViewById<TextView>(Resource.Id.labelLogin);
 
-            if (IsPlayServicesAvailable())
-            {
-                var intent = new Intent(this, typeof(RegistrationIntentService));
-                StartService(intent);
-            }
-
             Button Login = FindViewById<Button>(Resource.Id.buttonLogIn);
             Login.Click += login;
 
             Button Register = FindViewById<Button>(Resource.Id.buttonRegister);
             Register.Click += registerUser;
-        }
-
-        private bool IsPlayServicesAvailable()
-        {
-            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-            if (resultCode != ConnectionResult.Success)
-            {
-                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                    labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
-                else
-                {
-                    new AlertDialog.Builder(this).SetMessage("Sorry, this device is not supported.").Show();
-                    Finish();
-                }
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
 
         private async void login(object sender, EventArgs e)

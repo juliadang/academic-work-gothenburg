@@ -147,11 +147,12 @@ namespace SimpleWebApi.Controllers
             return Ok(friendList);
         }
 
-        [Authorize]
+        //[Authorize]
         [Route("sendping/{receiver}")]
         public IHttpActionResult SendPing(string receiver)
         {
-            MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);
+            //MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);
+            MessageSender notification = new MessageSender("PING!", "Oliver", receiver);
             notification.SendMessage();
 
             return Ok("Ping sent");
