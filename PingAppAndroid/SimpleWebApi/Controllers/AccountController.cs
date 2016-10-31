@@ -136,7 +136,15 @@ namespace SimpleWebApi.Controllers
                 }
             }
         }
-
+        [Authorize]
+        [Route("getpings")]
+        public IHttpActionResult GetPings()
+        {
+            var user = User.Identity.Name;
+            List<Notifications> pingList = new List<Notifications>();
+            pingList = _applicationDbContext.Notifications.Where(u => u.Receiver == user && (DateTime.Now.Day - 1) < u.Time.Day).ToList(); //Testa datetime.now villkoret
+            return Ok(pingList);
+        }
         [Authorize]
         [Route("getfriendlist")]
         public IHttpActionResult GetFriendlist()
@@ -157,8 +165,8 @@ namespace SimpleWebApi.Controllers
             notification.SendMessage();
 
             //Sparar pingen till databasen
-            //Notifications newPing = new Notifications(DateTime.Now, User.Identity.Name, receiver, 1);
-            Notifications newPing = new Notifications(DateTime.Now, "TL", receiver, 1);
+            Notifications newPing = new Notifications(DateTime.Now, User.Identity.Name, receiver, 1);
+            //Notifications newPing = new Notifications(DateTime.Now, "TL", receiver, 1);
             this._applicationDbContext.Notifications.Add(newPing);
             _applicationDbContext.SaveChanges();
             return Ok("Ping sent to " + receiver);

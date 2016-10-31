@@ -20,11 +20,7 @@ namespace PingAppAndroid.Resources.Fragments
         ListView mPingList;
         PingListAdapter mPingAdapter;
         Spinner mFilter;
-
-        List<Models.PingNotification> mPings = new List<Models.PingNotification>
-        {
-          
-        };
+        List<PingNotification> mPings;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,8 +40,10 @@ namespace PingAppAndroid.Resources.Fragments
             //Todo: Find resource by ID
             //mFilter.ItemSelected += mFilter_selectedItem;
 
-            //mPingAdapter = new PingListAdapter(this, mPings);
-            //mPingList.Adapter = mPingAdapter;
+            mPings = DataManager.GetPings();
+            mPingList = view.FindViewById<ListView>(Resource.Id.RecentPings);
+            mPingAdapter = new PingListAdapter(Activity, mPings);
+            mPingList.Adapter = mPingAdapter;
             return view;
         }
 

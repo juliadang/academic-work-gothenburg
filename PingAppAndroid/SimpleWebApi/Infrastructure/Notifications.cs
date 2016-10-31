@@ -8,6 +8,10 @@ namespace SimpleWebApi.Infrastructure
 {
     public class Notifications
     {
+        public Notifications()
+        {
+
+        }
         public Notifications(DateTime time, string sender, string receiver, int type)
         {
             IsRead = false;

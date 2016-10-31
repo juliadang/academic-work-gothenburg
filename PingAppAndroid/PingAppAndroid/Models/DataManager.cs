@@ -21,6 +21,7 @@ namespace PingAppAndroid.Models
         static ISharedPreferencesEditor mEditor = mPrefs.Edit();
         static HttpClient mClient = new HttpClient();
         static List<string> mFriendlist;
+        static List<PingNotification> mPingList = new List<PingNotification>();
 
         //Get friends from datamanager
 
@@ -36,7 +37,7 @@ namespace PingAppAndroid.Models
             var uri = new Uri(api);
 
             var content = new StringContent("", Encoding.UTF8);
-            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", "")); //Save to shared preferences
+            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", "")); //get from shared preferences
 
             var response = await mClient.GetAsync(uri);
 
@@ -61,6 +62,23 @@ namespace PingAppAndroid.Models
             var uri = new Uri(api);
             var content = new StringContent(type.ToString(), Encoding.UTF8);
             await Connect(uri, content);
+        }
+        internal static List<PingNotification> GetPings()
+        {
+            return mPingList;
+        }
+        internal static async void GetPingsAsync()
+        {
+            string api = "http://pinggothenburg.azurewebsites.net/api/accounts/getpings/";
+            var uri = new Uri(api);
+
+            var content = new StringContent("", Encoding.UTF8);
+            mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", mPrefs.GetString("token", "")); //get from shared preferences
+
+            var response = await mClient.GetAsync(uri);
+
+            var jsonPings = await response.Content.ReadAsStringAsync();
+            mPingList = JsonConvert.DeserializeObject<List<PingNotification>>(jsonPings);
         }
 
         internal static async Task<bool> SignInAsync(string userName, string password)

@@ -43,15 +43,8 @@ namespace PingAppAndroid.Adapters
             senderName.Text = Pings[position].Sender;
 
             TextView date = view.FindViewById<TextView>(Resource.Id.PingTime);
-            if (DateTime.Now.Month - Pings[position].Time.Month > 0)
-            {
-                date.Text = "pingade dig för " + (DateTime.Now.Month - Pings[position].Time.Month) + " månader sen";
-            }
-            else if (DateTime.Now.Day - Pings[position].Time.Day > 0)
-            {
-                date.Text = "pingade dig för " + (DateTime.Now.Day - Pings[position].Time.Day) + " dagar sen";
-            }
-            else if (DateTime.Now.Hour - Pings[position].Time.Hour > 0)
+            
+            if (DateTime.Now.Hour - Pings[position].Time.Hour > 0)
             {
                 date.Text = "pingade dig för " + (DateTime.Now.Hour - Pings[position].Time.Hour) + " timmar sen";
             }
