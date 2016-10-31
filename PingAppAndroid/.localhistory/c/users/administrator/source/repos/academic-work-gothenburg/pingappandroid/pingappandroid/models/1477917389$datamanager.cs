@@ -61,6 +61,14 @@ namespace PingAppAndroid.Models
             var uri = new Uri(api);
             var content = new StringContent(type.ToString(), Encoding.UTF8);
             await Connect(uri, content);
+
+            PingNotification ping = new PingNotification(DateTime.Now, "TL","JD", 1);
+            SavePingToDb(ping);
+        }
+
+        private static void SavePingToDb(PingNotification ping)
+        {
+            
         }
 
         internal static async Task<bool> SignInAsync(string userName, string password)

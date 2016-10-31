@@ -63,6 +63,8 @@ namespace PingAppAndroid.Models
             await Connect(uri, content);
         }
 
+
+
         internal static async Task<bool> SignInAsync(string userName, string password)
         {
             var uri = new Uri("http://pinggothenburg.azurewebsites.net/oauth/token");

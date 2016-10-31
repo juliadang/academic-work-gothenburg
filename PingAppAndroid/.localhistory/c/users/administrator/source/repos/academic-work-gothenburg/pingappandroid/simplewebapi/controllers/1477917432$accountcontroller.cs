@@ -157,8 +157,7 @@ namespace SimpleWebApi.Controllers
             notification.SendMessage();
 
             //Sparar pingen till databasen
-            //Notifications newPing = new Notifications(DateTime.Now, User.Identity.Name, receiver, 1);
-            Notifications newPing = new Notifications(DateTime.Now, "TL", receiver, 1);
+            Notifications newPing = new Notifications(DateTime.Now, User.Identity.Name, receiver, 1);
             this._applicationDbContext.Notifications.Add(newPing);
             _applicationDbContext.SaveChanges();
             return Ok("Ping sent to " + receiver);
