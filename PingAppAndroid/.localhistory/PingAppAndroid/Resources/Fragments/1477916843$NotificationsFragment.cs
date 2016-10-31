@@ -23,7 +23,9 @@ namespace PingAppAndroid.Resources.Fragments
 
         List<Models.PingNotification> mPings = new List<Models.PingNotification>
         {
-          
+            new Models.PingNotification { Time = new DateTime(2016, 10, 4, 13, 30, 0), Sender = new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" }, Type = 1},
+            new Models.PingNotification { Time = new DateTime(2016, 10, 3, 14, 30, 0), Sender = new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" }, Type = 3},
+            new Models.PingNotification { Time = new DateTime(2015, 10, 4, 15, 19, 0), Sender = new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }, Type = 2}
         };
 
         public override void OnCreate(Bundle savedInstanceState)

@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Gms.Gcm;
 using Android.Util;
-using SimpleWebApi.Infrastructure;
 
 namespace PingAppAndroid.Models
 {
@@ -24,7 +23,7 @@ namespace PingAppAndroid.Models
             Log.Debug("MyGcmListenerService", "From:    " + from);
             Log.Debug("MyGcmListenerService", "Message: " + message);
             SendNotification(message);
-            PingNotification ping = new PingNotification(DateTime.Now, "TL", "JD", 1);
+            Notification ping = new Notification(DateTime.Now, "TL", "JD", 1);
         }
 
         void SendNotification(string message)

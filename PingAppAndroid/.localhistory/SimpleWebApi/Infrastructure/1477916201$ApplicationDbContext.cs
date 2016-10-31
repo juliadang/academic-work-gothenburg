@@ -10,7 +10,6 @@ namespace SimpleWebApi.Infrastructure
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Friendships> Friendships { get; set; }
-        public DbSet<Notifications> Notifications { get; set; }
 
         public ApplicationDbContext() : base("PingdbContext", throwIfV1Schema: false)
         {

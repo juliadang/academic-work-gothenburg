@@ -25,7 +25,7 @@ namespace PingAppAndroid.Adapters
         {
             return position;
         }
-        public override PingNotification this[int position]
+        public override Notification this[int position]
         {
             get { return Pings[position]; }
         }
@@ -40,7 +40,7 @@ namespace PingAppAndroid.Adapters
                 view = LayoutInflater.From(Context).Inflate(Resource.Layout.PingRowView, null, false);
 
             TextView senderName = view.FindViewById<TextView>(Resource.Id.PingUserName);
-            senderName.Text = Pings[position].Sender;
+            senderName.Text = Pings[position].Sender.UserName;
 
             TextView date = view.FindViewById<TextView>(Resource.Id.PingTime);
             if (DateTime.Now.Month - Pings[position].Time.Month > 0)

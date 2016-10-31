@@ -13,11 +13,11 @@ using PingAppAndroid.Models;
 
 namespace PingAppAndroid.Adapters
 {
-    class PingListAdapter : BaseAdapter<Models.PingNotification>
+    class PingListAdapter : BaseAdapter<PingNotification>
     {
-        public List<Models.PingNotification> Pings;
+        public List<PingNotification> Pings;
         private Context Context;
-        public PingListAdapter(Activity context, List<Models.PingNotification> pings) : base() {
+        public PingListAdapter(Activity context, List<PingNotification> pings) : base() {
             Context = context;
             Pings = pings;
         }
@@ -40,7 +40,7 @@ namespace PingAppAndroid.Adapters
                 view = LayoutInflater.From(Context).Inflate(Resource.Layout.PingRowView, null, false);
 
             TextView senderName = view.FindViewById<TextView>(Resource.Id.PingUserName);
-            senderName.Text = Pings[position].Sender;
+            senderName.Text = Pings[position].Sender.UserName;
 
             TextView date = view.FindViewById<TextView>(Resource.Id.PingTime);
             if (DateTime.Now.Month - Pings[position].Time.Month > 0)

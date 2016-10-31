@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Gms.Gcm;
 using Android.Util;
-using SimpleWebApi.Infrastructure;
 
 namespace PingAppAndroid.Models
 {
@@ -33,7 +32,7 @@ namespace PingAppAndroid.Models
             intent.AddFlags(ActivityFlags.ClearTop);
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-            var notificationBuilder = new Notification.Builder(this)
+            var notificationBuilder = new PingNotification.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                 .SetContentTitle("GCM Message")
                 .SetContentText(message)

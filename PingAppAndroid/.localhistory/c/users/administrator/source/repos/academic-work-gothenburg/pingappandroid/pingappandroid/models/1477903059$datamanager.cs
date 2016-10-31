@@ -54,21 +54,13 @@ namespace PingAppAndroid.Models
             return await Connect(uri, content);
         }
 
-        internal static async void SendPing(string receiver, int type)
+        internal static async void SendPing(string receiver)
         {
             string api = "http://pinggothenburg.azurewebsites.net/api/accounts/sendping/";
             api += receiver;
             var uri = new Uri(api);
-            var content = new StringContent(type.ToString(), Encoding.UTF8);
+            var content = new StringContent("", Encoding.UTF8);
             await Connect(uri, content);
-
-            PingNotification ping = new PingNotification(DateTime.Now, "TL","JD", 1);
-            SavePingToDb(ping);
-        }
-
-        private static void SavePingToDb(PingNotification ping)
-        {
-            
         }
 
         internal static async Task<bool> SignInAsync(string userName, string password)

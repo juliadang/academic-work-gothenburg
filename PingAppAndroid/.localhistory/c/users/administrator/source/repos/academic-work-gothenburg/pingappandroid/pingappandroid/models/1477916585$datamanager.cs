@@ -62,11 +62,11 @@ namespace PingAppAndroid.Models
             var content = new StringContent(type.ToString(), Encoding.UTF8);
             await Connect(uri, content);
 
-            PingNotification ping = new PingNotification(DateTime.Now, "TL","JD", 1);
-            SavePingToDb(ping);
+
+            SavePingToDb(Notification ping);
         }
 
-        private static void SavePingToDb(PingNotification ping)
+        private static void SavePingToDb(Notification ping)
         {
             
         }

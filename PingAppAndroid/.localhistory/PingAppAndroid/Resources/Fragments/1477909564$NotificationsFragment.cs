@@ -21,9 +21,11 @@ namespace PingAppAndroid.Resources.Fragments
         PingListAdapter mPingAdapter;
         Spinner mFilter;
 
-        List<Models.PingNotification> mPings = new List<Models.PingNotification>
+        List<PingNotification> mPings = new List<PingNotification>
         {
-          
+            new PingNotification { Time = new DateTime(2016, 10, 4, 13, 30, 0), Sender = new Friend { UserName = "Bo", FirstName = "Bo", LastName = "Johansson" }, Type = 1},
+            new PingNotification { Time = new DateTime(2016, 10, 3, 14, 30, 0), Sender = new Friend { UserName = "Li", FirstName = "Li", LastName = "Andersson" }, Type = 3},
+            new PingNotification { Time = new DateTime(2015, 10, 4, 15, 19, 0), Sender = new Friend { UserName = "An", FirstName = "An", LastName = "Svensson" }, Type = 2}
         };
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -60,7 +62,7 @@ namespace PingAppAndroid.Resources.Fragments
 
             else
             {
-                List<Models.PingNotification> filteredpings = mPings.Where(p => p.Type.ToString().Contains(choosenIcon, StringComparison.OrdinalIgnoreCase)).ToList();
+                List<PingNotification> filteredpings = mPings.Where(p => p.Type.ToString().Contains(choosenIcon, StringComparison.OrdinalIgnoreCase)).ToList();
                 //mPingAdapter = new PingListAdapter(this, filteredpings);
                 //mPingList.Adapter = mPingAdapter;
                 Console.WriteLine(choosenIcon);

@@ -93,7 +93,7 @@
     <Compile Include="Models\MyGcmListenerService.cs" />
     <Compile Include="Models\MyInstanceIdListenerService.cs" />
     <Compile Include="Models\JWTObj.cs" />
-    <Compile Include="Models\PingNotification.cs" />
+    <Compile Include="Models\Ping.cs" />
     <Compile Include="AppActivity.cs" />
     <Compile Include="LoginRegisterActivity.cs" />
     <Compile Include="Models\RegistrationIntentService.cs" />

@@ -152,15 +152,18 @@ namespace SimpleWebApi.Controllers
         public IHttpActionResult SendPing(string receiver)
         {
             //MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);
-            //Skickar pingen till mottagare
             MessageSender notification = new MessageSender("PING!", "Oliver", receiver);
             notification.SendMessage();
 
-            //Sparar pingen till databasen
-            Notifications newPing = new Notifications(DateTime.Now, User.Identity.Name, receiver, 1);
+
+
+
+                  PingNotification newPing = new PingNotification();
             this._applicationDbContext.Notifications.Add(newPing);
             _applicationDbContext.SaveChanges();
-            return Ok("Ping sent to " + receiver);
+            return Ok("Friend added");
+
+            return Ok("Ping sent");
         }
     }
 }

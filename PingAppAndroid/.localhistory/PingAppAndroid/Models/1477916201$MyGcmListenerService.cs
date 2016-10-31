@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Gms.Gcm;
 using Android.Util;
-using SimpleWebApi.Infrastructure;
 
 namespace PingAppAndroid.Models
 {

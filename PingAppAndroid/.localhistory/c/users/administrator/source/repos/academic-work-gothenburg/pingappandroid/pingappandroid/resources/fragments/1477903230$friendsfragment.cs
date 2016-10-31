@@ -54,7 +54,7 @@ namespace PingAppAndroid.Resources.Fragments
 
         private void MFriendList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            DataManager.SendPing(friendlist[e.Position], 1);
+            DataManager.SendPing(friendlist[e.Position]);
         }
 
         private async void buttonAddFriend_AddFriend(object sender, EventArgs e)
