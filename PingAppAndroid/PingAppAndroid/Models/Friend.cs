@@ -12,7 +12,6 @@ using Android.Widget;
 
 namespace PingAppAndroid.Models
 {
-    //Todo: När vi hämtar ut vänner, hämta istället ut en Friend istället för Username
     public class Friend
     {
         public int Id { get; set; }

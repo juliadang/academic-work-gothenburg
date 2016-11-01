@@ -58,7 +58,7 @@ namespace PingAppAndroid
                     
                     if (token != null)
                     { 
-                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng
+                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng, spara ner username och password
                         Log.Debug("Success", "Subscribed to topic: " + "Oliver");
                     }
                     else
@@ -70,10 +70,7 @@ namespace PingAppAndroid
                 {
                   
                 }
-
-
-                //Todo: 
-                pubSub.Subscribe(mPrefs.GetString("gcmToken", ""), "/topics/" + "Oliver", null);
+                
             });
 
             //SavedInstanceState gör så att man kan se alla tabbar

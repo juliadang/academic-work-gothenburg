@@ -37,8 +37,8 @@ namespace PingAppAndroid.Resources.Fragments
             //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
             //sampleTextView.Text = "sample fragment text";
 
-            //Todo: Find resource by ID
-            //mFilter.ItemSelected += mFilter_selectedItem;
+            mFilter = view.FindViewById<Spinner>(Resource.Id.filters);
+            mFilter.ItemSelected += mFilter_selectedItem;
 
             mPings = DataManager.GetPings();
             mPingList = view.FindViewById<ListView>(Resource.Id.RecentPings);
@@ -52,15 +52,15 @@ namespace PingAppAndroid.Resources.Fragments
             string choosenIcon = mFilter.SelectedItem.ToString();
             if (choosenIcon.ToLower() == "filter")
             {
-                //mPingAdapter = new PingListAdapter(this, mPings);
-                //mPingList.Adapter = mPingAdapter;
+                mPingAdapter = new PingListAdapter(Activity, mPings);
+                mPingList.Adapter = mPingAdapter;
             }
 
             else
             {
                 List<Models.PingNotification> filteredpings = mPings.Where(p => p.Type.ToString().Contains(choosenIcon, StringComparison.OrdinalIgnoreCase)).ToList();
-                //mPingAdapter = new PingListAdapter(this, filteredpings);
-                //mPingList.Adapter = mPingAdapter;
+                mPingAdapter = new PingListAdapter(Activity, filteredpings);
+                mPingList.Adapter = mPingAdapter;
                 Console.WriteLine(choosenIcon);
             }
         }
