@@ -15,7 +15,6 @@ namespace PingAppAndroid.Adapters
 {
     class FriendListAdapter : BaseAdapter<string>
     {
-        //Todo: Return list of friends (pga av profilbilder)
         public List<string> Friends;
         private Context Context;
         public FriendListAdapter(Activity context, List<string> friends) : base()
@@ -43,8 +42,8 @@ namespace PingAppAndroid.Adapters
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
             txtName.Text = Friends[position];
-            ImageView profileImg = view.FindViewById<ImageView>(Resource.Id.profileImg);
-            profileImg.SetBackgroundResource(Resource.Drawable.cheese_5);
+           // ImageView profileImg = view.FindViewById<ImageView>(Resource.Id.profileImg);
+           // profileImg.SetBackgroundResource(Resource.Drawable.cheese_5);
             //Todo: Lägg till bild?
             //Todo: Anpassa search med knapp ikoner för lägg till/block/etc.
             return view;

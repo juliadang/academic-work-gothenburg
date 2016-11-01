@@ -73,6 +73,7 @@ namespace PingAppAndroid
                 }
                 catch (IOException e)
                 {
+
                 }
 
             });

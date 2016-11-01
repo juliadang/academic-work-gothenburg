@@ -9,8 +9,8 @@
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/profileImg" />
+        android:layout_height="match_parent"
+        android:id="@+id/imageView1" />
     <TextView
         android:text="UserName"
         android:id="@+id/TxtUserName"

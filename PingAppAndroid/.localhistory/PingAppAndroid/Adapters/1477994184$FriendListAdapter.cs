@@ -43,8 +43,8 @@ namespace PingAppAndroid.Adapters
 
             TextView txtName = view.FindViewById<TextView>(Resource.Id.TxtUserName);
             txtName.Text = Friends[position];
-            ImageView profileImg = view.FindViewById<ImageView>(Resource.Id.profileImg);
-            profileImg.SetBackgroundResource(Resource.Drawable.cheese_5);
+           // ImageView profileImg = view.FindViewById<ImageView>(Resource.Id.profileImg);
+           // profileImg.SetBackgroundResource(Resource.Drawable.cheese_5);
             //Todo: Lägg till bild?
             //Todo: Anpassa search med knapp ikoner för lägg till/block/etc.
             return view;
