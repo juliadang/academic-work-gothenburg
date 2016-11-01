@@ -9,7 +9,6 @@ Done:
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
 - Remember me funktion
-- Sign Out funktion
 - Riktade pings
 
 Project ID

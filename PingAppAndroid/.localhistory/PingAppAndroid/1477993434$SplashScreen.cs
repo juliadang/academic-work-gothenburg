@@ -53,7 +53,7 @@ namespace PingAppAndroid
                 }
             }
             //Start Activity1 Activity
-            //StartActivity(typeof(LoginRegisterActivity));
+            StartActivity(typeof(LoginRegisterActivity));
         }
     }
 }

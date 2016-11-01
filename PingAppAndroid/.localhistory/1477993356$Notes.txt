@@ -1,6 +1,6 @@
 Todo:
 - Searchbar som kan söka genom hela databasen
-- Notifikationer när man fått en ping
+- Skicka pings
 
 Done:
 - Add friend-funktion 
@@ -8,9 +8,6 @@ Done:
 - Authorization/Tokens av Add friends metod
 - Validering för add friends som man redan addat 
 - Validering för registrering om man redan är registrerad
-- Remember me funktion
-- Sign Out funktion
-- Riktade pings
 
 Project ID
 gcmxamarin-144807

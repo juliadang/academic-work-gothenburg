@@ -27,10 +27,10 @@ namespace PingAppAndroid
     [Activity(Label = "Ping", Icon = "@drawable/icon")]
     public class AppActivity : Activity
     {
-        static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
+        ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
         ISharedPreferencesEditor mEditor = mPrefs.Edit();
 
-        static ISharedPreferences mPrefsUserInfo = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
+        ISharedPreferences mPrefsUserInfo = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
         ISharedPreferencesEditor mEditorUserInfo = mPrefsUserInfo.Edit();
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -62,9 +62,8 @@ namespace PingAppAndroid
 
                     if (token != null)
                     {
-                        string username = mPrefsUserInfo.GetString("username", "");
-                        pubSub.Subscribe(token, "/topics/" + username, null);
-                        Log.Debug("Success", "Subscribed to topic: " + username);
+                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng, spara ner username och password
+                        Log.Debug("Success", "Subscribed to topic: " + "Oliver");
                     }
                     else
                     {

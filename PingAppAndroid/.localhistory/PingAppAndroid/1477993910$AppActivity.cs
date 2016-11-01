@@ -64,7 +64,7 @@ namespace PingAppAndroid
                     {
                         string username = mPrefsUserInfo.GetString("username", "");
                         pubSub.Subscribe(token, "/topics/" + username, null);
-                        Log.Debug("Success", "Subscribed to topic: " + username);
+                        Log.Debug("Success", "Subscribed to topic: " + "Oliver");
                     }
                     else
                     {

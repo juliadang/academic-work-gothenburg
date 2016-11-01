@@ -28,11 +28,7 @@ namespace PingAppAndroid
     public class AppActivity : Activity
     {
         static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
-        ISharedPreferencesEditor mEditor = mPrefs.Edit();
-
-        static ISharedPreferences mPrefsUserInfo = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
-        ISharedPreferencesEditor mEditorUserInfo = mPrefsUserInfo.Edit();
-
+        static ISharedPreferencesEditor mEditor = mPrefs.Edit();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -59,12 +55,11 @@ namespace PingAppAndroid
                 {
                     token = instanceID.GetToken(
                       "884131269913", GoogleCloudMessaging.InstanceIdScope, null); //Todo: Hide token...
-
+                    
                     if (token != null)
-                    {
-                        string username = mPrefsUserInfo.GetString("username", "");
-                        pubSub.Subscribe(token, "/topics/" + username, null);
-                        Log.Debug("Success", "Subscribed to topic: " + username);
+                    { 
+                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng, spara ner username och password
+                        Log.Debug("Success", "Subscribed to topic: " + "Oliver");
                     }
                     else
                     {
@@ -73,9 +68,9 @@ namespace PingAppAndroid
                 }
                 catch (IOException e)
                 {
-
+                  
                 }
-
+                
             });
 
             //SavedInstanceState gör så att man kan se alla tabbar
@@ -86,7 +81,7 @@ namespace PingAppAndroid
         {
             var tab = this.ActionBar.NewTab();
             tab.SetText(tabText);
-
+         
             // must set event handler before adding tab
 
             tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
@@ -96,8 +91,7 @@ namespace PingAppAndroid
                     e.FragmentTransaction.Remove(fragment);
                 e.FragmentTransaction.Add(Resource.Id.frameLayout, view);
             };
-            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e)
-            {
+            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e) {
                 e.FragmentTransaction.Remove(view);
             };
 
@@ -109,7 +103,7 @@ namespace PingAppAndroid
             if (resultCode != ConnectionResult.Success)
             {
                 if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode)) { }
-                //labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
+                    //labelLogin.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
                 else
                 {
                     new AlertDialog.Builder(this).SetMessage("Sorry, this device is not supported.").Show();

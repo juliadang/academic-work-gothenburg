@@ -62,9 +62,8 @@ namespace PingAppAndroid
 
                     if (token != null)
                     {
-                        string username = mPrefsUserInfo.GetString("username", "");
-                        pubSub.Subscribe(token, "/topics/" + username, null);
-                        Log.Debug("Success", "Subscribed to topic: " + username);
+                        pubSub.Subscribe(token, "/topics/" + "Oliver", null); //Todo: Ta in username istället för hårdkodad sträng, spara ner username och password
+                        Log.Debug("Success", "Subscribed to topic: " + "Oliver");
                     }
                     else
                     {
