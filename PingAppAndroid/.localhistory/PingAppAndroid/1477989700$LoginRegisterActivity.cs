@@ -51,7 +51,6 @@ namespace PingAppAndroid
 
                 if (rememberMe.Checked)
                     editor.PutString("password", password.Text);
-                editor.Apply();
 
                 DataManager.GetAllFriendsAsync();
                 DataManager.GetPingsAsync();

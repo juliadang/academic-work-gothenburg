@@ -46,8 +46,6 @@ namespace PingAppAndroid.Resources.Fragments
             mEditor.Apply();
 
             Intent intent = new Intent(Application.Context, typeof(LoginRegisterActivity));
-            this.StartActivity(intent);
-            Activity.Finish();
         }
     }
 }

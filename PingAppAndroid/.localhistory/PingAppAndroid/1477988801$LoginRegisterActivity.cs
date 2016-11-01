@@ -13,9 +13,11 @@ using Android.Util;
 
 namespace PingAppAndroid
 {
-    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon", Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon" )]
     public class LoginRegisterActivity : Activity
     {
+        private static readonly int ButtonClickNotificationId = 1000;
+        int count = 0;
         TextView labelLogin;
         protected override void OnCreate(Bundle bundle)
         {
@@ -35,24 +37,14 @@ namespace PingAppAndroid
 
         private async void login(object sender, EventArgs e)
         {
-            ISharedPreferences prefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
-            ISharedPreferencesEditor editor = prefs.Edit();
-
             EditText userName = FindViewById<EditText>(Resource.Id.userNameMain);
             EditText password = FindViewById<EditText>(Resource.Id.passwordMain);
-            CheckBox rememberMe = FindViewById<CheckBox>(Resource.Id.checkBoxRememberMe);
 
             bool succeeded;
             succeeded = await DataManager.SignInAsync(userName.Text, password.Text);
 
             if (succeeded)
             {
-                editor.PutString("username", userName.Text);
-
-                if (rememberMe.Checked)
-                    editor.PutString("password", password.Text);
-                editor.Apply();
-
                 DataManager.GetAllFriendsAsync();
                 DataManager.GetPingsAsync();
                 Intent index = new Intent(this, typeof(AppActivity));

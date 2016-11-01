@@ -35,8 +35,8 @@ namespace PingAppAndroid
 
         private async void login(object sender, EventArgs e)
         {
-            ISharedPreferences prefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
-            ISharedPreferencesEditor editor = prefs.Edit();
+            ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
+            ISharedPreferencesEditor mEditor = mPrefs.Edit();
 
             EditText userName = FindViewById<EditText>(Resource.Id.userNameMain);
             EditText password = FindViewById<EditText>(Resource.Id.passwordMain);
@@ -47,11 +47,8 @@ namespace PingAppAndroid
 
             if (succeeded)
             {
-                editor.PutString("username", userName.Text);
-
                 if (rememberMe.Checked)
-                    editor.PutString("password", password.Text);
-                editor.Apply();
+                    mEditor.PutString("password", password.Text);
 
                 DataManager.GetAllFriendsAsync();
                 DataManager.GetPingsAsync();

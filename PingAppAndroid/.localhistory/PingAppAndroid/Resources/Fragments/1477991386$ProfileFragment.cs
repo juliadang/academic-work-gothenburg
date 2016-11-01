@@ -15,9 +15,6 @@ namespace PingAppAndroid.Resources.Fragments
 {
     public class ProfileFragment : Fragment
     {
-        static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("token", FileCreationMode.Private);
-        static ISharedPreferencesEditor mEditor = mPrefs.Edit();
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -42,12 +39,7 @@ namespace PingAppAndroid.Resources.Fragments
 
         private void SignOutUser(object sender, EventArgs e)
         {
-            mEditor.Clear();
-            mEditor.Apply();
-
-            Intent intent = new Intent(Application.Context, typeof(LoginRegisterActivity));
-            this.StartActivity(intent);
-            Activity.Finish();
+           
         }
     }
 }

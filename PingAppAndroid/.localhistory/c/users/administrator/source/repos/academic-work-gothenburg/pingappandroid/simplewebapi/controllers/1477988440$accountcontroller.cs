@@ -159,9 +159,9 @@ namespace SimpleWebApi.Controllers
         [Route("sendping/{receiver}")]
         public IHttpActionResult SendPing(string receiver)
         {
-            MessageSender notification = new MessageSender("ping!", User.Identity.Name, receiver);
+            //MessageSender notification = new MessageSender("PING!", User.Identity.Name, receiver);
             //Skickar pingen till mottagare
-            //MessageSender notification = new MessageSender("ping", "Oliver", receiver);
+            MessageSender notification = new MessageSender("PING!", "Oliver", receiver);
             notification.SendMessage();
 
             //Sparar pingen till databasen

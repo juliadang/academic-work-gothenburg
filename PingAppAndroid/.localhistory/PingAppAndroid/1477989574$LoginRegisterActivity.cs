@@ -13,7 +13,7 @@ using Android.Util;
 
 namespace PingAppAndroid
 {
-    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon", Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
+    [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon", Theme = "@android:style/Theme.Holo.Light.NoActionBar" )]
     public class LoginRegisterActivity : Activity
     {
         TextView labelLogin;
@@ -35,24 +35,22 @@ namespace PingAppAndroid
 
         private async void login(object sender, EventArgs e)
         {
-            ISharedPreferences prefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
-            ISharedPreferencesEditor editor = prefs.Edit();
+            ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
+            ISharedPreferencesEditor mEditor = mPrefs.Edit();
 
             EditText userName = FindViewById<EditText>(Resource.Id.userNameMain);
             EditText password = FindViewById<EditText>(Resource.Id.passwordMain);
             CheckBox rememberMe = FindViewById<CheckBox>(Resource.Id.checkBoxRememberMe);
 
+            if (rememberMe.Checked)
+            {
+                mEditor.PutString("password", password.Text);
+            }
             bool succeeded;
             succeeded = await DataManager.SignInAsync(userName.Text, password.Text);
 
             if (succeeded)
             {
-                editor.PutString("username", userName.Text);
-
-                if (rememberMe.Checked)
-                    editor.PutString("password", password.Text);
-                editor.Apply();
-
                 DataManager.GetAllFriendsAsync();
                 DataManager.GetPingsAsync();
                 Intent index = new Intent(this, typeof(AppActivity));

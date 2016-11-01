@@ -23,6 +23,8 @@ namespace PingAppAndroid
         {
             base.OnCreate(bundle);
 
+
+
             ISharedPreferences prefs = Application.Context.GetSharedPreferences("userInfo", FileCreationMode.Private);
             string userName = prefs.GetString("username", System.String.Empty);
             string password = prefs.GetString("password", String.Empty);
@@ -46,12 +48,14 @@ namespace PingAppAndroid
                     Finish();
                 }
                 else
-                {
                     new AlertDialog.Builder(this).SetMessage("Login failed").Show();
-                    Intent intent = new Intent(this, typeof(LoginRegisterActivity));
-                    this.StartActivity(intent);
-                }
+
+                userName.Text = "";
+                password.Text = "";
             }
+
+            //Display Splash Screen for 4 Sec
+            Thread.Sleep(4000);
             //Start Activity1 Activity
             StartActivity(typeof(LoginRegisterActivity));
         }

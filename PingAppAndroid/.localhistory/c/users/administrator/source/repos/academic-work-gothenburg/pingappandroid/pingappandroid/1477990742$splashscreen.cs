@@ -52,6 +52,9 @@ namespace PingAppAndroid
                     this.StartActivity(intent);
                 }
             }
+
+            //Display Splash Screen for 4 Sec
+            //Thread.Sleep(4000);
             //Start Activity1 Activity
             StartActivity(typeof(LoginRegisterActivity));
         }

@@ -311,20 +311,20 @@ namespace PingAppAndroid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f090018
+			public const int PingIcon = 2131296280;
+			
 			// aapt resource value: 0x7f090017
-			public const int PingIcon = 2131296279;
+			public const int PingTime = 2131296279;
 			
 			// aapt resource value: 0x7f090016
-			public const int PingTime = 2131296278;
+			public const int PingUserName = 2131296278;
 			
 			// aapt resource value: 0x7f090015
-			public const int PingUserName = 2131296277;
+			public const int RecentPings = 2131296277;
 			
-			// aapt resource value: 0x7f090014
-			public const int RecentPings = 2131296276;
-			
-			// aapt resource value: 0x7f090019
-			public const int Settings = 2131296281;
+			// aapt resource value: 0x7f09001a
+			public const int Settings = 2131296282;
 			
 			// aapt resource value: 0x7f09000a
 			public const int TxtUserName = 2131296266;
@@ -341,26 +341,29 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f09000c
 			public const int buttonAddFriend = 2131296268;
 			
-			// aapt resource value: 0x7f090011
-			public const int buttonLogIn = 2131296273;
-			
 			// aapt resource value: 0x7f090012
-			public const int buttonRegister = 2131296274;
+			public const int buttonLogIn = 2131296274;
 			
-			// aapt resource value: 0x7f090018
-			public const int buttonSignOut = 2131296280;
+			// aapt resource value: 0x7f090013
+			public const int buttonRegister = 2131296275;
+			
+			// aapt resource value: 0x7f090019
+			public const int buttonSignOut = 2131296281;
+			
+			// aapt resource value: 0x7f09001e
+			public const int buttonSubmit = 2131296286;
+			
+			// aapt resource value: 0x7f090011
+			public const int checkBoxRememberMe = 2131296273;
 			
 			// aapt resource value: 0x7f09001d
-			public const int buttonSubmit = 2131296285;
-			
-			// aapt resource value: 0x7f09001c
-			public const int confirmpassword = 2131296284;
+			public const int confirmpassword = 2131296285;
 			
 			// aapt resource value: 0x7f090007
 			public const int dark = 2131296263;
 			
-			// aapt resource value: 0x7f090013
-			public const int filters = 2131296275;
+			// aapt resource value: 0x7f090014
+			public const int filters = 2131296276;
 			
 			// aapt resource value: 0x7f090009
 			public const int frameLayout = 2131296265;
@@ -380,8 +383,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f090002
 			public const int none = 2131296258;
 			
-			// aapt resource value: 0x7f09001b
-			public const int password = 2131296283;
+			// aapt resource value: 0x7f09001c
+			public const int password = 2131296284;
 			
 			// aapt resource value: 0x7f090010
 			public const int passwordMain = 2131296272;
@@ -395,8 +398,8 @@ namespace PingAppAndroid
 			// aapt resource value: 0x7f09000f
 			public const int userNameMain = 2131296271;
 			
-			// aapt resource value: 0x7f09001a
-			public const int username = 2131296282;
+			// aapt resource value: 0x7f09001b
+			public const int username = 2131296283;
 			
 			// aapt resource value: 0x7f090005
 			public const int wide = 2131296261;

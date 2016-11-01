@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:minHeight="25px"
+    android:minWidth="25px">
+    <TextView
+        android:text="Login"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:id="@+id/labelLogin " />
+    <EditText
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameMain"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <EditText
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordMain"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp" />
+    <Button
+        android:text="Log In"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:id="@+id/buttonLogIn"
+        android:textSize="15sp"
+        android:layout_marginRight="20dp"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:layout_marginLeft="20dp" />
+    <Button
+        android:text="Register"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:id="@+id/buttonRegister"
+        android:textSize="15sp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/transparent" />
+    <CheckBox
+        android:text="Remember Me?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxRememberMe" />
+</LinearLayout>

@@ -54,7 +54,7 @@ namespace PingAppAndroid
                 try
                 {
                     token = instanceID.GetToken(
-                      "884131269913", GoogleCloudMessaging.InstanceIdScope, null); //Todo: Hide token...
+                      "884131269913", GoogleCloudMessaging.InstanceIdScope, null);
                     
                     if (token != null)
                     { 

@@ -15,9 +15,6 @@ namespace PingAppAndroid.Resources.Fragments
 {
     public class ProfileFragment : Fragment
     {
-        static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("token", FileCreationMode.Private);
-        static ISharedPreferencesEditor mEditor = mPrefs.Edit();
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -28,26 +25,11 @@ namespace PingAppAndroid.Resources.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.Profile, container, false);
-
-            Button signOut = view.FindViewById<Button>(Resource.Id.buttonSignOut);
-
-            signOut.Click += SignOutUser;
-
             //Lägg till funktioner för knapparna Settings/Log out m.m.
             //var sampleTextView = view.FindViewById<TextView>(Resource.Id.sampleTextView);
             //sampleTextView.Text = "sample fragment text";
 
             return view;
-        }
-
-        private void SignOutUser(object sender, EventArgs e)
-        {
-            mEditor.Clear();
-            mEditor.Apply();
-
-            Intent intent = new Intent(Application.Context, typeof(LoginRegisterActivity));
-            this.StartActivity(intent);
-            Activity.Finish();
         }
     }
 }

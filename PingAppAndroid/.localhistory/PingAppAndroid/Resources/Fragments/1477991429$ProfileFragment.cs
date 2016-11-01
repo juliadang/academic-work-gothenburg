@@ -42,12 +42,7 @@ namespace PingAppAndroid.Resources.Fragments
 
         private void SignOutUser(object sender, EventArgs e)
         {
-            mEditor.Clear();
-            mEditor.Apply();
-
-            Intent intent = new Intent(Application.Context, typeof(LoginRegisterActivity));
-            this.StartActivity(intent);
-            Activity.Finish();
+           
         }
     }
 }
