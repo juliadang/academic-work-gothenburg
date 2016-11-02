@@ -34,6 +34,7 @@ namespace PingAppAndroid
         PingServiceConnection pingServiceConnection;
         PingReceiver pingReceiver;
         Intent pingServiceIntent;
+       
 
         static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
         ISharedPreferencesEditor mEditor = mPrefs.Edit();
@@ -107,24 +108,6 @@ namespace PingAppAndroid
             SchedulePingUpdates();
         }
 
-        protected override void OnStop()
-        {
-            base.OnStop();
-
-            if (isBound)
-            {
-                // This would unbind the service on a configuration change
-                // as well. For preserving the service connection across
-                // configuration changes, see the Handling Configuration
-                // Changes section earlier in this article.
-
-                UnbindService(pingServiceConnection);
-                isBound = false;
-            }
-
-            UnregisterReceiver(pingReceiver);
-        }
-
         void AddTab(string tabText, Fragment view)
         {
             var tab = this.ActionBar.NewTab();
@@ -146,7 +129,6 @@ namespace PingAppAndroid
 
             ActionBar.AddTab(tab);
         }
-
         private bool IsPlayServicesAvailable()
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
@@ -174,7 +156,7 @@ namespace PingAppAndroid
                 var alarm = (AlarmManager)GetSystemService(Context.AlarmService);
 
                 var pendingServiceIntent = PendingIntent.GetService(this, 0, pingServiceIntent, PendingIntentFlags.CancelCurrent);
-                alarm.SetRepeating(AlarmType.Rtc, 0, 3000, pendingServiceIntent);
+                alarm.SetRepeating(AlarmType.Rtc, 0, AlarmManager.IntervalHalfHour, pendingServiceIntent);
             }
         }
 

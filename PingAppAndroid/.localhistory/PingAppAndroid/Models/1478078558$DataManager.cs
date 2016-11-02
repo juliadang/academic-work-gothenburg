@@ -21,10 +21,10 @@ namespace PingAppAndroid.Models
         static ISharedPreferencesEditor mEditor = mPrefs.Edit();
         static HttpClient mClient = new HttpClient();
         static List<string> mFriendlist;
-        public static List<PingNotification> mPingList = new List<PingNotification>();
+        static List<PingNotification> mPingList = new List<PingNotification>();
 
         //Get friends from datamanager
-        
+
         internal static List<string> GetAllFriends()
         {
             return mFriendlist;

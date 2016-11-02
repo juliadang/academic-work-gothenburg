@@ -174,7 +174,7 @@ namespace PingAppAndroid
                 var alarm = (AlarmManager)GetSystemService(Context.AlarmService);
 
                 var pendingServiceIntent = PendingIntent.GetService(this, 0, pingServiceIntent, PendingIntentFlags.CancelCurrent);
-                alarm.SetRepeating(AlarmType.Rtc, 0, 3000, pendingServiceIntent);
+                alarm.SetRepeating(AlarmType.Rtc, 0, AlarmManager.IntervalHalfHour, pendingServiceIntent);
             }
         }
 

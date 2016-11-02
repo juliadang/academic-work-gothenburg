@@ -21,20 +21,12 @@ using Android.Gms.Gcm.Iid;
 using Android.Util;
 using Android.Nfc;
 using Java.IO;
-using static PingAppAndroid.Services.PingService;
-using PingAppAndroid.Services;
 
 namespace PingAppAndroid
 {
     [Activity(Label = "Ping", Icon = "@drawable/icon")]
     public class AppActivity : Activity
     {
-        public bool isBound = false;
-        public PingServiceBinder binder;
-        PingServiceConnection pingServiceConnection;
-        PingReceiver pingReceiver;
-        Intent pingServiceIntent;
-
         static ISharedPreferences mPrefs = Application.Context.GetSharedPreferences("gcmToken", FileCreationMode.Private);
         ISharedPreferencesEditor mEditor = mPrefs.Edit();
 
@@ -44,10 +36,6 @@ namespace PingAppAndroid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            pingServiceIntent = new Intent("com.xamarin.PingService");
-            pingReceiver = new PingReceiver();
-
             SetContentView(Resource.Layout.FrameLayout);
 
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
@@ -93,38 +81,6 @@ namespace PingAppAndroid
             if (savedInstanceState != null) ActionBar.SelectTab(ActionBar.GetTabAt(savedInstanceState.GetInt("tab")));
         }
 
-        protected override void OnStart()
-        {
-            base.OnStart();
-
-            var intentFilter = new IntentFilter(PingService.PingUpdatedAction) { Priority = (int)IntentFilterPriority.HighPriority };
-
-            RegisterReceiver(pingReceiver, intentFilter);
-
-            pingServiceConnection = new PingServiceConnection(this);
-            BindService(pingServiceIntent, pingServiceConnection, Bind.AutoCreate);
-
-            SchedulePingUpdates();
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-
-            if (isBound)
-            {
-                // This would unbind the service on a configuration change
-                // as well. For preserving the service connection across
-                // configuration changes, see the Handling Configuration
-                // Changes section earlier in this article.
-
-                UnbindService(pingServiceConnection);
-                isBound = false;
-            }
-
-            UnregisterReceiver(pingReceiver);
-        }
-
         void AddTab(string tabText, Fragment view)
         {
             var tab = this.ActionBar.NewTab();
@@ -146,7 +102,6 @@ namespace PingAppAndroid
 
             ActionBar.AddTab(tab);
         }
-
         private bool IsPlayServicesAvailable()
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
@@ -174,7 +129,7 @@ namespace PingAppAndroid
                 var alarm = (AlarmManager)GetSystemService(Context.AlarmService);
 
                 var pendingServiceIntent = PendingIntent.GetService(this, 0, pingServiceIntent, PendingIntentFlags.CancelCurrent);
-                alarm.SetRepeating(AlarmType.Rtc, 0, 3000, pendingServiceIntent);
+                alarm.SetRepeating(AlarmType.Rtc, 0, AlarmManager.IntervalHalfHour, pendingServiceIntent);
             }
         }
 
@@ -183,21 +138,32 @@ namespace PingAppAndroid
             return PendingIntent.GetBroadcast(this, 0, pingServiceIntent, PendingIntentFlags.NoCreate) != null;
         }
 
-        public void GetPings()
+        void GetPings()
         {
             if (isBound)
             {
-                DataManager.mPingList = binder.GetPingService().GetPings();
-                //RunOnUiThread(() => {
-                //var stocks = binder.GetStockService().GetStocks();
+                RunOnUiThread(() => {
+                    var stocks = binder.GetStockService().GetStocks();
 
-                //ListAdapter = new ArrayAdapter<PingNotification>(
-                //        this,
-                //        Resource.Layout.PingItemView,
-                //        stocks
-                //    );
-                //});
+                    ListAdapter = new ArrayAdapter<Stock>(
+                            this,
+                            Resource.Layout.StockItemView,
+                            stocks
+                    );
+                });
             }
         }
+
+        class PingReceiver : BroadcastReceiver
+        {
+            public override void OnReceive(Context context, Android.Content.Intent intent)
+            {
+                ((AppActivity)context).GetPings();
+
+                InvokeAbortBroadcast();
+            }
+        }
+
+
     }
 }

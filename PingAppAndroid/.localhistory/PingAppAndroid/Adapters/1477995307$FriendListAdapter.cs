@@ -45,8 +45,8 @@ namespace PingAppAndroid.Adapters
             txtName.Text = Friends[position];
             ImageView profileImg = view.FindViewById<ImageView>(Resource.Id.profileImg);
             profileImg.SetBackgroundResource(Resource.Drawable.cheese_5);
-            //Todo: Funktion för att byta profilbild
-            //Todo: Anpassa långklick med popup ikoner för lägg till/block/ping/etc. 
+            //Todo: Lägg till bild?
+            //Todo: Anpassa search med knapp ikoner för lägg till/block/etc.
             return view;
         }
     }

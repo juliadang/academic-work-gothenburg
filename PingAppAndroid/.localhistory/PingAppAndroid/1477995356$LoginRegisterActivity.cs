@@ -16,7 +16,6 @@ namespace PingAppAndroid
     [Activity(Label = "Ping", MainLauncher = false, Icon = "@drawable/icon", Theme = "@android:style/Theme.Holo.Light.NoActionBar")]
     public class LoginRegisterActivity : Activity
     {
-        //Todo: Pings måste synas direkt när man loggat in
         TextView labelLogin;
         protected override void OnCreate(Bundle bundle)
         {
